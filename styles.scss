@@ -1,0 +1,12 @@
+@font-face{
+	font-family: thathuntershit;
+	src: url(font/KozGoPro-Light.otf)
+}
+@font-face{
+	font-family: thathuntershititalics;
+	src: url(font/KozGoPro-Light.otf);
+	font-style: italic;
+}
+
+$font-family-sans-serif: thathuntershit;
+@import "node_modules/bootstrap/scss/bootstrap";
