@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wurk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class = "jumbotron bg-white" style="margin-bottom:0">
+    <img class="img-fluid" src="{{ url_for('static', filename='css/img/WurkBan11.jpg') }}" alt="Card image cap">
+
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Wurk</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Meet The Team</a>
+        </li>
+      </ul>
+      <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+    <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
+      <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+      <form class="form-inline my-2 my-lg-0" action="/login">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-5">
+      </div>
+      <div class ="col-2">
+        <div class = "card">
+          <div class="card-body">
+            <h5 class="card-title" style="text-align:center">Congratulations!</h5>
+             <p class="card-text">You now have a Wurk account! Sign in to schedule a booking now!</p>
+             <a href="login" class="btn btn-outline-primary">Login</a>
+          </div>
+      </div>
+        <script>
+          // Disable form submissions if there are invalid fields
+          (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Get the forms we want to add validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+        </script>
+      </div>
+      <div class="col-5">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

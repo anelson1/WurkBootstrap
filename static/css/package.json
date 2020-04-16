@@ -1,0 +1,22 @@
+{
+  "name": "wurkbootstrap",
+  "version": "1.0.0",
+  "description": "An application for the Wurk Service Web App built using bootstrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anelson1/WurkBootstrap.git"
+  },
+  "author": "Angelo Nelson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anelson1/WurkBootstrap/issues"
+  },
+  "homepage": "https://github.com/anelson1/WurkBootstrap#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}

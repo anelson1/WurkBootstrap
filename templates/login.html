@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wurk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Wurk</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Meet The Team</a>
+        </li>
+      </ul>
+      <img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/youtube.png') }}" height="30px" width="30px" alt="Card image cap">
+      <img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap">
+      <img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap">
+
+      <form class="form-inline my-2 my-lg-0" action="/login">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-5">
+      </div>
+      <div class ="col-2">
+        <img class = "mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px" height="50px">
+        <div class = "card">
+          <div class="card-body">
+            <h4 class="card-title" style="text-align:center">Log in</h4>
+            <form action="/useraccount" method="post">
+              <div class="form-group">
+                {%if uErr%}
+                <div class="alert alert-danger">
+                  <strong>Error!</strong> Your username or password is incorrect, please try again
+                </div>
+                {%endif%}
+                <input type="text" class="form-control" placeholder="Enter username" id="uname" name = "uname">
+
+
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" placeholder="Enter password" id="pwd" name = "pwd">
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-outline-primary">Login</button>
+              </div>
+
+            </div>
+          </div>
+          <script>
+            // Disable form submissions if there are invalid fields
+            (function() {
+              'use strict';
+              window.addEventListener('load', function() {
+                // Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                  form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                  }, false);
+                });
+              }, false);
+            })();
+          </script>
+        </div>
+      </div>
+      <div class="col-5">
+      </div>
+    </div>
+
+  </body>
+  </html>
