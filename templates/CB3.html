@@ -8,12 +8,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
+<script>
+  $(document).ready(function(){
 
+    $("#shittohide").hide();
+    $(function(){
+      var $select = $(".1-31");
+      for (i=1;i<=31;i++){
+        $select.append($('<option></option>').val(i).html(i))
+      }
+    });
+  });
+</script>
 <body>
-  <div class = "jumbotron bg-white p-3" style="margin-bottom:5px">
-    <img class="img-fluid" src="{{ url_for('static', filename='css/img/WurkBan11.jpg') }}" alt="Card image cap" width="20%">
-
-  </div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/">Wurk</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,8 +28,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Contact Us</a>
@@ -32,7 +39,7 @@
         </li>
       </ul>
       <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
-    <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
+      <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
       <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
 
       <form class="form-inline my-2 my-lg-0" action="/login">
@@ -45,27 +52,36 @@
       <div class ="col-md-4">
       </div>
       <div class ="col-md-4">
-        <div class = "card">
+        <img class = "mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px" height="50px">
+        {%if noTeacher%}
+        <div class="alert alert-danger">
+          <strong>Error!</strong> No teachers are available on that day. Please try again or contact us for personal availabllity
+        </div>
+        {%endif%}
+        <div class="card mx-auto mb" style="width:500px height: 500px">
           <div class="card-body">
-            <h5 class="card-title" style="text-align:center">Please enter your first and last name!</h5>
-          <form action="/register2" method = "POST" class="needs-validation" novalidate>
-          <div class="form-group">
-
-            <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname" required>
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <h4 class="card-title" style="text-align:center">Great!</h4>
+            <form action="/CreateBooking4" method="post">
+              <div id="shittohide">
+                <input type="text" id="uname" name="uname" value = "{{uname}}"></input>
+                <input type="text" id="TOB" name="TOB" value = "{{TOB}}"></input>
+                <input type="text" id="month" name="month" value = "{{month}}"></input>
+                <input type="text" id="day" name="day" value = "{{day}}"></input>
+              </div>
+              <div class="form-group mb-5 text-center">
+                <p class="card-text">Here are the teachers available on this day</p>
+                <div class="form-group">
+                  <select class = "form-control p-1" id = "teachers" name = "teachers">
+                    {% for teacher in nameList %}
+                    <option value="{{teacher[0]}}">{{teacher[0]}}  {{teacher[1]}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Next</button>
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname" required>
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
-          </div>
-          <div class="form-group text-center">
-          <button type="submit" class="btn btn-outline-primary">Next Page</button>
-          </div>
-          </form>
-          </div>
-      </div>
+        </div>
         <script>
           // Disable form submissions if there are invalid fields
           (function() {
@@ -87,9 +103,10 @@
           })();
         </script>
       </div>
-      <div class ="col-md-4">
-        </div>
     </div>
-  </div>
-</body>
-</html>
+    <div class ="col-md-4">
+
+    </div>
+
+  </body>
+  </html>

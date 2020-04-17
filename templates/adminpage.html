@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wurk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Wurk</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Meet The Team</a>
+        </li>
+      </ul>
+      <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+      <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
+      <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+
+      <form class="form-inline my-2 my-lg-0" action="/login">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-md-4">
+      </div>
+      <div class ="col-md-4">
+        <img class = "mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px" height="50px">
+        <div class="card mx-auto mb-5" style="width:500px height: 500px">
+          <div class="card-body">
+            <h4 class="card-title" style="text-align:center">Welcome to the admin page.</h4>
+            <form action="/admino" method = 'post'>
+              <div class="form-group">
+              <input type="text" class="form-control" id="FN" name="FN" placeholder="First Name"></input>
+            </div>
+            <div class="form-group">
+            <input type="text" class="form-control" id="LN" name="LN" placeholder="Last Name"></input>
+            </div>
+            <div class="form-group">
+              <select class="form-control p-1" id="TOT" name = "TOT">
+                <option value="Acedemic Tutoring">Acedemic Tutoring</option>
+                <option value="Music Lessons">Music Lessons</option>
+                <option value="ACT and SAT Prep">ACT and SAT Prep</option>
+                <option value="Sports Coaching">Sports Coaching</option>
+              </select>
+            </div>
+              <button class="btn btn-outline-primary" type="submit">Create</button>
+            </form>
+          </div>
+        </div>
+        <script>
+        // Disable form submissions if there are invalid fields
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+        </script>
+      </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="col">
+      <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Booking ID</th>
+      <th scope="col">Name of booker</th>
+      <th scope="col">Teacher (if Acedemic)</th>
+      <th scope="col">Type of Booking</th>
+      <th scope="col">Month</th>
+      <th scope="col">Day</th>
+      <th scope="col">Start Time</th>
+      <th scope="col">End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for i in range(0, len)%}
+
+
+    <tr>
+    <th scope="row">{{records[i][0]}}</th>
+    <td>{{records[i][1]}}</td>
+    <td>{{records[i][2]}}</td>
+    <td>{{records[i][3]}}</td>
+    <td>{{records[i][4]}}</td>
+    <td>{{records[i][5]}}</td>
+    <td>{{records[i][6]}}</td>
+    <td>{{records[i][7]}}</td>
+    </tr>
+
+
+    {%endfor%}
+  </tbody>
+</table>
+    </div>
+  </div>
+
+</body>
+</html>

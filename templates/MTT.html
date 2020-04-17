@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Wurk</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class = "jumbotron bg-white p-3" style="margin-bottom:5px">
+    <img class="img-fluid" src="{{ url_for('static', filename='css/img/WurkBan11.jpg') }}" alt="Card image cap" width="20%">
+
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="/">Wurk</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ContactUs">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/MeetTheTeam">Meet The Team</a>
+        </li>
+      </ul>
+      <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+    <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
+      <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+
+      <form class="form-inline my-2 my-lg-0" action="/login">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/Xantheman.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Xander Kazanowski</h3>
+            <h4 class="card-text">Founder and CEO</h4>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/kyle.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Kyle Powroznyk</h3>
+            <h4 class="card-text">Chief Strategy Officer</h4>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/miss.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Jake Meyer</h3>
+            <p class="card-text">Chief Operations Officer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/hunt.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Hunter Spitzer</h3>
+            <h4 class="card-text">Chief Marketing Officer</h4>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/me.png') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Angelo Nelson</h3>
+            <h4 class="card-text">Chief Technology Officer</h4>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/someguy.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Jack Steen</h3>
+            <p class="card-text">Sales Manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/looksfresh.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Per Erik Gierlach</h3>
+            <h4 class="card-text">Executive Project Manager</h4>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/miss.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Max Pulta</h3>
+            <h4 class="card-text">Executive Project Manager</h4>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-4">
+        <div class="card mx-auto mb-5" style="width:600px">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/stilldontknowwhothisis.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h3 class="card-title">Ian Dalton</h3>
+            <p class="card-text">Executive Project Manager</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
