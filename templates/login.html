@@ -22,16 +22,15 @@
           <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact Us</a>
+          <a class="nav-link" href="/ContactUs">Contact Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Meet The Team</a>
+          <a class="nav-link" href="/MeetTheTeam">Meet The Team</a>
         </li>
       </ul>
       <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
-    <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
+      <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
       <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
-
       <form class="form-inline my-2 my-lg-0" action="/login">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
       </form>
@@ -43,7 +42,7 @@
       </div>
       <div class ="col-md-4">
         <img class = "mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px" height="50px">
-        <div class="card mx-auto mb-5" style="width:500px height: 500px">
+        <div class="card mx-auto mb-5">
           <div class="card-body">
             <h4 class="card-title" style="text-align:center">Log in</h4>
             <form action="/useraccount" method="post">
@@ -54,16 +53,20 @@
                 </div>
                 {%endif%}
                 <input type="text" class="form-control" placeholder="Enter username" id="uname" name = "uname">
-
-
               </div>
               <div class="form-group">
                 <input type="password" class="form-control" placeholder="Enter password" id="pwd" name = "pwd">
               </div>
               <div class="form-group text-center">
-                <button type="submit" class="btn btn-outline-primary">Login</button>
+                <button type="submit" class="btn btn-outline-primary mb-5">Login</button>
               </div>
-
+            </form>
+            <form action="/register">
+              <div class="form-group text-center mb-0">
+                <p class="card-text mb-0">Dont have an account? Register Now!</p>
+                  <button type="submit" class="btn btn-outline-primary">Register</button>
+              </div>
+            </form>
             </div>
           </div>
           <script>

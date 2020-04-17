@@ -21,7 +21,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
@@ -32,9 +32,8 @@
         </li>
       </ul>
       <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
-    <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
+      <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
       <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
-
       <form class="form-inline my-2 my-lg-0" action="/login">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
       </form>
@@ -42,8 +41,8 @@
   </nav>
   <div class="container-fluid my-5">
     <div class="row">
-      <div class ="col-xl-4">
-        <div class="card mx-auto mb-5" style="width:600px">
+      <div class ="col-md-4">
+        <div class="card mx-auto mb-5" >
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/someguy.jpg') }}" alt="Card image cap">
           <div class="card-body">
             <h3 class="card-title">Jack Steen</h3>
@@ -52,8 +51,8 @@
           </div>
         </div>
       </div>
-      <div class ="col-xl-4">
-        <div class="card mx-auto mb-5" style="width:600px">
+      <div class ="col-md-4">
+        <div class="card mx-auto mb-5" >
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/salegorl.png') }}" alt="Card image cap">
           <div class="card-body">
             <h3 class="card-title">Allie Brann</h3>
@@ -61,8 +60,8 @@
           </div>
         </div>
       </div>
-      <div class ="col-xl-4">
-        <div class="card mx-auto mb-5" style="width:600px">
+      <div class ="col-md-4">
+        <div class="card mx-auto mb-5" >
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/salegorl2.jpg') }}" alt="Card image cap">
           <div class="card-body">
             <h3 class="card-title">Paige Stevens</h3>

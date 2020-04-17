@@ -21,8 +21,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/ContactUs">Contact Us</a>
@@ -31,9 +31,9 @@
           <a class="nav-link" href="/MeetTheTeam">Meet The Team</a>
         </li>
       </ul>
-      <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
-    <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
-      <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid mx-3" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+      <a href = "http://instagram.com/wurkservices"><img class = "img-fluid mr-3 my-2" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+    <a href="https://www.linkedin.com/company/wurk-llc"><img class = "img-fluid mx-3 my-2" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
+      <a href = "https://www.facebook.com/pg/wurkservices/posts/"><img class = "img-fluid ml-3 mr-4 my-2" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
 
       <form class="form-inline my-2 my-lg-0" action="/login">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
@@ -42,9 +42,9 @@
   </nav>
   <div class="container-fluid my-5">
     <div class="row">
-      <div class ="col-2">
+      <div class ="col-lg-2">
       </div>
-      <div class ="col-8 text-center">
+      <div class ="col-lg-8 text-center">
         <h3>We do all odd jobs. Work less with Wurk today!</h3>
         <p>Wurk Services is a management company. From maintaining your property to tutoring your kids and caring for your pets, we provide a full array of services available at a moment's notice. All you need to do is book! Work does all odd jobs so you don’t have to. Our specialists come to you with competitive pricing to get your job done with utmost satisfaction. Work less with Wurk today!</p>
         <p><b>What are you waiting for? Sign up and book now!</b></p>
@@ -57,8 +57,8 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class ="col-xl-4">
-        <div class="card mx-auto mb-5" style="width:700px">
+      <div class ="col-md-4">
+        <div class="card mx-auto mb-5">
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/tutor2.jpg') }}" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Tutoring and Coaching</h4>
@@ -69,8 +69,8 @@
           </div>
         </div>
       </div>
-      <div class ="col-xl-4">
-        <div class="card mx-auto mb-5" style="width:700px">
+      <div class ="col-md-4">
+        <div class="card mx-auto mb-5" >
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/leavesnshit2.jpg') }}" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Commercial and Residential Property Management</h4>
@@ -81,8 +81,8 @@
           </div>
         </div>
       </div>
-      <div class ="col-xl-4">
-        <div class="card mx-auto mb-5" style="width:700px">
+      <div class ="col-md-4">
+        <div class="card mx-auto mb-5">
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/baby.jpg') }}" alt="Card image cap">
           <div class="card-body">
             <h4 class="card-title">Home Services</h4>
