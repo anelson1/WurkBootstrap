@@ -52,7 +52,7 @@ def useraccount():
     cursor.execute(selecting)
     records = cursor.fetchall()
     if username == 'admin' and len(records) != 0:
-        selecting12 = "select * from bookings natural join bookingtimes"
+        selecting12 = "select * from bookings natural join bookingtimes join users on users.username = bookings.stuname"
         cursor.execute(selecting12)
         records12 = cursor.fetchall()
         return render_template('adminpage.html', uname = records[0][7], records = records12, len = len(records12), len2 = len(records12[0]))

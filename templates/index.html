@@ -51,6 +51,7 @@
       <a href = "http://instagram.com/wurkservices" target="_blank"><img class = "img-fluid mr-3 my-2" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
     <a href="https://www.linkedin.com/company/wurk-llc" target="_blank"><img class = "img-fluid mx-3 my-2" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
       <a href = "https://www.facebook.com/pg/wurkservices/posts/" target="_blank"><img class = "img-fluid ml-3 mr-4 my-2" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+      <a href = "https://twitter.com/wurkservices" target="_blank"><img class = "img-fluid ml-3 mr-4 my-2" src="{{ url_for('static', filename='css/svg/twitter.png') }}" height="30px" width="30px" alt="Card image cap"></a>
 
       <form class="form-inline my-2 my-lg-0" action="/login">
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
@@ -71,41 +72,153 @@
       </div>
     </div>
   </div>
-
-  <div class="container-fluid">
+  <!--Services 1 -->
+  <div class="container-fluid my-5">
     <div class="row">
-      <div class ="col-md-4">
+      <div class ="col-xl-3">
         <div class="card mx-auto mb-5">
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/tutor2.jpg') }}" alt="Card image cap">
           <div class="card-body">
-            <h4 class="card-title">Tutoring and Coaching</h4>
+            <h4 class="card-title">Acedemic Tutoring</h4>
             <p class="card-text">
-              Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math and computer science to lacrosse and guitar essentials. Click below to log in and create a booking today!
+              Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading. Click below to log in and create a booking today!
             </p>
             <a href="/login" class="btn btn-outline-primary">Book Now</a>
           </div>
         </div>
       </div>
-      <div class ="col-md-4">
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5" >
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/satprep.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">ACT and SAT Prep</h4>
+            <p class="card-text">
+              Live one-on-one SAT and ACT tutoring taught by experts from top universities. Our prep sessions provide proven strategies for time management and score maximization. You can receive guidance from one of our experts today for only $39 an hour.             </p>
+            <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/Sport.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Sports Coaching</h4>
+            <p class="card-text">
+            Recieve indivurual lessons in any sport from our seasoned coaches and trainers. Have your lesson within just a 24 hour notice of booking!
+            </p>
+            <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/music.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Music Lessons</h4>
+            <p class="card-text">
+Want to learn an instrument or just better your current understanding of an instrument? Wurk has tons of veteran musicians waiting to help you achieve your dreams. Make a booking now and achieve professional help at an affordable price!            </p>
+            <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Services 2 -->
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/construction.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Construction</h4>
+            <p class="card-text">
+Looking to build or maintain a property? Look no further, as Wurk construction services provide a full spectrum of services that can create the design of your dreams! From benches to treehouses, Wurk can construct, maintain, or restore any residential or commercial project!             </p>
+            <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5" >
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/powerwash.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Powerwashing</h4>
+            <p class="card-text">
+              Wurk gets the gunk out! With our power washing service, no surface is safe from cleanliness! Book today and within 24 hours a Wurk powerwasher will be at your door, ready to clean! </p>
+  <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/dogwalk.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Pet Care</h4>
+            <p class="card-text">
+            Even pets get lonely some times, and that's where we come in! With Wurk pet care, we take care of your animals while you are out of the house! No animal is too big or small for us! Make a booking today!
+            </p>
+            <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/homeclean2.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">House Sitting</h4>
+            <p class="card-text">
+Don't want to leave the house unattended? With Wurk, you don't have to! Wurk will treat your home as we treat our own, cleaning, and maintaining every facet of your estate. With affordable prices and highly flexible scheduling, it has never been easier to take care of your property!            </p>
+            <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Servies 3 -->
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/Landscapesauce.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Landscaping</h4>
+            <p class="card-text">
+              Full-service Landscaping for extremely competitive rates. Show us your lawn mowing bill and we will beat it by 10% guaranteed! Make a booking today!
+            </p>
+            <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-3">
         <div class="card mx-auto mb-5" >
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/leavesnshit2.jpg') }}" alt="Card image cap">
           <div class="card-body">
-            <h4 class="card-title">Commercial and Residential Property Management</h4>
+            <h4 class="card-title">Junk Removal</h4>
             <p class="card-text">
-              A key component of Wurk's operation is bringing skilled laborers in touch with those in need of their services. From masonary and landscaping to flooring and paving. We can help you build, maintain, and improve your property.
-            </p>
+Got junk that you dont want? Make a booking with us and we will remove it, regardless of size, for a very affordable rate. Make a booking and get a quote today!          </p>
+  <a href="/login" class="btn btn-outline-primary">Book Now</a>
+          </div>
+        </div>
+      </div>
+      <div class ="col-xl-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/paintnshain.jpg') }}" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">Panting and Staining</h4>
+            <p class="card-text">
+  Painting and staining may seem like a daunting task, but by hiring a Wurk professional, you can guarantee quality results while taking the <strong>work</strong> out of creating and restoring your ideal surface.            </p>
             <a href="/login" class="btn btn-outline-primary">Book Now</a>
           </div>
         </div>
       </div>
-      <div class ="col-md-4">
+      <div class ="col-xl-3">
         <div class="card mx-auto mb-5">
-          <img class="card-img-top" src="{{ url_for('static', filename='css/img/baby.jpg') }}" alt="Card image cap">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/dickrepair.jpg') }}" alt="Card image cap">
           <div class="card-body">
-            <h4 class="card-title">Home Services</h4>
+            <h4 class="card-title">Deck and Roof Restoration</h4>
             <p class="card-text">
-              A doctor shouldn't have to do dishes. A lawyer shouldn't clean the foyer. Do what you do best and let us do the rest. Whether you need your responsibilites covered for a well deserved night out or help around the house, we have people for that. We are a one stop concierge for all your daily or not so daily needs. Improve your workflow today!
-            </p>
+              A good deck and roof are the cornerstones of a great property. Don't let them fall into disarray. With Wurk Restoration services, we will turn any old deck or roof into a sight to behold!
+
+ </p>
             <a href="/login" class="btn btn-outline-primary">Book Now</a>
           </div>
         </div>
