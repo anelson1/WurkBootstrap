@@ -243,6 +243,7 @@ def BC():
     month = request.form['month']
     day = request.form['day']
     typeofbooking = request.form['TOB']
+    comments = request.form['comments']
     BID = ''.join([random.choice(string.ascii_letters + string.digits) for n in range(6)])
     print("TOB: " + typeofbooking)
     if typeofbooking == 'Acedemic Tutoring' or typeofbooking == 'Music Lessons' or typeofbooking == 'ACT and SAT Prep' or typeofbooking == 'Sports Coaching':
@@ -269,7 +270,7 @@ def BC():
         return render_template('BookingComplete.html',BID = BID)
     else:
         starttime = request.form['st']
-        insert1 = "INSERT INTO bookings VALUES ('"+str(BID)+"','"+str(name)+"','"+''+"','"+str(typeofbooking)+"')"
+        insert1 = "INSERT INTO bookings VALUES ('"+str(BID)+"','"+str(name)+"','"+''+"','"+str(typeofbooking)+"','" + str(comments)+"')"
         cursor.execute(insert1)
         conn.commit()
         insert2 = "INSERT INTO bookingtimes VALUES ('"+str(BID)+"','"+str(month)+"','"+str(day)+"','"+str(starttime)+"')"
@@ -324,4 +325,4 @@ def create():
          return render_template('SSTP.html', created = True)
 if __name__ == "__main__":
     app.run(debug=True, host = "0.0.0.0" ,port="69")
-    serve(app, listen ='*:80')
+    #serve(app, listen ='*:80')

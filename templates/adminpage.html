@@ -125,19 +125,21 @@
       <th scope="col">Day</th>
       <th scope="col">Start Time</th>
       <th scope="col">End Time</th>
+      <th scope="col">Comments</th>
     </tr>
   </thead>
   <tbody>
     {%for i in range(0, len)%}
     <tr>
     <th scope="row">{{records[i][0]}}</th>
-    <td data-toggle="tooltip" data-placement="top" data-html="true" title="<p>Phone Number: {{records[i][11]}} <br></br> Email: {{records[i][10]}} <br></br> Address: {{records[i][12]}} {{records[i][13]}} {{records[i][14]}}</p>">{{records[i][1]}}</td>
+    <td data-toggle="tooltip" data-placement="top" data-html="true" title="<p>Phone Number: {{records[i][12]}} <br></br> Email: {{records[i][11]}} <br></br> Address: {{records[i][13]}} {{records[i][14]}} {{records[i][15]}}</p>">{{records[i][1]}}</td>
     <td>{{records[i][2]}}</td>
     <td>{{records[i][3]}}</td>
-    <td>{{records[i][4]}}</td>
     <td>{{records[i][5]}}</td>
     <td>{{records[i][6]}}</td>
     <td>{{records[i][7]}}</td>
+    <td>{{records[i][8]}}</td>
+    <td>{{records[i][4]}}</td>
     </tr>
 
 
