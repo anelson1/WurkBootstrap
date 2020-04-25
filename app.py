@@ -3,6 +3,7 @@ import psycopg2
 import config as cfg
 import random
 import string
+from waitress import serve
 conn = psycopg2.connect(user =cfg.info["user"],password = cfg.info["passwd"],host = cfg.info["host"],port = "5432",database = cfg.info["db"])
 cursor = conn.cursor()
 
@@ -323,3 +324,4 @@ def create():
          return render_template('SSTP.html', created = True)
 if __name__ == "__main__":
     app.run(debug=True, host = "0.0.0.0" ,port="69")
+    serve(app, listen ='*:80')
