@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
 import config as cfg
 import random
@@ -13,6 +13,9 @@ def index():
 @app.route("/login")
 def login():
     return render_template("login.html")
+@app.route("/login/<typeOfService>")
+def loginTyped(typeOfService):
+    return render_template("login.html", typeOfService = typeOfService)
 @app.route("/register")
 def register():
     return render_template("register.html", fn=True)
@@ -48,6 +51,7 @@ def registerC():
 def useraccount():
     username = request.form['uname'].lower()
     password = request.form['pwd']
+    typeOfService = request.form['typeOfService']
     selecting = "SELECT * FROM users WHERE username = " + "'"+str(username)+"' AND password = '"+str(password)+"'"
     cursor.execute(selecting)
     records = cursor.fetchall()
@@ -59,7 +63,7 @@ def useraccount():
     elif len(records) != 0:
         return render_template('useraccount.html', uname = records[0][0], fTime = True)
     else:
-        return render_template('login.html', uErr = True)
+        return redirect(url_for('login'))
 @app.route("/admino", methods = ['post'])
 def admin():
      FN = request.form['FN']
@@ -277,5 +281,45 @@ def CU():
 @app.route("/MeetTheTeam")
 def MTT():
     return render_template("MTT.html")
+@app.route("/WurkerPage")
+def WP():
+    return render_template('SSTP.html')
+@app.route("/wurkerHandler", methods = ['post'])
+def create():
+    tid = request.form['tid']
+    month = request.form['month']
+    day = request.form['day']
+    st = request.form['st']
+    et = request.form['et']
+    name = "SELECT * FROM teacher WHERE tid = '"+str(tid)+"'"
+    cursor.execute(name)
+    records = cursor.fetchall()
+    timeelapsed = 0
+    if(len(records) == 0):
+        return render_template('SSTP.html', error = True)
+    else:
+         intst = int(st)
+         intet = int(et)
+         print("start: " + str(intst) + "end: " + str(intet))
+         if intst > intet:
+            while intst < 24:
+                insert1 = "INSERT INTO teacherbook VALUES ('"+str(tid)+"','"+str(month)+"','"+str(day)+"','"+str(intst)+"','"+str(intst+1)+"')"
+                cursor.execute(insert1)
+                intst+=1
+                conn.commit()
+            intst = 1;
+            for i in range(intet - 1):
+                insert1 = "INSERT INTO teacherbook VALUES ('"+str(tid)+"','"+str(month)+"','"+str(day)+"','"+str(intst)+"','"+str(intst+1)+"')"
+                cursor.execute(insert1)
+                intst+=1
+                conn.commit()
+         else:
+            timeelapsed = intet - intst
+            for i in range(timeelapsed):
+                insert1 = "INSERT INTO teacherbook VALUES ('"+str(tid)+"','"+str(month)+"','"+str(day)+"','"+str(intst)+"','"+str(intst+1)+"')"
+                cursor.execute(insert1)
+                intst+=1
+                conn.commit()
+         return render_template('SSTP.html', created = True)
 if __name__ == "__main__":
     app.run(debug=True, host = "0.0.0.0" ,port="69")

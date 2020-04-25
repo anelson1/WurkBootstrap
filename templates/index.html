@@ -50,7 +50,7 @@
       </ul>
       <a href = "http://instagram.com/wurkservices" target="_blank"><img class = "img-fluid mr-3 my-2" src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px" alt="Card image cap"></a>
     <a href="https://www.linkedin.com/company/wurk-llc" target="_blank"><img class = "img-fluid mx-3 my-2" src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px" alt="Card image cap" ></a>
-      <a href = "https://www.facebook.com/pg/wurkservices/posts/" target="_blank"><img class = "img-fluid ml-3 mr-4 my-2" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
+      <a href = "https://www.facebook.com/pg/wurkservices/posts/" target="_blank"><img class = "img-fluid mx-3 my-2" src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px" alt="Card image cap"></a>
       <a href = "https://twitter.com/wurkservices" target="_blank"><img class = "img-fluid ml-3 mr-4 my-2" src="{{ url_for('static', filename='css/svg/twitter.png') }}" height="30px" width="30px" alt="Card image cap"></a>
 
       <form class="form-inline my-2 my-lg-0" action="/login">
@@ -72,6 +72,30 @@
       </div>
     </div>
   </div>
+  <!--Delivery Ad-->
+  <div class="container-fluid my-5">
+    <div class="row">
+      <div class ="col-xl-1">
+
+      </div>
+      <div class ="col-xl-10">
+        <div class="card mx-auto mb-5">
+          <div class="card-body">
+            <h4 class="card-title">Stuck at home? Need food or other supplies? Wurk has you covered!</h4>
+            <p class="card-text">
+              With Wurk home delivery, it has never been easier to get fresh food! Just pick a time, date, and the food or supplies you want and we will deliver them right to your door for an affordable price!
+            </p>
+            <a href="/login/food" class="btn btn-outline-primary">Order Now</a>
+          </div>
+        </div>
+
+      </div>
+      <div class ="col-xl-1">
+
+      </div>
+
+    </div>
+  </div>
   <!--Services 1 -->
   <div class="container-fluid my-5">
     <div class="row">
@@ -79,7 +103,7 @@
         <div class="card mx-auto mb-5">
           <img class="card-img-top" src="{{ url_for('static', filename='css/img/tutor2.jpg') }}" alt="Card image cap">
           <div class="card-body">
-            <h4 class="card-title">Acedemic Tutoring</h4>
+            <h4 class="card-title">Academic Tutoring</h4>
             <p class="card-text">
               Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading. Click below to log in and create a booking today!
             </p>
@@ -104,7 +128,7 @@
           <div class="card-body">
             <h4 class="card-title">Sports Coaching</h4>
             <p class="card-text">
-            Recieve indivurual lessons in any sport from our seasoned coaches and trainers. Have your lesson within just a 24 hour notice of booking!
+            Recieve individual lessons in any sport from our seasoned coaches and trainers. Have your lesson within just a 24 hour notice of booking!
             </p>
             <a href="/login" class="btn btn-outline-primary">Book Now</a>
           </div>
