@@ -1,48 +1,49 @@
 {%extends "baseWOH.html"%}
 {%block content%}
-  <script>
+<script>
   $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-});
+    $('[data-toggle="tooltip"]').tooltip()
+  });
 </script>
-  <div class="container-fluid my-5">
-    <div class="row">
-      <div class ="col-md-4">
-      </div>
-      <div class ="col-md-4">
-        <img class = "mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px" height="50px">
-        <div class="card mx-auto mb-5" style="width:500px height: 500px">
-          <div class="card-body">
-            <h4 class="card-title" style="text-align:center">Welcome to the admin page.</h4>
-            <form action="/admino" method = 'post'>
-              <div class="form-group">
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+        height="50px">
+      <div class="card mx-auto mb-5">
+        <div class="card-body">
+          <h4 class="card-title" style="text-align:center">Welcome to the admin page.</h4>
+          <form action="/admino" method='post'>
+            <div class="form-group">
               <input type="text" class="form-control" id="FN" name="FN" placeholder="First Name"></input>
             </div>
             <div class="form-group">
-            <input type="text" class="form-control" id="LN" name="LN" placeholder="Last Name"></input>
+              <input type="text" class="form-control" id="LN" name="LN" placeholder="Last Name"></input>
             </div>
             <div class="form-group">
-              <select class="form-control p-1" id="TOT" name = "TOT">
+              <select class="form-control p-1" id="TOT" name="TOT">
                 <option value="Acedemic Tutoring">Acedemic Tutoring</option>
                 <option value="Music Lessons">Music Lessons</option>
                 <option value="ACT and SAT Prep">ACT and SAT Prep</option>
                 <option value="Sports Coaching">Sports Coaching</option>
               </select>
             </div>
-              <button class="btn btn-outline-primary" type="submit">Create</button>
-            </form>
-          </div>
+            <button class="btn btn-outline-primary" type="submit">Create</button>
+          </form>
         </div>
-        <script>
+      </div>
+      <script>
         // Disable form submissions if there are invalid fields
-        (function() {
+        (function () {
           'use strict';
-          window.addEventListener('load', function() {
+          window.addEventListener('load', function () {
             // Get the forms we want to add validation styles to
             var forms = document.getElementsByClassName('needs-validation');
             // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-              form.addEventListener('submit', function(event) {
+            var validation = Array.prototype.filter.call(forms, function (form) {
+              form.addEventListener('submit', function (event) {
                 if (form.checkValidity() === false) {
                   event.preventDefault();
                   event.stopPropagation();
@@ -52,48 +53,50 @@
             });
           }, false);
         })();
-        </script>
-      </div>
-    </div>
-    <div class="col-md-4">
+      </script>
     </div>
   </div>
-  <div class="container-fluid">
-    <div class="col">
-      <table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Booking ID</th>
-      <th scope="col">Name of booker</th>
-      <th scope="col">Teacher (if Acedemic)</th>
-      <th scope="col">Type of Booking</th>
-      <th scope="col">Month</th>
-      <th scope="col">Day</th>
-      <th scope="col">Start Time</th>
-      <th scope="col">End Time</th>
-      <th scope="col">Comments</th>
-    </tr>
-  </thead>
-  <tbody>
-    {%for i in range(0, len)%}
-    <tr>
-    <th scope="row">{{records[i][0]}}</th>
-    <td data-toggle="tooltip" data-placement="top" data-html="true" title="<p>Phone Number: {{records[i][12]}} <br></br> Email: {{records[i][11]}} <br></br> Address: {{records[i][13]}} {{records[i][14]}} {{records[i][15]}}</p>">{{records[i][1]}}</td>
-    <td>{{records[i][2]}}</td>
-    <td>{{records[i][3]}}</td>
-    <td>{{records[i][5]}}</td>
-    <td>{{records[i][6]}}</td>
-    <td>{{records[i][7]}}</td>
-    <td>{{records[i][8]}}</td>
-    <td>{{records[i][4]}}</td>
-    </tr>
-
-
-    {%endfor%}
-  </tbody>
-</table>
-    </div>
+  <div class="col-md-4">
   </div>
+</div>
+<div class="container-fluid">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Booking ID</th>
+          <th scope="col">Name of booker</th>
+          <th scope="col">Teacher (if Acedemic)</th>
+          <th scope="col">Type of Booking</th>
+          <th scope="col">Month</th>
+          <th scope="col">Day</th>
+          <th scope="col">Start Time</th>
+          <th scope="col">End Time</th>
+          <th scope="col">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%for i in range(0, len)%}
+        <tr>
+          <th scope="row">{{records[i][0]}}</th>
+          <td data-toggle="tooltip" data-placement="top" data-html="true"
+            title="<p>Phone Number: {{records[i][12]}} <br></br> Email: {{records[i][11]}} <br></br> Address: {{records[i][13]}} {{records[i][14]}} {{records[i][15]}}</p>">
+            {{records[i][1]}}</td>
+          <td>{{records[i][2]}}</td>
+          <td>{{records[i][3]}}</td>
+          <td>{{records[i][5]}}</td>
+          <td>{{records[i][6]}}</td>
+          <td>{{records[i][7]}}</td>
+          <td>{{records[i][8]}}</td>
+          <td>{{records[i][4]}}</td>
+        </tr>
+
+
+        {%endfor%}
+      </tbody>
+    </table>
+  </div>
+</div>
 
 </body>
 {%endblock%}

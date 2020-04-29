@@ -1,46 +1,47 @@
 {% extends "baseWOH.html" %}
 {%block content%}
-  <div class="container-fluid my-5">
-    <div class="row">
-      <div class ="col-md-4">
-      </div>
-      <div class ="col-md-4">
-        <img class = "mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px" height="50px">
-        <div class="card mx-auto mb" style="width:500px height: 500px">
-          <div class="card-body">
-            <h4 class="card-title" style="text-align:center">Almost Done!</h4>
-            <form action="/Created" method="post">
-              <div id="shittohide">
-                <input type="text" id="uname" name="uname" value = "{{uname}}"></input>
-                <input type="text" id="TOB" name="TOB" value = "{{TOB}}"></input>
-                <input type="text" id="month" name="month" value = "{{month}}"></input>
-                <input type="text" id="day" name="day" value = "{{day}}"></input>
-                <input type="text" id="teacher" name="teacher" value = "{{teacherName}}"></input>
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+        height="50px">
+      <div class="card mx-auto mb">
+        <div class="card-body">
+          <h4 class="card-title" style="text-align:center">Almost Done!</h4>
+          <form action="/Created" method="post">
+            <div id="shittohide">
+              <input type="text" id="uname" name="uname" value="{{uname}}"></input>
+              <input type="text" id="TOB" name="TOB" value="{{TOB}}"></input>
+              <input type="text" id="month" name="month" value="{{month}}"></input>
+              <input type="text" id="day" name="day" value="{{day}}"></input>
+              <input type="text" id="teacher" name="teacher" value="{{teacherName}}"></input>
+            </div>
+            <div class="form-group mb-5 text-center">
+              <p class="card-text">{{teacherName}} is available at these times:</p>
+              <div class="form-group">
+                <select class="form-control p-1" name="times">
+                  {% for times in timesList %}
+                  <option value="{{times[0]}} {{times[1]}}">{{times[0]}} to {{times[1]}}</option>
+                  {% endfor %}
+                </select>
               </div>
-              <div class="form-group mb-5 text-center">
-                <p class="card-text">{{teacherName}} is available at these times:</p>
-                <div class="form-group">
-                  <select class = "form-control p-1" name = "times">
-                    {% for times in timesList %}
-                    <option value="{{times[0]}} {{times[1]}}">{{times[0]}} to {{times[1]}}</option>
-                    {% endfor %}
-                  </select>
-                </div>
-                <button type="submit" class="btn btn-outline-primary">Create Booking</button>
-              </div>
-            </form>
-          </div>
+              <button type="submit" class="btn btn-outline-primary">Create Booking</button>
+            </div>
+          </form>
         </div>
-        <script>
+      </div>
+      <script>
         // Disable form submissions if there are invalid fields
-        (function() {
+        (function () {
           'use strict';
-          window.addEventListener('load', function() {
+          window.addEventListener('load', function () {
             // Get the forms we want to add validation styles to
             var forms = document.getElementsByClassName('needs-validation');
             // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-              form.addEventListener('submit', function(event) {
+            var validation = Array.prototype.filter.call(forms, function (form) {
+              form.addEventListener('submit', function (event) {
                 if (form.checkValidity() === false) {
                   event.preventDefault();
                   event.stopPropagation();
@@ -50,12 +51,12 @@
             });
           }, false);
         })();
-        </script>
-      </div>
+      </script>
     </div>
-    <div class ="col-md-4">
+  </div>
+  <div class="col-md-4">
 
-    </div>
+  </div>
 
   </body>
-{%endblock%}
+  {%endblock%}

@@ -1,24 +1,25 @@
 {% extends "baseWH.html" %}
 {%block content%}
 <script>
-$(document).ready(function(){
+  $(document).ready(function () {
 
-  $(function(){
-    var $select = $(".1-31");
-    for (i=1;i<=31;i++){
-      $select.append($('<option></option>').val(i).html(i))
-    }
+    $(function () {
+      var $select = $(".1-31");
+      for (i = 1; i <= 31; i++) {
+        $select.append($('<option></option>').val(i).html(i))
+      }
+    });
   });
-});
 </script>
 <div class="container-fluid my-5">
   <div class="row">
-    <div class ="col-md-4">
+    <div class="col-md-4">
     </div>
-    <div class ="col-md-4">
-      <img class = "mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px" height="50px">
+    <div class="col-md-4">
+      <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+        height="50px">
 
-      <div class="card mx-auto mb-5" style="width:500px height: 500px">
+      <div class="card mx-auto mb-5" style="width:500px;">
         <div class="card-body">
           {%if error%}
           <div class="alert alert-danger">
@@ -30,7 +31,8 @@ $(document).ready(function(){
             <strong>Success!</strong> Your availabllity has been updated!
           </div>
           {%endif%}
-          <h4 class="card-title" style="text-align:center">Please enter your Wurker ID and availability information one day at a time</h4>
+          <h4 class="card-title" style="text-align:center">Please enter your Wurker ID and availability information one
+            day at a time</h4>
           <form action="/wurkerHandler" method="post">
             <input type="text" class="form-control my-3" id="fname" placeholder="Enter Wurker ID" name="tid" required>
             <p class="card-text">Month:</p>
@@ -117,28 +119,28 @@ $(document).ready(function(){
         </div>
       </div>
       <script>
-      // Disable form submissions if there are invalid fields
-      (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-          // Get the forms we want to add validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      })();
+        // Disable form submissions if there are invalid fields
+        (function () {
+          'use strict';
+          window.addEventListener('load', function () {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+              form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
       </script>
     </div>
 
-    <div class ="col-md-4">
+    <div class="col-md-4">
 
     </div>
   </div>
