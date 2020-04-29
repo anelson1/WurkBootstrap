@@ -113,10 +113,10 @@ def checkbooking():
         meetingIDSQL = records[0][0]
         student = records[0][1]
         teacherSQL = records[0][2]
-        monthSQL = records[0][4]
-        daySQL = records[0][5]
-        startSQL = records[0][6]
-        endSQL = records[0][7]
+        monthSQL = records[0][5]
+        daySQL = records[0][6]
+        startSQL = records[0][7]
+        endSQL = records[0][8]
         tob = records[0][3]
         if teacherSQL:
             return render_template('useraccount.html', ftime=False, isAcedemic=True, hasMeeting=True, meetingID=meetingIDSQL, teacher=teacherSQL, month=monthSQL, start=startSQL, end=endSQL, day=daySQL, TOB=tob)
