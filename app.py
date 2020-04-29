@@ -1,14 +1,25 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import psycopg2
 import config as cfg
 import random
 import string
+import json
 from waitress import serve
 conn = psycopg2.connect(user=cfg.info["user"], password=cfg.info["passwd"],
                         host=cfg.info["host"], port="5432", database=cfg.info["db"])
 cursor = conn.cursor()
 
 app = Flask(__name__)
+app.secret_key = cfg.info["SECRET"]
+
+
+def getInfo(username):
+    select = "SELECT * from users where username = '" + str(username) + "'"
+    cursor.execute(select)
+    records = cursor.fetchall()
+    return records
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -76,10 +87,10 @@ def useraccount():
     cursor.execute(selecting)
     records = cursor.fetchall()
     if username == 'admin' and len(records) != 0:
-        selecting12 = "select * from bookings natural join bookingtimes join users on users.username = bookings.stuname"
+        selecting12 = "select * from bookings natural join bookingtimes join clients on clients.name = bookings.stuname"
         cursor.execute(selecting12)
         records12 = cursor.fetchall()
-        return render_template('adminpage.html', uname=records[0][7], records=records12, len=len(records12), len2=len(records12[0]))
+        return render_template('adminpage.html', records=records12, len=len(records12), len2=len(records12[0]))
     elif len(records) != 0:
         return render_template('useraccount.html', uname=records[0][0], fTime=True)
     else:
@@ -126,26 +137,42 @@ def checkbooking():
         return render_template('useraccount.html', ftime=False, hasMeeting=False)
 
 
+@app.route("/EnterInfo")
+def preCB():
+    return render_template('CBpre.html')
+
+
 @app.route("/CreateBooking", methods=['post'])
 def CB():
-    name = request.form['uname']
-    return render_template('CB.html', uname=name)
+    info = getInfo(request.form['name'])
+    if not info:
+        session['name'] = request.form['name']
+        session['email'] = request.form['email']
+        session['pnum'] = request.form['pnum']
+    else:
+        session['name'] = info[0][1]
+        session['email'] = info[0][2]
+        session['pnum'] = info[0][3]
+    insert1 = "INSERT INTO clients VALUES ('"+str(session['name']) + \
+        "','"+str(session['email'])+"','"+str(session['pnum'])+"')"
+    cursor.execute(insert1)
+    conn.commit()
+    return render_template('CB.html')
 
 
 @app.route("/CreateBooking2", methods=['post'])
 def CB2():
-    name = request.form['uname']
-    typeofbooking = request.form['TOB']
-    return render_template('CB2.html', uname=name, TOB=typeofbooking)
+    session['TOB'] = request.form['TOB']
+    return render_template('CB2.html')
 
 
 @app.route("/CreateBooking3", methods=['post'])
 def CB3():
-    name = request.form['uname']
-    typeofbooking = request.form['TOB']
-    month = request.form['month']
-    day = request.form['day']
-    print(name, typeofbooking, month, day)
+    session['month'] = request.form['month']
+    session['day'] = request.form['day']
+    typeofbooking = session['TOB']
+    day = session['day']
+    month = session['month']
     if typeofbooking == 'Acedemic Tutoring' or typeofbooking == 'Music Lessons' or typeofbooking == 'ACT and SAT Prep' or typeofbooking == 'Sports Coaching':
         teachSelect = " SELECT firstname,lastname from teacher join teacherbook on teacher.tid = teacherbook.tid WHERE day = '" + \
             str(day)+"' AND month = '" + str(month) + \
@@ -153,20 +180,20 @@ def CB3():
         cursor.execute(teachSelect)
         teacherList = cursor.fetchall()
         if len(teacherList) == 0:
-            return render_template('CB2.html', noTeacher=True, uname=name, month=month, day=day, TOB=typeofbooking)
+            return render_template('CB2.html', noTeacher=True)
         newTeacherList = list(dict.fromkeys(teacherList))
-        return render_template('CB3.html', nameList=newTeacherList, uname=name, month=month, day=day, TOB=typeofbooking)
+        return render_template('CB3.html', nameList=newTeacherList)
     else:
-        return render_template('CB3-NAC.html', uname=name, month=month, day=day, TOB=typeofbooking)
+        return render_template('CB3-NAC.html')
 
 
 @app.route("/CreateBooking4", methods=['post'])
 def CB5():
-    name = request.form['uname']
-    typeofbooking = request.form['TOB']
-    month = request.form['month']
-    day = request.form['day']
-    teacher = request.form['teachers']
+    typeofbooking = session['TOB']
+    month = session['month']
+    day = session['day']
+    session['teacher'] = request.form['teachers']
+    teacher = session['teacher']
     timeSelect = " SELECT starttime,endtime from teacher join teacherbook on teacher.tid = teacherbook.tid WHERE firstname = '" + \
         str(teacher)+"'"
     cursor.execute(timeSelect)
@@ -275,23 +302,24 @@ def CB5():
                 tempList = list(times[i])
                 tempList[j] = "12am"
                 times[i] = tuple(tempList)
-    return render_template('CB4.html', timesList=times, teacherName=teacher, uname=name, month=month, day=day, TOB=typeofbooking)
+    return render_template('CB4.html', timesList=times, teacherName=teacher)
 
 
 @app.route("/Created", methods=['post'])
 def BC():
-    name = request.form['uname']
-    month = request.form['month']
-    day = request.form['day']
-    typeofbooking = request.form['TOB']
+    name = session['name']
+    month = session['month']
+    day = session['day']
+    typeofbooking = session['TOB']
     comments = request.form['comments']
     BID = ''.join([random.choice(string.ascii_letters + string.digits)
                    for n in range(6)])
     print("TOB: " + typeofbooking)
     if typeofbooking == 'Acedemic Tutoring' or typeofbooking == 'Music Lessons' or typeofbooking == 'ACT and SAT Prep' or typeofbooking == 'Sports Coaching':
         print("we innie boys")
-        teacher = request.form['teacher']
-        times = request.form['times']
+        teacher = session['teacher']
+        session['times'] = request.form['times']
+        times = session['times']
         goodtimes = times.split()
         insert1 = "INSERT INTO bookings VALUES ('"+str(BID)+"','"+str(
             name)+"','"+str(teacher)+"','"+str(typeofbooking)+"')"
@@ -315,6 +343,7 @@ def BC():
         return render_template('BookingComplete.html', BID=BID)
     else:
         starttime = request.form['st']
+        print(name, month, day, typeofbooking)
         insert1 = "INSERT INTO bookings VALUES ('"+str(BID)+"','"+str(
             name)+"','"+''+"','"+str(typeofbooking)+"','" + str(comments)+"')"
         cursor.execute(insert1)

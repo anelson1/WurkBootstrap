@@ -1,0 +1,67 @@
+{%extends "baseWOH.html"%}
+{%block content%}
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+            <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+                height="50px">
+            <div class="card mx-auto mb-5">
+                <div class="card-body">
+                    <h5 class="card-title" style="text-align:center">Thank you for selecting Wurk, let's collect some
+                        info first!</h5>
+                    <form action="/CreateBooking" method="POST" class="needs-validation" novalidate>
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" id="name" placeholder="Enter Full Name" name="name"
+                                required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email"
+                                required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="pnum" placeholder="Enter Phone Number"
+                                name="pnum" required>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-outline-primary">Next Page</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                // Disable form submissions if there are invalid fields
+                (function () {
+                    'use strict';
+                    window.addEventListener('load', function () {
+                        // Get the forms we want to add validation styles to
+                        var forms = document.getElementsByClassName('needs-validation');
+                        // Loop over them and prevent submission
+                        var validation = Array.prototype.filter.call(forms, function (form) {
+                            form.addEventListener('submit', function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+                        });
+                    }, false);
+                })();
+            </script>
+        </div>
+    </div>
+    <div class="col-md-4">
+
+    </div>
+
+    </body>
+    {%endblock%}
