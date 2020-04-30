@@ -20,6 +20,13 @@ def getInfo(username):
     return records
 
 
+def getService(tos):
+    select = "SELECT description from services where name = '" + str(tos) + "'"
+    cursor.execute(select)
+    records = cursor.fetchall()
+    return records
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -30,11 +37,6 @@ def login():
     print(request.method)
     error = request.args.get('uErr')
     return render_template("login.html", uErr=error)
-
-
-@app.route("/login/<typeOfService>")
-def loginTyped(typeOfService):
-    return render_template("login.html", typeOfService=typeOfService)
 
 
 @app.route("/register")
@@ -87,7 +89,7 @@ def useraccount():
     cursor.execute(selecting)
     records = cursor.fetchall()
     if username == 'admin' and len(records) != 0:
-        selecting12 = "select * from bookings natural join bookingtimes join clients on clients.name = bookings.stuname"
+        selecting12 = "select * from bookings join bookingtimes on bookings.bid = bookingtimes.bid join clients on clients.name = bookings.stuname"
         cursor.execute(selecting12)
         records12 = cursor.fetchall()
         return render_template('adminpage.html', records=records12, len=len(records12), len2=len(records12[0]))
@@ -137,8 +139,22 @@ def checkbooking():
         return render_template('useraccount.html', ftime=False, hasMeeting=False)
 
 
-@app.route("/EnterInfo")
-def preCB():
+@app.route("/services")
+def services():
+    return render_template('services.html')
+
+
+@app.route("/services/<TOS>")
+def TOS(TOS):
+    print(TOS)
+    filedirectory = 'css/img/'+TOS
+    desc = getService(TOS)[0][0]
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc)
+
+
+@app.route("/services/<TOS>/StartBooking")
+def TOSBook(TOS):
+    session['TOB'] = TOS
     return render_template('CBpre.html')
 
 
@@ -157,7 +173,7 @@ def CB():
         "','"+str(session['email'])+"','"+str(session['pnum'])+"')"
     cursor.execute(insert1)
     conn.commit()
-    return render_template('CB.html')
+    return render_template('CB2.html', tob=session['TOB'])
 
 
 @app.route("/CreateBooking2", methods=['post'])
@@ -363,6 +379,11 @@ def CU():
 @app.route("/MeetTheTeam")
 def MTT():
     return render_template("MTT.html")
+
+
+@app.route("/Lawncare")
+def LC():
+    return render_template("LC.html")
 
 
 @app.route("/WurkerPage")
