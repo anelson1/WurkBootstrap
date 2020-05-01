@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_mail import Mail, Message
 import psycopg2
 import config as cfg
 import random
 import string
 import json
+import os
 from waitress import serve
 conn = psycopg2.connect(user=cfg.info["user"], password=cfg.info["passwd"],
                         host=cfg.info["host"], port="5432", database=cfg.info["db"])
@@ -11,6 +13,15 @@ cursor = conn.cursor()
 
 app = Flask(__name__)
 app.secret_key = cfg.info["SECRET"]
+
+app.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT=465,
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME=cfg.MAIL_USERNAME,
+    MAIL_PASSWORD=cfg.MAIL_PASSWORD
+)
+mail = Mail(app)
 
 
 def getInfo(username):
@@ -27,8 +38,29 @@ def getService(tos):
     return records
 
 
+def emailData(name):
+    select = "SELECT * from clients where name = '" + str(name) + "'"
+    cursor.execute(select)
+    clientData = cursor.fetchall()
+    select = "SELECT * from bookings natural join bookingtimes where stuname = '" + \
+        str(name) + "'"
+    cursor.execute(select)
+    bookingData = cursor.fetchall()
+    select = "SELECT * from address where name = '" + \
+        str(name) + "'"
+    cursor.execute(select)
+    addressData = cursor.fetchall()
+    STR = clientData[0][0] + " has made a booking for " + bookingData[0][3] + " on " + \
+        bookingData[0][5] + " " + bookingData[0][6] + \
+        " starting at " + bookingData[0][7] + "\n " + clientData[0][0] + "'s information: \n Email: " + clientData[0][1] + "\n Phone Number: " + \
+        clientData[0][2] + "\n Address: " + addressData[0][0] + " " + \
+        addressData[0][1] + " " + addressData[0][2] + " " + addressData[0][3]
+    return STR
+
+
 @app.route("/")
 def index():
+    print(emailData("Nibba behiminey"))
     return render_template("index.html")
 
 
@@ -76,6 +108,10 @@ def registerC():
         phonenumber)+"','"+str(address)+"','"+str(city)+"','"+str(state) + "','"+str(fname)+"','"+str(lname)+"')"
     cursor.execute(insert)
     conn.commit()
+    insert = "INSERT INTO address VALUES ('"+str(address)+"','"+str(
+        city)+"','"+str(state) + "','" + " " + "','" + str(fname + " " + lname) + "')"
+    cursor.execute(insert)
+    conn.commit()
     return render_template('registered.html')
 
 
@@ -83,20 +119,36 @@ def registerC():
 def useraccount():
     username = request.form['uname'].lower()
     password = request.form['pwd']
-    typeOfService = request.form['typeOfService']
+    print(getInfo(username))
+
     selecting = "SELECT * FROM users WHERE username = " + "'" + \
         str(username)+"' AND password = '"+str(password)+"'"
     cursor.execute(selecting)
     records = cursor.fetchall()
     if username == 'admin' and len(records) != 0:
-        selecting12 = "select * from bookings join bookingtimes on bookings.bid = bookingtimes.bid join clients on clients.name = bookings.stuname"
+        selecting12 = "select DISTINCT * from bookings join bookingtimes on bookings.bid = bookingtimes.bid join clients on clients.name = bookings.stuname join address on address.name = clients.name"
         cursor.execute(selecting12)
         records12 = cursor.fetchall()
         return render_template('adminpage.html', records=records12, len=len(records12), len2=len(records12[0]))
     elif len(records) != 0:
+        session['hasaccount'] = True
+        session['name'] = getInfo(username)[0][7] + \
+            " " + getInfo(username)[0][8]
+        session['uname'] = username
         return render_template('useraccount.html', uname=records[0][0], fTime=True)
     else:
         return redirect(url_for('login', uErr=True))
+
+
+@app.route("/BookingSelector")
+def BookingSelector():
+    return render_template('bookingselect.html')
+
+
+@app.route("/TOBselector", methods=['POST'])
+def BookingSelector2():
+    session['TOB'] = request.form['TOB']
+    return render_template('CB2.html')
 
 
 @app.route("/admino", methods=['post'])
@@ -155,31 +207,42 @@ def TOS(TOS):
 @app.route("/services/<TOS>/StartBooking")
 def TOSBook(TOS):
     session['TOB'] = TOS
+    session['hasaccount'] = False
     return render_template('CBpre.html')
 
 
 @app.route("/CreateBooking", methods=['post'])
 def CB():
-    info = getInfo(request.form['name'])
-    if not info:
+    if not session['hasaccount']:
         session['name'] = request.form['name']
         session['email'] = request.form['email']
         session['pnum'] = request.form['pnum']
     else:
-        session['name'] = info[0][1]
+        info = getInfo(session['uname'])
         session['email'] = info[0][2]
         session['pnum'] = info[0][3]
+        session['TOB'] = request.form['TOB']
     insert1 = "INSERT INTO clients VALUES ('"+str(session['name']) + \
         "','"+str(session['email'])+"','"+str(session['pnum'])+"')"
     cursor.execute(insert1)
     conn.commit()
-    return render_template('CB2.html', tob=session['TOB'])
+    if session['hasaccount']:
+        return render_template('CB2.html', tob=session['TOB'])
+    else:
+        return render_template('CB.html')
 
 
-@app.route("/CreateBooking2", methods=['post'])
+@app.route("/AddressEntry", methods=['post'])
 def CB2():
-    session['TOB'] = request.form['TOB']
-    return render_template('CB2.html')
+    session['addr'] = request.form['addr']
+    session['city'] = request.form['city']
+    session['state'] = request.form['state']
+    session['zip'] = request.form['zip']
+    insert = "INSERT INTO address VALUES ('"+str(session['addr'])+"','"+str(session['city'])+"','"+str(session['state'])+"','"+str(
+        session['zip'])+"','"+str(session['name'])+"')"
+    cursor.execute(insert)
+    conn.commit()
+    return render_template('CB2.html', tob=session['TOB'])
 
 
 @app.route("/CreateBooking3", methods=['post'])
@@ -368,6 +431,10 @@ def BC():
             BID)+"','"+str(month)+"','"+str(day)+"','"+str(starttime)+"')"
         cursor.execute(insert2)
         conn.commit()
+        msg = Message("A new booking has been created!",
+                      sender=cfg.MAIL_USERNAME, recipients=["wurkservices@gmail.com"])
+        msg.body = emailData(session['name'])
+        mail.send(msg)
         return render_template('BookingComplete.html', BID=BID)
 
 
