@@ -54,19 +54,18 @@ def emailData(name):
         bookingData[0][5] + " " + bookingData[0][6] + \
         " starting at " + bookingData[0][7] + "\n " + clientData[0][0] + "'s information: \n Email: " + clientData[0][1] + "\n Phone Number: " + \
         clientData[0][2] + "\n Address: " + addressData[0][0] + " " + \
-        addressData[0][1] + " " + addressData[0][2] + " " + addressData[0][3]
+        addressData[0][1] + " " + addressData[0][2] + " " + \
+        addressData[0][3] + "\n Comments: " + bookingData[0][4]
     return STR
 
 
 @app.route("/")
 def index():
-    print(emailData("Nibba behiminey"))
     return render_template("index.html")
 
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    print(request.method)
     error = request.args.get('uErr')
     return render_template("login.html", uErr=error)
 
@@ -80,7 +79,6 @@ def register():
 def register2():
     fname = request.form['fname']
     lname = request.form['lname']
-    print(fname)
     return render_template("register2.html", fname=fname, lname=lname)
 
 
@@ -119,8 +117,6 @@ def registerC():
 def useraccount():
     username = request.form['uname'].lower()
     password = request.form['pwd']
-    print(getInfo(username))
-
     selecting = "SELECT * FROM users WHERE username = " + "'" + \
         str(username)+"' AND password = '"+str(password)+"'"
     cursor.execute(selecting)
@@ -140,17 +136,6 @@ def useraccount():
         return redirect(url_for('login', uErr=True))
 
 
-@app.route("/BookingSelector")
-def BookingSelector():
-    return render_template('bookingselect.html')
-
-
-@app.route("/TOBselector", methods=['POST'])
-def BookingSelector2():
-    session['TOB'] = request.form['TOB']
-    return render_template('CB2.html')
-
-
 @app.route("/admino", methods=['post'])
 def admin():
     FN = request.form['FN']
@@ -167,16 +152,12 @@ def admin():
 
 @app.route("/CheckBooking", methods=['post'])
 def checkbooking():
-    print(request.form['bid'])
     selecting = "SELECT * FROM bookings natural join bookingtimes WHERE bid = " + \
         "'"+str(request.form['bid'])+"'"
     cursor.execute(selecting)
     records = cursor.fetchall()
-    for i in records:
-        print(i)
     if len(records) != 0:
         meetingIDSQL = records[0][0]
-        student = records[0][1]
         teacherSQL = records[0][2]
         monthSQL = records[0][5]
         daySQL = records[0][6]
@@ -198,7 +179,6 @@ def services():
 
 @app.route("/services/<TOS>")
 def TOS(TOS):
-    print(TOS)
     filedirectory = 'css/img/'+TOS
     desc = getService(TOS)[0][0]
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc)
@@ -209,6 +189,17 @@ def TOSBook(TOS):
     session['TOB'] = TOS
     session['hasaccount'] = False
     return render_template('CBpre.html')
+
+
+@app.route("/BookingSelector")
+def BookingSelector():
+    return render_template('bookingselect.html')
+
+
+@app.route("/TOBselector", methods=['POST'])
+def BookingSelector2():
+    session['TOB'] = request.form['TOB']
+    return render_template('CB2.html')
 
 
 @app.route("/CreateBooking", methods=['post'])
@@ -393,9 +384,7 @@ def BC():
     comments = request.form['comments']
     BID = ''.join([random.choice(string.ascii_letters + string.digits)
                    for n in range(6)])
-    print("TOB: " + typeofbooking)
     if typeofbooking == 'Acedemic Tutoring' or typeofbooking == 'Music Lessons' or typeofbooking == 'ACT and SAT Prep' or typeofbooking == 'Sports Coaching':
-        print("we innie boys")
         teacher = session['teacher']
         session['times'] = request.form['times']
         times = session['times']
@@ -417,12 +406,9 @@ def BC():
             str(fixedst)+"' AND endtime = '"+str(fixedet)+"'"
         cursor.execute(remove)
         conn.commit()
-
-        print(name, month, day, teacher, times, BID, fixedst, fixedet)
         return render_template('BookingComplete.html', BID=BID)
     else:
         starttime = request.form['st']
-        print(name, month, day, typeofbooking)
         insert1 = "INSERT INTO bookings VALUES ('"+str(BID)+"','"+str(
             name)+"','"+''+"','"+str(typeofbooking)+"','" + str(comments)+"')"
         cursor.execute(insert1)
@@ -435,6 +421,7 @@ def BC():
                       sender=cfg.MAIL_USERNAME, recipients=["wurkservices@gmail.com"])
         msg.body = emailData(session['name'])
         mail.send(msg)
+        print("Someone Made A Booking")
         return render_template('BookingComplete.html', BID=BID)
 
 
@@ -474,7 +461,6 @@ def create():
     else:
         intst = int(st)
         intet = int(et)
-        print("start: " + str(intst) + "end: " + str(intet))
         if intst > intet:
             while intst < 24:
                 insert1 = "INSERT INTO teacherbook VALUES ('"+str(tid)+"','"+str(
