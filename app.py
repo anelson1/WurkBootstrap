@@ -50,13 +50,13 @@ def sendemail(name):
         str(name) + "'"
     cursor.execute(select)
     addressData = cursor.fetchall()
-    msg = Message("A new booking has been created!",
-                  sender=cfg.MAIL_USERNAME, recipients=["wurkservices@gmail.com", clientData[0][1]])
+    msg = Message("Your booking has been made!",
+                  sender=cfg.MAIL_USERNAME, recipients=[clientData[0][1]], bcc=["wurkservices@gmail.com"])
     msg.body = "a new booking has been made"
     msg.html = render_template('emailtemplate.html', name=clientData[0][0], service=bookingData[0]
                                [3], month=bookingData[0][5], day=bookingData[0][6], time=bookingData[0][7], email=clientData[0][1], pnum=clientData[0][2], address=addressData[0][0] + " " +
                                addressData[0][1] + " " + addressData[0][2] + " " +
-                               addressData[0][3])
+                               addressData[0][3], comment=bookingData[0][4])
     mail.send(msg)
 
 
