@@ -38,7 +38,7 @@ def getService(tos):
     return records
 
 
-def emailData(name):
+def sendemail(name):
     select = "SELECT * from clients where name = '" + str(name) + "'"
     cursor.execute(select)
     clientData = cursor.fetchall()
@@ -50,13 +50,14 @@ def emailData(name):
         str(name) + "'"
     cursor.execute(select)
     addressData = cursor.fetchall()
-    STR = clientData[0][0] + " has made a booking for " + bookingData[0][3] + " on " + \
-        bookingData[0][5] + " " + bookingData[0][6] + \
-        " starting at " + bookingData[0][7] + "\n " + clientData[0][0] + "'s information: \n Email: " + clientData[0][1] + "\n Phone Number: " + \
-        clientData[0][2] + "\n Address: " + addressData[0][0] + " " + \
-        addressData[0][1] + " " + addressData[0][2] + " " + \
-        addressData[0][3] + "\n Comments: " + bookingData[0][4]
-    return STR
+    msg = Message("A new booking has been created!",
+                  sender=cfg.MAIL_USERNAME, recipients=["wurkservices@gmail.com", clientData[0][1]])
+    msg.body = "a new booking has been made"
+    msg.html = render_template('emailtemplate.html', name=clientData[0][0], service=bookingData[0]
+                               [3], month=bookingData[0][5], day=bookingData[0][6], time=bookingData[0][7], email=clientData[0][1], pnum=clientData[0][2], address=addressData[0][0] + " " +
+                               addressData[0][1] + " " + addressData[0][2] + " " +
+                               addressData[0][3])
+    mail.send(msg)
 
 
 @app.route("/")
@@ -382,6 +383,7 @@ def BC():
     day = session['day']
     typeofbooking = session['TOB']
     comments = request.form['comments']
+    comments = comments.replace("'", "")
     BID = ''.join([random.choice(string.ascii_letters + string.digits)
                    for n in range(6)])
     if typeofbooking == 'Acedemic Tutoring' or typeofbooking == 'Music Lessons' or typeofbooking == 'ACT and SAT Prep' or typeofbooking == 'Sports Coaching':
@@ -417,10 +419,7 @@ def BC():
             BID)+"','"+str(month)+"','"+str(day)+"','"+str(starttime)+"')"
         cursor.execute(insert2)
         conn.commit()
-        msg = Message("A new booking has been created!",
-                      sender=cfg.MAIL_USERNAME, recipients=["wurkservices@gmail.com"])
-        msg.body = emailData(session['name'])
-        mail.send(msg)
+        sendemail(name)
         print("Someone Made A Booking")
         return render_template('BookingComplete.html', BID=BID)
 
