@@ -1,4 +1,5 @@
 {% extends "baseWH.html" %}
+{%block title%}Home{%endblock%}
 {%block content%}
 <div class="container-fluid my-5">
   <div class="row">
@@ -48,38 +49,41 @@
   <div class="row">
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/tutor2-min.jpg') }}" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">Academic Tutoring</h4>
-          <a href="/services/Academic Tutoring" class="btn btn-outline-primary stretched-link">Learn More</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/satprep-min.jpg') }}"
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/Landscapesauce-min.jpg') }}"
           alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">ACT and SAT Prep</h4>
-          <a href="/services/ACT and SAT Prep" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Landscaping</h4>
+          <a href="/services/Landscaping" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/Sport-min.jpg') }}" alt="Card image cap">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/leavesnshit2-min.jpg') }}"
+          alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">Sports Coaching</h4>
-          <a href="/services/Sports Coaching" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Junk Removal</h4>
+          <a href="/services/Junk Removal" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/music-min.jpg') }}" alt="Card image cap">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/paintnshain-min.jpg') }}"
+          alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">Music Lessons</h4>
-          <a href="/services/Music Lessons" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Painting and Staining</h4>
+          <a href="/services/Painting and Staining" class="btn btn-outline-primary stretched-link">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="card mx-auto mb-5">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/dickrepair-min.jpg') }}"
+          alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">Deck and Roof Restoration</h4>
+          <a href="/services/Deck and Roof Restoration" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
@@ -135,47 +139,42 @@
   <div class="row">
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/Landscapesauce-min.jpg') }}"
-          alt="Card image cap">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/tutor2-min.jpg') }}" alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">Landscaping</h4>
-          <a href="/services/Landscaping" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Academic Tutoring</h4>
+          <a href="/services/Academic Tutoring" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/leavesnshit2-min.jpg') }}"
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/satprep-min.jpg') }}"
           alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">Junk Removal</h4>
-          <a href="/services/Junk Removal" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">ACT and SAT Prep</h4>
+          <a href="/services/ACT and SAT Prep" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/paintnshain-min.jpg') }}"
-          alt="Card image cap">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/Sport-min.jpg') }}" alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">Painting and Staining</h4>
-          <a href="/services/Painting and Staining" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Sports Coaching</h4>
+          <a href="/services/Sports Coaching" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/dickrepair-min.jpg') }}"
-          alt="Card image cap">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/music-min.jpg') }}" alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">Deck and Roof Restoration</h4>
-          <a href="/services/Deck and Roof Restoration" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Music Lessons</h4>
+          <a href="/services/Music Lessons" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
   </div>
 </div>
-<script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-d31d0682-947a-4578-88c6-a1085d2259f1"></div>
 </body>
 {%endblock%}

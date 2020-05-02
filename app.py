@@ -62,13 +62,13 @@ def sendemail(name):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", pagetitle="Wurk Services")
 
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     error = request.args.get('uErr')
-    return render_template("login.html", uErr=error)
+    return render_template("login.html", uErr=error, pagetitle="Login")
 
 
 @app.route("/register")
@@ -76,28 +76,32 @@ def register():
     return render_template("register.html", fn=True)
 
 
-@app.route("/register2", methods=['post'])
+@app.route("/register2", methods=['POST', 'GET'])
 def register2():
-    fname = request.form['fname']
-    lname = request.form['lname']
-    return render_template("register2.html", fname=fname, lname=lname)
+    error = request.args.get('err')
+    if request.method == 'POST':
+        session['fname'] = request.form['fname']
+        session['lname'] = request.form['lname']
+    return render_template("register2.html", err=error)
 
 
 @app.route("/register3", methods=['post'])
 def register3():
-    fname = request.form['fname']
-    lname = request.form['lname']
-    uname = request.form['uname']
-    pword = request.form['pword']
-    return render_template("register3.html", fname=fname, lname=lname, uname=uname, pword=pword)
+    session['uname'] = request.form['uname']
+    session['pword'] = request.form['pword']
+    account = getInfo(session['uname'])
+    if not account:
+        return render_template("register3.html")
+    else:
+        return redirect(url_for('register2', err=True))
 
 
 @app.route("/registerComplete", methods=['post'])
 def registerC():
-    fname = request.form['fname']
-    lname = request.form['lname']
-    username = request.form['uname'].lower()
-    password = request.form['pass']
+    fname = session['fname']
+    lname = session['lname']
+    username = session['uname'].lower()
+    password = session['pword']
     email = request.form['email']
     phonenumber = request.form['pnum']
     address = request.form['address']
@@ -111,6 +115,11 @@ def registerC():
         city)+"','"+str(state) + "','" + " " + "','" + str(fname + " " + lname) + "')"
     cursor.execute(insert)
     conn.commit()
+    return redirect(url_for("registered"))
+
+
+@app.route("/registered")
+def registered():
     return render_template('registered.html')
 
 
@@ -132,7 +141,7 @@ def useraccount():
         session['name'] = getInfo(username)[0][7] + \
             " " + getInfo(username)[0][8]
         session['uname'] = username
-        return render_template('useraccount.html', uname=records[0][0], fTime=True)
+        return render_template('useraccount.html', uname=records[0][0], fTime=True, pagetitle="My Account")
     else:
         return redirect(url_for('login', uErr=True))
 
@@ -175,21 +184,21 @@ def checkbooking():
 
 @app.route("/services")
 def services():
-    return render_template('services.html')
+    return render_template('services.html', pagetitle='services')
 
 
 @app.route("/services/<TOS>")
 def TOS(TOS):
     filedirectory = 'css/img/'+TOS
     desc = getService(TOS)[0][0]
-    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc)
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc, pagetitle=TOS)
 
 
 @app.route("/services/<TOS>/StartBooking")
 def TOSBook(TOS):
     session['TOB'] = TOS
     session['hasaccount'] = False
-    return render_template('CBpre.html')
+    return render_template('CBpre.html', pagetitle="Start a booking")
 
 
 @app.route("/BookingSelector")
