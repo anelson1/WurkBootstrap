@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
 from flask_mail import Mail, Message
 import psycopg2
 import config as cfg
@@ -492,6 +492,16 @@ def create():
                 intst += 1
                 conn.commit()
         return render_template('SSTP.html', created=True)
+
+
+@app.route('/sitemap.xml')
+def site_map():
+    return render_template('sitemap.xml')
+
+
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
 
 
 if __name__ == "__main__":
