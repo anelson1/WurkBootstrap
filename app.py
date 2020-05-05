@@ -191,6 +191,9 @@ def services():
 def TOS(TOS):
     filedirectory = 'css/img/'+TOS
     desc = getService(TOS)[0][0]
+    if TOS == "Lawn Care":
+        return render_template('Lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc, pagetitle=TOS)
+
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc, pagetitle=TOS)
 
 
