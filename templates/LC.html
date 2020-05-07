@@ -1,25 +1,37 @@
+<meta name="description" content="Wurk Services Has Been Continuously Providing Highest Rated Junk Removal Services in Chicago, Barrington Il, 60007, 60010. Our services include Junk Removal, Hauling Services, and Removing Junk Service for our clients in Chicago, Barrington. We are fully committed to making our client’s life easier buy offering affordable junk removal services. 
+">
 {% extends "baseWOH.html" %}
 {%block title%}{{pagetitle}}{%endblock%}
 {%block content%}
 <div class="container-fluid my-3 p-3 bg-white">
     <div class="row">
-        <div class="col-lg-2">
-        </div>
-        <div class="col-lg-8 p-3 text-dark text-center">
-            <h2>{{service}} with Wurk!</h2>
-            <div id="carouselExampleControls" class="carousel slide mb-1 border border-primary" data-ride="carousel">
+        <div class="col text-center">
+            <div id="carouselExampleControls" class="carousel slide my-1 border border-primary carousel-fade"
+                data-ride="carousel">
                 <div class=" carousel-inner">
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="{{ url_for('static', filename=filedirectory + '/1.jpg') }}"
-                            alt="First slide">
+                            alt="landscapeing">
+                        <div class="carousel-caption bg-transdark">
+                            <h1>{{service}} with Wurk!</h1>
+
+                        </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{ url_for('static', filename=filedirectory + '/2.jpg') }}"
-                            alt="Second slide">
+                            alt="landscapeing">
+                        <div class="carousel-caption bg-transdark">
+                            <h1>{{service}} with Wurk!</h1>
+
+                        </div>
                     </div>
                     <div class="carousel-item">
                         <img class="d-block w-100" src="{{ url_for('static', filename=filedirectory + '/3.jpg') }}"
-                            alt="Third slide">
+                            alt="landscapeing">
+                        <div class="carousel-caption bg-transdark">
+                            <h1>{{service}} with Wurk!</h1>
+
+                        </div>
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -31,13 +43,22 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8 text-center">
             <p class="lead">{{desc}}</p>
+            <p>Our service areas include: South Barrington, Barrington, Lake Barrington, Barrington Hills, Schaumburg,
+                Hoffman Estates,
+                Algonquin, Arlington Heights, Palatine, Lake Zurich, North Barrington, Naperville, Northbrook,
+                Northfield, Evanston,
+                Skokie, Glenview, Elk Grove Village, Elgin, and other surrounding areas.</p>
             <p>What are you waiting for? Let's get a booking started!</p>
             <a href="/services/{{service}}/StartBooking" class="btn btn-outline-primary">Start a booking!</a>
-
         </div>
-        <div class="col-lg-2">
+        <div class="col-2">
         </div>
     </div>
 </div>
