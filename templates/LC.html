@@ -1,5 +1,4 @@
-<meta name="description" content="Wurk Services Has Been Continuously Providing Highest Rated Junk Removal Services in Chicago, Barrington Il, 60007, 60010. Our services include Junk Removal, Hauling Services, and Removing Junk Service for our clients in Chicago, Barrington. We are fully committed to making our client’s life easier buy offering affordable junk removal services. 
-">
+<meta name="description" content="{{meta}}">
 {% extends "baseWOH.html" %}
 {%block title%}{{pagetitle}}{%endblock%}
 {%block content%}
@@ -48,13 +47,8 @@
     <div class="row">
         <div class="col-2">
         </div>
-        <div class="col-8 text-center">
-            <p class="lead">{{desc}}</p>
-            <p>Our service areas include: South Barrington, Barrington, Lake Barrington, Barrington Hills, Schaumburg,
-                Hoffman Estates,
-                Algonquin, Arlington Heights, Palatine, Lake Zurich, North Barrington, Naperville, Northbrook,
-                Northfield, Evanston,
-                Skokie, Glenview, Elk Grove Village, Elgin, and other surrounding areas.</p>
+        <div class="col-8">
+            <p class="lead">{{desc|safe}}</p>
             <p>What are you waiting for? Let's get a booking started!</p>
             <a href="/services/{{service}}/StartBooking" class="btn btn-outline-primary">Start a booking!</a>
         </div>

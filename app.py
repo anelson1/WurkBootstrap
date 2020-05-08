@@ -7,6 +7,7 @@ import string
 import json
 import os
 from waitress import serve
+import Services
 conn = psycopg2.connect(user=cfg.info["user"], password=cfg.info["passwd"],
                         host=cfg.info["host"], port="5432", database=cfg.info["db"])
 cursor = conn.cursor()
@@ -189,12 +190,16 @@ def services():
 
 @app.route("/services/<TOS>")
 def TOS(TOS):
+    desc = Services.services()
+    try:
+        meta = desc.serviceDict[TOS + " Meta"]
+    except KeyError as e:
+        meta = ''
     filedirectory = 'css/img/'+TOS
-    desc = getService(TOS)[0][0]
     if TOS == "Lawn Care":
-        return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc, pagetitle=TOS)
+        return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS)
 
-    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc, pagetitle=TOS)
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
 
 @app.route("/services/<TOS>/StartBooking")
