@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, session, s
 from flask_mail import Mail, Message
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
-from wtforms import *
-from wtforms.fields.html5 import DateField
+from wtforms import StringField, SubmitField
+from wtforms.fields.html5 import DateField, TimeField
 from wtforms.validators import DataRequired
 import psycopg2
 import config as cfg
@@ -39,8 +39,11 @@ class dateEntry(FlaskForm):
 class wurkerEntry(FlaskForm):
     WID = StringField('Wurker ID', validators=[DataRequired()])
     day = DateField('Date',
-                    validators=[DataRequired()], format='% Y-%m-%d')
+                    validators=[DataRequired()])
+    time = TimeField('Time',
+                    validators=[DataRequired()])
     JobType = StringField('Type Of Job', validators=[DataRequired()])
+    clientName = StringField('Name of Client', validators=[DataRequired()])
     POTJ = StringField('People on the Job', validators=[DataRequired()])
     submit = SubmitField("Submit")
 
@@ -544,6 +547,8 @@ def addSceudel():
     else:
         name = records[0][1]
     date = request.form['day']
+    time = request.form['time']
+    CN = request.form['clientName']
     TOJ = request.form['JobType']
     POTJ = request.form['POTJ']
     print(date)
@@ -551,7 +556,7 @@ def addSceudel():
     day = int(date[8:10])
     insert = "INSERT INTO bookedDays values ('" + \
         str(day) + "','" + str(month)+"','" + \
-        str(WID)+"','" + str(TOJ)+"','" + str(POTJ) + "')"
+        str(WID)+"','" + str(TOJ)+"','" + str(POTJ) + "','" + str(time) +"','" + str(CN) +"')"
     cursor.execute(insert)
     conn.commit()
     print(name + "has updated their avaliblity")

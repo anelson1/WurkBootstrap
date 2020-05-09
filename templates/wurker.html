@@ -23,8 +23,10 @@
                         <p class="card-text">Please enter the days you are already booked for</p>
                         <form action="/wurkerhandler" method="POST">
                             {{render_form_row([form.WID])}}
-                            {{render_form_row([form.day])}}
+                            {{render_form_row([form.clientName])}}
                             {{render_form_row([form.JobType])}}
+                            {{render_form_row([form.day])}}
+                            {{render_form_row([form.time])}}
                             {{render_form_row([form.POTJ])}}
                             {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
                         </form>

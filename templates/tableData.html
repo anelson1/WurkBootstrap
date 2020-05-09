@@ -9,8 +9,10 @@
             <thead>
                 <tr>
                     <th scope="col">Name of Wurker</th>
+                    <th scope="col">Name of Client</th>
                     <th scope="col">Service Booked</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Time</th>
                     <th scope="col">People on Job</th>
                 </tr>
             </thead>
@@ -18,9 +20,10 @@
                 {%for i in range(0, len)%}
                 <tr>
                     <th scope="row">{{records[i][2]}}</th>
-                    <td>
-                        {{records[i][3]}}</td>
+                    <td>{{records[i][6]}}</td>
+                    <td>{{records[i][3]}}</td>
                     <td>{{records[i][1] + " " + records[i][0]}}</td>
+                    <td>{{records[i][5]}}</td>
                     <td>{{records[i][4]}}</td>
                 </tr>
 
