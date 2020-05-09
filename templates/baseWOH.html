@@ -5,12 +5,13 @@
   <meta name="description" content="Wurk Services is a management company. From maintaining your property to tutoring your kids and caring for your
           pets, we provide a full array of services available at a moment's notice. All you need to do is book!">
   <title>{%block title%}{%endblock%} - Wurk Services</title>
+  {%block meta%} {%endblock%}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.css') }}">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="static/css/img/favicons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="static/css/img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="static/css/img/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename = 'css/img/favicons/apple-touch-icon.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='css/img/favicons/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='css/img/favicons/favicon-16x16.png')}}">
   <link rel="manifest" href="static/css/img/favicons/site.webmanifest">
   <link rel="mask-icon" href="static/css/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="static/css/img/favicons/favicon.ico">
