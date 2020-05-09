@@ -1,5 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
 from flask_mail import Mail, Message
+from flask_bootstrap import Bootstrap
+from flask_wtf import FlaskForm
+from wtforms import *
+from wtforms.fields.html5 import DateField
+from wtforms.validators import DataRequired
 import psycopg2
 import config as cfg
 import random
@@ -14,7 +19,7 @@ cursor = conn.cursor()
 
 app = Flask(__name__)
 app.secret_key = cfg.info["SECRET"]
-
+bootstrap = Bootstrap(app)
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=465,
@@ -23,6 +28,12 @@ app.config.update(
     MAIL_PASSWORD=cfg.MAIL_PASSWORD
 )
 mail = Mail(app)
+
+
+class dateEntry(FlaskForm):
+    day = DateField('Date',
+                    validators=[DataRequired()], format='% Y-%m-%d')
+    submit = SubmitField("Submit")
 
 
 def getInfo(username):
@@ -59,6 +70,33 @@ def sendemail(name):
                                addressData[0][1] + " " + addressData[0][2] + " " +
                                addressData[0][3], comment=bookingData[0][4])
     mail.send(msg)
+
+
+def returnMonth(day):
+    if day == '01':
+        return 'January'
+    if day == '02':
+        return 'Feburary'
+    if day == '03':
+        return 'March'
+    if day == '04':
+        return 'April'
+    if day == '05':
+        return 'May'
+    if day == '06':
+        return 'June'
+    if day == '07':
+        return 'July'
+    if day == '08':
+        return 'August'
+    if day == '09':
+        return 'September'
+    if day == '10':
+        return 'October'
+    if day == '11':
+        return 'November'
+    if day == '12':
+        return 'December'
 
 
 @app.route("/")
@@ -137,6 +175,9 @@ def useraccount():
         cursor.execute(selecting12)
         records12 = cursor.fetchall()
         return render_template('adminpage.html', records=records12, len=len(records12), len2=len(records12[0]))
+    if username == 'wurker' and len(records) != 0:
+        form = dateEntry()
+        return render_template('wurker.html', form=form)
     elif len(records) != 0:
         session['hasaccount'] = True
         session['name'] = getInfo(username)[0][7] + \
@@ -236,28 +277,42 @@ def CB():
     cursor.execute(insert1)
     conn.commit()
     if session['hasaccount']:
-        return render_template('CB2.html', tob=session['TOB'])
+        form = dateEntry()
+        return render_template('CB2.html', tob=session['TOB'], form=form)
     else:
         return render_template('CB.html')
 
 
-@app.route("/AddressEntry", methods=['post'])
+@app.route("/AddressEntry", methods=['post', 'get'])
 def CB2():
-    session['addr'] = request.form['addr']
-    session['city'] = request.form['city']
-    session['state'] = request.form['state']
-    session['zip'] = request.form['zip']
-    insert = "INSERT INTO address VALUES ('"+str(session['addr'])+"','"+str(session['city'])+"','"+str(session['state'])+"','"+str(
-        session['zip'])+"','"+str(session['name'])+"')"
-    cursor.execute(insert)
-    conn.commit()
-    return render_template('CB2.html', tob=session['TOB'])
+    error = request.args.get('error')
+    if not error:
+        session['addr'] = request.form['addr']
+        session['city'] = request.form['city']
+        session['state'] = request.form['state']
+        session['zip'] = request.form['zip']
+        insert = "INSERT INTO address VALUES ('"+str(session['addr'])+"','"+str(session['city'])+"','"+str(session['state'])+"','"+str(
+            session['zip'])+"','"+str(session['name'])+"')"
+        cursor.execute(insert)
+        conn.commit()
+    form = dateEntry()
+    return render_template('CB2.html', tob=session['TOB'], form=form, error=error)
 
 
 @app.route("/CreateBooking3", methods=['post'])
 def CB3():
-    session['month'] = request.form['month']
-    session['day'] = request.form['day']
+    session['date'] = request.form['day']
+    date = session['date']
+    print(date)
+    session['month'] = returnMonth(date[5:7])
+    session['day'] = int(date[8:10])
+    check = "select * from bookedDays where month = '" + \
+        session['month'] + "' and day ='" + str(session['day']) + "'"
+    cursor.execute(check)
+    shouldbeempty = cursor.fetchall()
+    print(shouldbeempty)
+    if len(shouldbeempty) != 0:
+        return redirect(url_for("CB2", error=True))
     typeofbooking = session['TOB']
     day = session['day']
     month = session['month']
@@ -461,6 +516,22 @@ def WP():
     return render_template('SSTP.html')
 
 
+@app.route("/wurkerhandler", methods=['post'])
+def addSceudel():
+    date = request.form['day']
+    print(date)
+    month = returnMonth(date[5:7])
+    day = int(date[8:10])
+    insert = "INSERT INTO bookedDays values ('" + \
+        str(day) + "','" + str(month)+"')"
+    cursor.execute(insert)
+    conn.commit()
+    print(month, day)
+    form = dateEntry()
+
+    return render_template("wurker.html", form=form, day=day, month=month, popup=True)
+
+
 @app.route("/wurkerHandler", methods=['post'])
 def create():
     tid = request.form['tid']
@@ -514,4 +585,4 @@ def robots():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port="69")
-    #serve(app, listen ='*:80')
+    # serve(app, listen ='*:80')

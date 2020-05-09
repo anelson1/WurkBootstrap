@@ -1,0 +1,29 @@
+{%extends "baseWOH.html"%}
+{% from 'bootstrap/form.html' import render_form_row %}
+{%block content%}
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 mx-auto my-5">
+
+                {%if popup%}
+                <div class="alert alert-success">
+                    You are booked for {{month}} {{day}}
+                </div>
+                {%endif%}
+                <div class="card mx-auto mb-5 fadein">
+                    <div class="card-body shadow-lg">
+                        <h1 class="card-title">Wurker Scheduler</h1>
+                        <p class="card-text">Please enter the days you are already booked for</p>
+                        <form action="/wurkerhandler" method="POST">
+                            {{render_form_row([form.day])}}
+                            {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{%endblock%}

@@ -1,5 +1,6 @@
 {% extends "baseWOH.html" %}
 {%block title%}Create a Booking{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
 {%block content%}
 <script>
   $(document).ready(function () {
@@ -25,37 +26,18 @@
         availabllity
       </div>
       {%endif%}
+      {%if error%}
+      <div class="alert alert-danger">
+        <strong>Error!</strong> That day has already reached its max number of bookings, please select another day
+      </div>
+      {%endif%}
       <div class="card mx-auto mb-5">
         <div class="card-body">
           <h4 class="card-title" style="text-align:center">Good!</h4>
           <form action="/CreateBooking3" method="post">
-            <div id="shittohide">
-              <input type="text" id="uname" name="uname" value="{{uname}}"></input>
-              <input type="text" id="TOB" name="TOB" value="{{TOB}}"></input>
-            </div>
-            <div class="form-group mb-5 text-center">
-              <p class="card-text">What day would you like your {{tob}} to be on?</p>
-              <div class="form-group">
-                <select class="form-control p-1" id="month" name="month">
-                  <option value="January">January</option>
-                  <option value="Febuary">Febuary</option>
-                  <option value="March">March</option>
-                  <option value="April">April</option>
-                  <option value="May">May</option>
-                  <option value="June">June</option>
-                  <option value="July">July</option>
-                  <option value="August">August</option>
-                  <option value="September">September</option>
-                  <option value="October">October</option>
-                  <option value="November">November</option>
-                  <option value="December">December</option>
-                </select>
-              </div>
-              <div class="form-group mx-auto">
-                <select class="form-control p-1 1-31" name="day"></select>
-              </div>
-              <button type="submit" class="btn btn-outline-primary">Next</button>
-            </div>
+            <p class="card-text text-center">Now select a date for your service to be on</p>
+            {{render_form_row([form.day])}}
+            {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
           </form>
         </div>
       </div>
