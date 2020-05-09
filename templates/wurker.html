@@ -9,7 +9,12 @@
 
                 {%if popup%}
                 <div class="alert alert-success">
-                    You are booked for {{month}} {{day}}
+                    {{name}}, you are booked for {{month}} {{day}}
+                </div>
+                {%endif%}
+                {%if err%}
+                <div class="alert alert-danger">
+                    <strong>Error! </strong>No Wurker with that WID found
                 </div>
                 {%endif%}
                 <div class="card mx-auto mb-5 fadein">
@@ -17,7 +22,10 @@
                         <h1 class="card-title">Wurker Scheduler</h1>
                         <p class="card-text">Please enter the days you are already booked for</p>
                         <form action="/wurkerhandler" method="POST">
+                            {{render_form_row([form.WID])}}
                             {{render_form_row([form.day])}}
+                            {{render_form_row([form.JobType])}}
+                            {{render_form_row([form.POTJ])}}
                             {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
                         </form>
                     </div>

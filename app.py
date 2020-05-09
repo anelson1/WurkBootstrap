@@ -36,6 +36,15 @@ class dateEntry(FlaskForm):
     submit = SubmitField("Submit")
 
 
+class wurkerEntry(FlaskForm):
+    WID = StringField('Wurker ID', validators=[DataRequired()])
+    day = DateField('Date',
+                    validators=[DataRequired()], format='% Y-%m-%d')
+    JobType = StringField('Type Of Job', validators=[DataRequired()])
+    POTJ = StringField('People on the Job', validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
+
 def getInfo(username):
     select = "SELECT * from users where username = '" + str(username) + "'"
     cursor.execute(select)
@@ -176,8 +185,10 @@ def useraccount():
         records12 = cursor.fetchall()
         return render_template('adminpage.html', records=records12, len=len(records12), len2=len(records12[0]))
     if username == 'wurker' and len(records) != 0:
-        form = dateEntry()
-        return render_template('wurker.html', form=form)
+        select = "select * from bookedDays"
+        cursor.execute(select)
+        bookedDays = cursor.fetchall()
+        return render_template('tableData.html', records=bookedDays, len=len(bookedDays), len2=len(bookedDays[0]))
     elif len(records) != 0:
         session['hasaccount'] = True
         session['name'] = getInfo(username)[0][7] + \
@@ -511,25 +522,40 @@ def LC():
     return render_template("LC.html")
 
 
-@app.route("/WurkerPage")
+@app.route("/WurkerPage", methods=['GET'])
 def WP():
-    return render_template('SSTP.html')
+    day = request.args.get('day')
+    month = request.args.get('month')
+    popup = request.args.get('popup')
+    err = request.args.get('err')
+    name = request.args.get('name')
+    form = wurkerEntry()
+    return render_template('wurker.html', form=form, day=day, month=month, err=err, popup=popup, name=name)
 
 
 @app.route("/wurkerhandler", methods=['post'])
 def addSceudel():
+    WID = request.form['WID']
+    check = "select * from wurkers where WID = '" + WID + "'"
+    cursor.execute(check)
+    records = cursor.fetchall()
+    if len(records) == 0:
+        return redirect(url_for('WP', err=True))
+    else:
+        name = records[0][1]
     date = request.form['day']
+    TOJ = request.form['JobType']
+    POTJ = request.form['POTJ']
     print(date)
     month = returnMonth(date[5:7])
     day = int(date[8:10])
     insert = "INSERT INTO bookedDays values ('" + \
-        str(day) + "','" + str(month)+"')"
+        str(day) + "','" + str(month)+"','" + \
+        str(WID)+"','" + str(TOJ)+"','" + str(POTJ) + "')"
     cursor.execute(insert)
     conn.commit()
-    print(month, day)
-    form = dateEntry()
-
-    return render_template("wurker.html", form=form, day=day, month=month, popup=True)
+    print(name + "has updated their avaliblity")
+    return redirect(url_for('WP', day=day, month=month, popup=True, name=name))
 
 
 @app.route("/wurkerHandler", methods=['post'])
