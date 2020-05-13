@@ -309,11 +309,12 @@ def FinalizeBooking():
     booking = Booking(bookingid=session['bid'], clientname=name, typeofbooking=session['TOB'], comments=request.form['comments'])
     bookingtime = BookingTime(bookingid=session['bid'], month=month, day=day, starttime=request.form['time'])
     client = Client(name = name, email = session['email'], phonenumber = session['pnum'], address = session['address'], city = session['city'], state = session['state'], bookingid = session['bid'])
+    
     db.session.add(booking)
     db.session.add(bookingtime)
     db.session.add(client)
     db.session.commit()
-    sendemail(session['bid'])
+    #sendemail(session['bid'])
     return redirect(url_for('created'))
 
 @myapp.route("/BookingCreated")
