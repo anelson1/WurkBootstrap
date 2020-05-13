@@ -290,7 +290,7 @@ def FinalizeBooking():
     date = request.form['day']
     time = request.form['time']
     month = returnMonth(date[5:7])
-    day = int(date[8:10])
+    day = str(int(date[8:10]))
     check = BookedDays.query.filter_by(day=day).first()
     if check:
         return redirect(url_for("CreateBookingTimeAndDate",error = True))
