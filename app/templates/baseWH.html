@@ -3,15 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Wurk Services is a management company. From maintaining your property to tutoring your kids and caring for your
-          pets, we provide a full array of services available at a moment's notice. All you need to do is book!">
+        pets, we provide a full array of services available at a moment's notice. All you need to do is book!">
   <title>{%block title%}{%endblock%} - Wurk Services</title>
-  {%block meta%} {%endblock%}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/datepicker.css') }}">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename = 'css/img/favicons/apple-touch-icon.png')}}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='css/img/favicons/favicon-32x32.png')}}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='css/img/favicons/favicon-16x16.png')}}">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/css/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/css/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/css/img/favicons/favicon-16x16.png">
   <link rel="manifest" href="static/css/img/favicons/site.webmanifest">
   <link rel="mask-icon" href="static/css/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="static/css/img/favicons/favicon.ico">
@@ -20,10 +17,11 @@
   <meta name="msapplication-TileColor" content="#603cba">
   <meta name="msapplication-config" content="static/css/img/favicons/browserconfig.xml">
   <meta name="theme-color" content="#8007dc">
-  <meta name="google-site-verification" content="s9YUayH2rIRYX7VBbqCj8w8iuEF3Wo2-TI2Oa39pXCo">
+  <meta name="google-site-verification" content="s9YUayH2rIRYX7VBbqCj8w8iuEF3Wo2-TI2Oa39pXCo" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='css/js/parallax.js') }}"></script>
   <script>
     $(document).ready(function () {
 
@@ -32,11 +30,18 @@
     });
   </script>
 </head>
+
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7132540.js"></script>
 <!-- End of HubSpot Embed Code -->
+<script type='text/javascript'
+  data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '5531c047-e943-4ded-a630-4c625deff899', f: true }); done = true; } }; })();</script>
 
 <body>
+  <div class="jumbotron bg-white p-3" style="margin-bottom:5px">
+    <a href="/"> <img class="img-fluid" src="{{ url_for('static', filename='css/img/WurkBan11.jpg') }}"
+        alt="Card image cap" width="40%"></a>
+  </div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/" style="font-size: 30px;">Wurk</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -67,10 +72,12 @@
       <a href="https://twitter.com/wurkservices" target="_blank"><img class="img-fluid ml-3 mr-4 my-2"
           src="{{ url_for('static', filename='css/svg/twitter.png') }}" height="30px" width="30px"
           alt="Card image cap"></a>
-
-      <form class="form-inline my-2" action="/login">
-        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Login</button>
-      </form>
+          {% if current_user.is_anonymous %}
+          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{ url_for('login') }}">Login</a>
+          {% else %}
+          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{ url_for('useraccount') }}">My Account</a>
+          {% endif %}
+     
     </div>
   </nav>
   {% block content %}
@@ -84,5 +91,11 @@
         Northfield, Evanston,
         Skokie, Glenview, Elk Grove Village, Elgin, and other surrounding areas.</p>
       <p href="/">Disclaimer: We do not claim to own any photos on this site</p>
+      {% if current_user.is_anonymous %}
+      <a  class="btn btn-outline-light my-2" href="{{ url_for('login') }}">Login</a>
+      {% else %}
+      <a  class="btn btn-outline-light my-2" href="{{ url_for('logout') }}">Logout</a>
+      {% endif %}
     </div>
+   
   </footer>

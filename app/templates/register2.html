@@ -1,0 +1,57 @@
+{% extends "baseWH.html" %}
+{%block title%}Register{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
+
+{%block content%}
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-4 mx-auto">
+      {%if err%}
+      <div class="alert alert-danger">
+        <strong>Error!</strong> Username already in use! Try another one.
+      </div>
+      {%endif%}
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align:center">Very good! Now let's get your username and password set up!
+          </h5>
+          <form action="/register2Handler" method="POST">
+          {{render_form_row([form.username])}}
+          {{render_form_row([form.password])}}
+          {{render_form_row([form.confirmpassword])}}
+          {{ render_form_row([form.nextbutton], button_style='outline-primary', row_class = 'text-center') }}
+
+          </form>
+        </div>
+      </div>
+      <h4></h4>
+    
+      <script>
+        (function () {
+          setInterval(function () {
+            var pass = $('#password');
+            var cpass = $('#confirmpassword');
+
+            if ((pass.val() === "") || (cpass.val() === "")) {
+              pass.removeClass('is-invalid').removeClass('is-valid');
+              cpass.removeClass('is-invalid').removeClass('is-valid');
+
+            } else if (!(pass.val() === cpass.val())) {
+              pass.addClass('is-invalid').removeClass('is-valid');
+              cpass.addClass('is-invalid').removeClass('is-valid');
+            }
+            else {
+              pass.addClass('is-valid').removeClass('is-invalid');
+              cpass.addClass('is-valid').removeClass('is-invalid');
+            }
+          }, 100);
+
+        })();
+
+      </script>
+
+    </div>
+  </div>
+</div>
+</body>
+{%endblock%}

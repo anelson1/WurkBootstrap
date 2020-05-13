@@ -17,14 +17,14 @@
                 </tr>
             </thead>
             <tbody>
-                {%for i in range(0, len)%}
+                {%for i in lst%}
                 <tr>
-                    <th scope="row">{{records[i][2]}}</th>
-                    <td>{{records[i][6]}}</td>
-                    <td>{{records[i][3]}}</td>
-                    <td>{{records[i][1] + " " + records[i][0]}}</td>
-                    <td>{{records[i][5]}}</td>
-                    <td>{{records[i][4]}}</td>
+                    <th scope="row">{{i.name}}</th>
+                    <td>{{i.clientname}}</td>
+                    <td>{{i.jobtype}}</td>
+                    <td>{{i.month + " " + i.day}}</td>
+                    <td>{{i.time}}</td>
+                    <td>{{i.peopleonjob}}</td>
                 </tr>
 
 

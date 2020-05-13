@@ -1,0 +1,36 @@
+{% extends "baseWOH.html" %}
+{%block title%}Login{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
+
+{%block content%}
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-4 mx-auto">
+      <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+        height="50px">
+        {%if uErr%}
+              <div class="alert alert-danger">
+                <strong>Error!</strong> Your username or password is incorrect, please try again
+              </div>
+              {%endif%}
+      <div class="card mx-auto mb-5">
+        <div class="card-body">
+          <h4 class="card-title" style="text-align:center">Log in</h4>
+          <form action="/loginhandler" method="post">
+              {{ render_form_row([form.username]) }}
+              {{render_form_row([form.password])}}
+              {{ render_form_row([form.remember]) }}
+              {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
+          </form>
+          <form action="/register">
+              <p class="card-text mb-0">Dont have an account? Register Now!</p>
+              {{render_form_row([form.register], button_style='outline-primary')}}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+{%endblock%}

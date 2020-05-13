@@ -1,0 +1,33 @@
+{%extends "baseWOH.html"%}
+{%block title%}Booking Select{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
+{%block content%}
+<div class="container-fluid my-5">
+    <div class="row">
+        {%if error%}
+        <div class="alert alert-danger">
+          <strong>Error!</strong> That day is fully booked. Try another day!
+        </div>
+        {%endif%}
+        <div class="col-md-4 mx-auto">
+            <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+                height="50px">
+            <div class="card mx-auto mb-5">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align:center">Your booking for {{currentbooking}} is Almost Done! Just select a time and a date for your service to start!</h4>
+                    <p class="card-text" style="text-align:center">Plus any additional comments</p>
+
+                    <form action="/FinalizeBooking" method="POST">
+                        {{render_form_row([form.day])}}
+                        {{render_form_row([form.time])}}
+                        {{render_form_row([form.comments])}}
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-outline-primary">Book Now!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    {%endblock%}

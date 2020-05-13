@@ -1,0 +1,21 @@
+{% extends "baseWH.html" %}
+{%block title%}Register{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
+{%block content%}
+<div class="container-fluid my-5">
+  <div class="row">
+    <div class="col-4 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align:center">Please enter your first and last name!</h5>
+          <form action="/register1Handler" method="POST" class="needs-validation" novalidate>
+            {{ render_form_row([form.firstname]) }}
+              {{render_form_row([form.lastname])}}
+              {{ render_form_row([form.nextbutton], button_style='outline-primary', row_class = 'text-center') }}
+          </form>
+        </div>
+      </div>
+  </div>
+</div>
+</body>
+{%endblock%}

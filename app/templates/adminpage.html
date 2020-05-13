@@ -66,29 +66,25 @@
         <tr>
           <th scope="col">Booking ID</th>
           <th scope="col">Name of booker</th>
-          <th scope="col">Teacher (if Acedemic)</th>
           <th scope="col">Type of Booking</th>
           <th scope="col">Month</th>
           <th scope="col">Day</th>
           <th scope="col">Start Time</th>
-          <th scope="col">End Time</th>
           <th scope="col">Comments</th>
         </tr>
       </thead>
       <tbody>
-        {%for i in range(0, len)%}
+        {%for i in lst%}
         <tr>
-          <th scope="row">{{records[i][0]}}</th>
+          <th scope="row">{{i[0].bookingid}}</th>
           <td data-toggle="tooltip" data-placement="top" data-html="true"
-            title="<p>Phone Number: {{records[i][12]}} <br></br> Email: {{records[i][11]}} <br></br> Address: {{records[i][13]}} {{records[i][14]}} {{records[i][15]}} {{records[i][16]}} </p>">
-            {{records[i][1]}}</td>
-          <td>{{records[i][2]}}</td>
-          <td>{{records[i][3]}}</td>
-          <td>{{records[i][6]}}</td>
-          <td>{{records[i][7]}}</td>
-          <td>{{records[i][8]}}</td>
-          <td>{{records[i][9]}}</td>
-          <td>{{records[i][4]}}</td>
+            title="<p>Phone Number: {{i[2].phonenumber}} <br></br> Email: {{i[2].email}} <br></br> Address: {{i[2].address}} {{i[2].city}} {{i[2].state}} </p>">
+            {{i[2].name}}</td>
+          <td>{{i[0].typeofbooking}}</td>
+          <td>{{i[1].month}}</td>
+          <td>{{i[1].day}}</td>
+          <td>{{i[1].starttime}}</td>
+          <td>{{i[0].comments}}</td>
         </tr>
 
 

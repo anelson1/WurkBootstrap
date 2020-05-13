@@ -1,0 +1,25 @@
+{%extends "baseWOH.html"%}
+{%block title%}Booking Select{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
+{%block content%}
+<div class="container-fluid my-5">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+                height="50px">
+            <div class="card mx-auto mb-5">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align:center">Great! What are you booking for?
+                    </h4>
+                    <form action="/TOBselector" method="POST">
+                        {{render_form_row([form.services])}}
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-outline-primary">Next Page</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    {%endblock%}
