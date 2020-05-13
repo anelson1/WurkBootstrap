@@ -260,17 +260,11 @@ def BookingSelector():
 
 @myapp.route("/TOBselector", methods=['POST'])
 def BookingSelector2():
-    BID = ''.join([random.choice(string.ascii_letters + string.digits)
-                   for n in range(6)])
-    session['bid'] = BID
     session['TOB'] = request.form['services']
     return redirect(url_for('CreateBookingTimeAndDate'))
 
 @myapp.route("/bookinghandler", methods=['POST'])
 def bookinghandler():
-    BID = ''.join([random.choice(string.ascii_letters + string.digits)
-                   for n in range(6)])
-    session['bid'] = BID
     session['name'] = request.form['firstname'] + " " + request.form['lastname']
     session['email'] = request.form['email']
     session['pnum'] = request.form['phonenumber']
@@ -282,6 +276,9 @@ def bookinghandler():
 @myapp.route("/CreateBookingFinal" ,methods=['GET'])
 def CreateBookingTimeAndDate():
     form = bookingform()
+     BID = ''.join([random.choice(string.ascii_letters + string.digits)
+                   for n in range(6)])
+    session['bid'] = BID
     error = request.args.get('err')
     return render_template("bookingtimeanddate.html", form = form, currentbooking = session['TOB'], error = error)
 
