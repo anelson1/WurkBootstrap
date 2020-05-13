@@ -246,7 +246,7 @@ def TOS(TOS):
 @myapp.route("/services/<TOS>/StartBooking")
 def TOSBook(TOS):
     if not current_user.is_anonymous:
-        return redirect(url_for("/CreateBookingFinal"))
+        return redirect(url_for("/CreateBookingTimeAndDate"))
     session['TOB'] = TOS
     form = registerform()
     return render_template('CBpre.html', pagetitle="Start a booking", form=form)
