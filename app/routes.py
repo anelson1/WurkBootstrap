@@ -276,7 +276,7 @@ def bookinghandler():
 @myapp.route("/CreateBookingFinal" ,methods=['GET'])
 def CreateBookingTimeAndDate():
     form = bookingform()
-     BID = ''.join([random.choice(string.ascii_letters + string.digits)
+    BID = ''.join([random.choice(string.ascii_letters + string.digits)
                    for n in range(6)])
     session['bid'] = BID
     error = request.args.get('err')
