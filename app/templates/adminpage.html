@@ -10,8 +10,11 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-      <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
-        height="50px">
+      {%if popup%}
+      <div class="alert alert-success">
+        <strong>Success!</strong> That booking has been removed!
+      </div>
+      {%endif%}
       <div class="card mx-auto mb-5">
         <div class="card-body">
           <h4 class="card-title" style="text-align:center">Welcome to the admin page.</h4>
@@ -71,10 +74,13 @@
           <th scope="col">Day</th>
           <th scope="col">Start Time</th>
           <th scope="col">Comments</th>
+          <th scope="col">Delete</th>
+
         </tr>
       </thead>
       <tbody>
         {%for i in lst%}
+
         <tr>
           <th scope="row">{{i[0].bookingid}}</th>
           <td data-toggle="tooltip" data-placement="top" data-html="true"
@@ -85,8 +91,12 @@
           <td>{{i[1].day}}</td>
           <td>{{i[1].starttime}}</td>
           <td>{{i[0].comments}}</td>
+          <td>
+            <form action="/deletebooking/{{i[0].bookingid}}">
+              <button class="btn btn-outline-danger" type="submit">X</button>
+            </form>
+          </td>
         </tr>
-
 
         {%endfor%}
       </tbody>

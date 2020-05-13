@@ -105,18 +105,32 @@ def loginhandler():
 def logout():
     logout_user()
     return redirect(url_for("login"))
-@myapp.route("/admin")
+@myapp.route("/admin", methods=['GET'])
+@login_required
 def admin():
+    if current_user.username != 'admin':
+        return redirect(url_for("useraccount"))
     booking = Booking.query.all()
     bookingtime = BookingTime.query.all()
     client = Client.query.all()
     u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all() 
-    print(booking)
-    print(bookingtime)
-    print(client)
-    return render_template('adminpage.html', lst=u)
+    popup = request.args.get('popup')
+    return render_template('adminpage.html', lst=u, popup = popup)
+
+@myapp.route("/deletebooking/<bookingid>")
+def deletebooking(bookingid):
+    booking = Booking.query.filter_by(bookingid=bookingid).first()
+    bookingtime = BookingTime.query.filter_by(bookingid=bookingid).first()
+    client = Client.query.filter_by(bookingid=bookingid).first()
+    print(booking, bookingtime, client)
+    db.session.delete(booking)
+    db.session.delete(bookingtime)
+    db.session.delete(client)
+    db.session.commit()
+    return redirect(url_for("admin",popup = True))
 
 @myapp.route("/wurker")
+@login_required
 def wurker():
     u = BookedDays.query.all()
     return render_template('tableData.html', lst = u)
@@ -194,7 +208,11 @@ def useraccount():
     info = PersonalInfo.query.filter_by(id=cu.id).first()
     print(info)
     form = loginform()
-    return render_template('useraccount.html', hasError= hasError, month=month, day=day,TOB=TOB,start=start,hasMeeting = hasMeeting, uname=info.firstname, fTime=True,form=form, pagetitle="My Account")
+    try:
+        name = info.firstname
+    except:
+        name = 'Unknown'
+    return render_template('useraccount.html', hasError= hasError, month=month, day=day,TOB=TOB,start=start,hasMeeting = hasMeeting, uname=name, fTime=True,form=form, pagetitle="My Account")
    
 
 #Wurk in progess 
