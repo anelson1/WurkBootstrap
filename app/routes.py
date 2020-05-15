@@ -33,7 +33,7 @@ def sendemail(bid):
     client = Client.query.filter_by(bookingid=bid).first()
 
     msg = Message("Your booking has been made!",
-                  sender='wurkservices@gmail.com', recipients=[client.email], bcc=["wurkservices@gmail.com"])
+                  sender='wurkservices@gmail.com', recipients=[client.email], bcc=["bookings@wurkservices.com"])
     msg.body = "a new booking has been made"
     msg.html = render_template('emailtemplate.html', name=client.name, service=booking.typeofbooking, month=bookingtime.month, day=bookingtime.day, time=bookingtime.starttime, email=client.email, pnum=client.phonenumber, address=client.address + " " +
                                client.city + " " + client.state, comment=booking.comments)
