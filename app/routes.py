@@ -298,7 +298,7 @@ def CreateBookingTimeAndDate():
     BID = ''.join([random.choice(string.ascii_letters + string.digits)
                    for n in range(6)])
     session['bid'] = BID
-    error = request.args.get('err')
+    error = request.args.get('error')
     return render_template("bookingtimeanddate.html", form = form, currentbooking = session['TOB'], error = error)
 
 @myapp.route("/FinalizeBooking", methods=['POST'])
