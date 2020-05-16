@@ -384,6 +384,10 @@ def addSceudel():
 def site_map():
     return render_template('sitemap.xml')
 
+@myapp.route('/application-error.html')
+def apperror():
+    return render_template('application-error.html')
+
 
 @myapp.route('/robots.txt')
 def robots():
