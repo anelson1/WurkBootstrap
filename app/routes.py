@@ -129,11 +129,24 @@ def deletebooking(bookingid):
     db.session.commit()
     return redirect(url_for("admin",popup = True))
 
-@myapp.route("/wurker")
+@myapp.route("/wurker", methods=['GET'])
 @login_required
 def wurker():
+    popup = request.args.get('popup')
+    error = request.args.get('error')
     u = BookedDays.query.all()
-    return render_template('tableData.html', lst = u)
+    return render_template('tableData.html', lst = u, popup = popup, error = error)
+@myapp.route("/deletebookedday/<id>")
+@login_required
+def deleteslot(id):
+    b = BookedDays.query.get(id)
+    error=False
+    try:
+        db.session.delete(b)
+        db.session.commit()
+    except:
+        error = True
+    return redirect(url_for('wurker',popup = True, error = error))
 @myapp.route("/register")
 def register():
     form = registerform()
@@ -261,6 +274,17 @@ def TOS(TOS):
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
+@myapp.route("/landscaping-services-barrington-il")
+def thingthatarchalwanted():
+    TOS = 'Lawn Care'
+    desc = dictofservices()
+    print(desc)
+    try:
+        meta = desc.serviceDict[TOS + " Meta"]
+    except KeyError as e:
+        meta = ''
+    filedirectory = 'css/img/'+TOS
+    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle='Barrington Landscaping Services | Lawn Care Services | Barrington, Il | Wurk Barrington Services')
 
 @myapp.route("/services/<TOS>/StartBooking")
 def TOSBook(TOS):

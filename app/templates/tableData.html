@@ -1,38 +1,60 @@
 {%extends "baseWOH.html"%}
+{%block title%}Wurker{%endblock%}
 {%block content%}
 
 <div class="container-fluid">
-    <div class="col p-3">
-        <h1>Welcome to the booking list</h1>
-        <h3>Here are all the bookings on the schedule</h3>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name of Wurker</th>
-                    <th scope="col">Name of Client</th>
-                    <th scope="col">Service Booked</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">People on Job</th>
-                </tr>
-            </thead>
-            <tbody>
-                {%for i in lst%}
-                <tr>
-                    <th scope="row">{{i.name}}</th>
-                    <td>{{i.clientname}}</td>
-                    <td>{{i.jobtype}}</td>
-                    <td>{{i.month + " " + i.day}}</td>
-                    <td>{{i.time}}</td>
-                    <td>{{i.peopleonjob}}</td>
-                </tr>
+    <div class="row">
+        <div class="col p-3">
+            {%if popup%}
+            <div class="alert alert-success">
+                <strong>Success!</strong> Booking was successfully removed
+              </div>
+            {%endif%}
+            {%if error == True%}
+            <div class="alert alert-danger">
+                <strong>Error!</strong> I'll keep it real with you chief, not sure what went wrong. Try again later
+              </div>
+            {%endif%}
+            <div class="card mx-auto">
+                <div class="card-body">
+                    <h1>Welcome to the booking list</h1>
+                    <h3>Here are all the bookings on the schedule</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name of Wurker</th>
+                                <th scope="col">Name of Client</th>
+                                <th scope="col">Service Booked</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">People on Job</th>
+                                <th scope="col">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%for i in lst%}
+                            <tr>
+                                <th scope="row">{{i.name}}</th>
+                                <td>{{i.clientname}}</td>
+                                <td>{{i.jobtype}}</td>
+                                <td>{{i.month + " " + i.day}}</td>
+                                <td>{{i.time}}</td>
+                                <td>{{i.peopleonjob}}</td>
+                                <td>
+                                    <form action="/deletebookedday/{{i.id}}">
+                                        <button class="btn btn-outline-danger" type="submit">X</button>
+                                    </form>
+                                </td>
+                            </tr>
 
 
-                {%endfor%}
-            </tbody>
-        </table>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-
 </body>
 {%endblock%}
