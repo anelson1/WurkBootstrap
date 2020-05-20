@@ -3,9 +3,8 @@
 {% from 'bootstrap/form.html' import render_form_row %}
 {%block content%}
 <div class="container-fluid my-5">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-           
+    <div class="row align-items-center">
+        <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
             <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
                 height="50px">
                 {%if error%}
