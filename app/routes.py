@@ -406,7 +406,11 @@ def addSceudel():
 
 @myapp.route('/sitemap.xml')
 def site_map():
-    return render_template('sitemap.xml')
+    sitemap_template = render_template('sitemap.xml')
+    response = make_response(sitemap_template)
+    response.headers["Content-Type"] = "application/xml"
+    return response
+
 
 
 
