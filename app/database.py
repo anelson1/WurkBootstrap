@@ -88,3 +88,13 @@ class Wurker(db.Model):
 
     def __repr__(self):
         return '<Wurker {}>'.format(self.wid)
+
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    pic = db.Column(db.String(128))
+    desc = db.Column(db.String(128))
+    wid = db.Column(db.String(10), db.ForeignKey('wurker.wid'))
+
+    def __repr__(self):
+        return '<Post {}>'.format(self.id)
