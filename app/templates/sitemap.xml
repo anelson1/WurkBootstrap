@@ -4,7 +4,7 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-            
+
 <url>
   <loc>https://www.wurkservices.com/</loc>
   <lastmod>2020-05-22T21:39:56+00:00</lastmod>
@@ -22,11 +22,6 @@
 </url>
 <url>
   <loc>https://www.wurkservices.com/login</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Personal%20Assistant/StartBooking</loc>
   <lastmod>2020-05-22T21:39:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -95,81 +90,4 @@
   <lastmod>2020-05-22T21:39:56+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-<url>
-  <loc>https://www.wurkservices.com/services/Mulching%20and%20Gardening/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Spring%20Clean-Up%20and%20Tree%20Removal/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Lawn%20Mowing/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Junk%20Removal/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Painting%20and%20Staining/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Deck%20and%20Roof%20Restoration/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Construction/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Powerwashing/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Pet%20Care/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/House%20Sitting/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Academic%20Tutoring/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/ACT%20and%20SAT%20Prep/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Sports%20Coaching/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Music%20Lessons/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://www.wurkservices.com/services/Car%20Detailing/StartBooking</loc>
-  <lastmod>2020-05-22T21:39:56+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
 </urlset>
