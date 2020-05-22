@@ -408,11 +408,32 @@ def addSceudel():
 def site_map():
     return render_template('sitemap.xml')
 
-@myapp.route('/application-error.html')
-def apperror():
-    return render_template('application-error.html')
+
 
 
 @myapp.route('/robots.txt')
 def robots():
     return send_from_directory('static', 'robots.txt')
+
+@myapp.route('/<wurker>/profile')
+def wurkerprofile(wurker):
+    try:
+        u = Wurker.query.filter_by(wid=wurker).first()
+        return render_template('employeefeed.html', name=u.fullname, bio=u.bio)
+    except:
+        return redirect(url_for('genericerror'))
+
+
+#Error Handlers
+
+@myapp.route('/error')
+def genericerror():
+    return render_template('application-error.html', errormessage ='That page could not be found, please go home and try again!')
+    
+@myapp.errorhandler(404)
+def page_not_found(e):
+    return render_template('application-error.html', error = e, errormessage = "That page could not be found, please go home and try again!"), 404
+
+@myapp.errorhandler(500)
+def interror(e):
+    return render_template('application-error.html', error=e, errormessage = 'Our database is currently undergoing maintance, please try again later!'), 500

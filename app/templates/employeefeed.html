@@ -1,0 +1,40 @@
+{%extends "baseWOH.html"%}
+{%block content%}
+<div class="container my-2">
+    <div class="row align-items-center">
+        <div class="col">
+            <img class="img-fluid" src="{{ url_for('static', filename='css/img/looksfresh.jpg') }}" alt="pelle">
+        </div>
+        <div class="col text-center">
+            <h2>{{name}}</h2>
+            <p>{{bio}}</p>
+
+            </div>
+    </div>
+</div>
+<hr class="border border-primary">
+
+<div class="container-fluid my-2">
+    <div class="row align-items-center">
+        <div class="col">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='css/img/dickrepair.jpg') }}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
+                <figcaption class="figure-caption">Just me and the boys</figcaption>
+              </figure>
+        </div>
+        <div class="col">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='css/img/cardetail.jpg') }}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
+                <figcaption class="figure-caption">Detailing a car</figcaption>
+              </figure>
+        </div>
+        <div class="col">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='css/img/landscapesauce-min.jpg') }}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
+                <figcaption class="figure-caption">Grass more like sugma</figcaption>
+              </figure>
+        </div>
+    </div>
+</div>
+{%endblock%}
+
