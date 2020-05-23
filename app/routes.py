@@ -459,12 +459,20 @@ def wurkerprofile(wurker):
     except:
         return redirect(url_for('genericerror'))
 
-@myapp.route('/<wurker>/upload', methods = ['POST'])
+@myapp.route('/<wurker>/edit', methods = ['POST'])
 def uploadphoto(wurker):
-    filename1 = secure_filename(form.image.data.filename)
-    print(filename1)
-    return redirect(url_for('wurkerprofile'))
-
+    newbio = request.form['bio']
+    u = User.query.filter_by(username=wurker).first()
+    u.bio = newbio
+    db.session.commit()
+    return redirect(url_for('wurkerprofile', wurker=wurker))
+    
+@myapp.route('/<wurker>/delete/<file>', methods = ['POST', 'Get'])
+def deletephoto(wurker, file):
+    pic = Post.query.filter_by(pic=file).first()
+    db.session.delete(pic)
+    db.session.commit()
+    return redirect(url_for('wurkerprofile', wurker = wurker))
 #Error Handlers
 
 @myapp.route('/error')

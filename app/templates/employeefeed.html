@@ -10,13 +10,20 @@
         <div class="col text-center">
             <h2>{{name}}</h2>
             <p>{{bio}}</p>
+            {%if myaccount%}
+            <form method="POST" action="edit">
+                {{render_form_row([form.bio])}}
+
+                <button type="submit" class="btn btn-outline-primary">Edit Bio</button>
+            </form>
+            {%endif%}
         </div>
         {%if myaccount%}
         <div class="col">
-            <form method="POST", enctype="multipart/form-data">
-            {{render_form_row([form.image])}}
-            {{render_form_row([form.description])}}
-            <button type="submit" class="btn btn-outline-primary">Upload</button>
+            <form method="POST" , enctype="multipart/form-data">
+                {{render_form_row([form.image])}}
+                {{render_form_row([form.description])}}
+                <button type="submit" class="btn btn-outline-primary">Upload</button>
             </form>
         </div>
         {%endif%}
@@ -26,16 +33,23 @@
 
 <div class="container-fluid my-2">
     <div class="row align-items-center">
+
+        {% for file in lst%}
         <div class="col">
-            {% for file in lst%}
             <figure class="figure">
                 <img src="{{ url_for('static', filename='css/img/' + username +'/'+ file.pic) }}"
                     class="figure-img img-fluid rounded"
-                    alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
+                    alt="Blog Post" style="width: 400px;">
                 <figcaption class="figure-caption">{{file.desc}}</figcaption>
             </figure>
-            {%endfor%}
+            {%if myaccount%}
+            <form action="delete/{{file.pic}}">
+                <button class="btn btn-outline-danger" type="submit">X</button>
+            </form>
+            {%endif%}
         </div>
+        {%endfor%}
+
     </div>
 </div>
 {%endblock%}

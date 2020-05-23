@@ -51,6 +51,7 @@ class bookingform(FlaskForm):
     comments = StringField('Comments')
 
 class UploadForm(FlaskForm):
+    bio = TextAreaField('Edit Bio')
     image = FileField('Image Upload', validators=[
         FileRequired(),
         FileAllowed(['jpg', 'png'], 'Images only!')
