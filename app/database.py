@@ -10,6 +10,8 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique = True)
     password = db.Column(db.String(128))
+    isemployee = db.Column(db.Integer)
+    bio = db.Column(db.String(500))
     personalinfos = db.relationship('PersonalInfo',backref='user',lazy='dynamic')
     def __repr__(self):
         return '<User {}>'.format(self.id)
@@ -77,24 +79,11 @@ class BookedDays(db.Model):
     def __repr__(self):
         return '<booked day {}>'.format(self.wid)
 
-class Wurker(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    wid = db.Column(db.String(10),unique = True)
-    fullname = db.Column(db.String(30))
-    password = db.Column(db.String(128))
-    bio = db.Column(db.String(500))
-    wurkerspost = db.relationship('Post')
-
-
-    def __repr__(self):
-        return '<Wurker {}>'.format(self.wid)
-
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     pic = db.Column(db.String(128))
     desc = db.Column(db.String(128))
-    wid = db.Column(db.String(10), db.ForeignKey('wurker.wid'))
-
+    poster = db.Column(db.Integer)
     def __repr__(self):
         return '<Post {}>'.format(self.id)

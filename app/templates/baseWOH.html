@@ -69,8 +69,11 @@
           {% if current_user.is_anonymous %}
           <a  class="btn btn-outline-light my-2 my-sm-0" href="{{ url_for('login') }}">Login</a>
           {% else %}
-          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{ url_for('useraccount') }}">My Account</a>
+          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{ url_for('useraccount') }}">My Dashboard</a>
           {% endif %}
+          {%if current_user.isemployee == 1%}
+          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{url_for('wurkerprofile',wurker = current_user.username)}}">My Profile</a>
+          {%endif%}
     </div>
   </nav>
   {% block content %}

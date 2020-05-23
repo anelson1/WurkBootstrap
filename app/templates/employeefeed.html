@@ -1,15 +1,25 @@
 {%extends "baseWOH.html"%}
+{%block title%}{{title}}{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
 {%block content%}
 <div class="container my-2">
     <div class="row align-items-center">
         <div class="col">
-            <img class="img-fluid" src="{{ url_for('static', filename='css/img/looksfresh.jpg') }}" alt="pelle">
+            <img class="img-fluid" src="{{ url_for('static', filename='css/img/' + name+'.jpg') }}" alt="pelle">
         </div>
         <div class="col text-center">
             <h2>{{name}}</h2>
             <p>{{bio}}</p>
-
-            </div>
+        </div>
+        {%if myaccount%}
+        <div class="col">
+            <form method="POST", enctype="multipart/form-data">
+            {{render_form_row([form.image])}}
+            {{render_form_row([form.description])}}
+            <button type="submit" class="btn btn-outline-primary">Upload</button>
+            </form>
+        </div>
+        {%endif%}
     </div>
 </div>
 <hr class="border border-primary">
@@ -17,24 +27,15 @@
 <div class="container-fluid my-2">
     <div class="row align-items-center">
         <div class="col">
+            {% for file in lst%}
             <figure class="figure">
-                <img src="{{ url_for('static', filename='css/img/dickrepair.jpg') }}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
-                <figcaption class="figure-caption">Just me and the boys</figcaption>
-              </figure>
-        </div>
-        <div class="col">
-            <figure class="figure">
-                <img src="{{ url_for('static', filename='css/img/cardetail.jpg') }}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
-                <figcaption class="figure-caption">Detailing a car</figcaption>
-              </figure>
-        </div>
-        <div class="col">
-            <figure class="figure">
-                <img src="{{ url_for('static', filename='css/img/landscapesauce-min.jpg') }}" class="figure-img img-fluid rounded" alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
-                <figcaption class="figure-caption">Grass more like sugma</figcaption>
-              </figure>
+                <img src="{{ url_for('static', filename='css/img/' + username +'/'+ file.pic) }}"
+                    class="figure-img img-fluid rounded"
+                    alt="A generic square placeholder image with rounded corners in a figure." style="width: 400px;">
+                <figcaption class="figure-caption">{{file.desc}}</figcaption>
+            </figure>
+            {%endfor%}
         </div>
     </div>
 </div>
 {%endblock%}
-

@@ -10,7 +10,7 @@ from random import randint
 import string
 import json
 import os
-
+from werkzeug.utils import secure_filename
 
 
 def getInfo(username):
@@ -132,21 +132,13 @@ def deletebooking(bookingid):
 @myapp.route("/wurker", methods=['GET'])
 @login_required
 def wurker():
+    if current_user.isemployee == 0:
+        return redirect(url_for('useraccount'))
     popup = request.args.get('popup')
     error = request.args.get('error')
     u = BookedDays.query.all()
-    return render_template('tableData.html', lst = u, popup = popup, error = error)
-@myapp.route("/deletebookedday/<id>")
-@login_required
-def deleteslot(id):
-    b = BookedDays.query.get(id)
-    error=False
-    try:
-        db.session.delete(b)
-        db.session.commit()
-    except:
-        error = True
-    return redirect(url_for('wurker',popup = True, error = error))
+    return render_template('tableData.html', lst=u, popup=popup, error=error)
+    
 @myapp.route("/register")
 def register():
     form = registerform()
@@ -191,7 +183,7 @@ def register3Handler():
     city = request.form['city']
     state = request.form['state']
     id = randint(1000000,9999999)
-    u = User(id = id, username=username, password=password)
+    u = User(id = id, username=username, password=password, isemployee = 0, bio = '')
     db.session.add(u)
     pi = PersonalInfo(id = id, email=email, phonenumber=phonenumber, city=city, state=state, address=address, person = id,firstname = fname, lastname=lname)
     db.session.add(pi)
@@ -209,6 +201,8 @@ def registered():
 def useraccount():
     if current_user.username == 'wurker':
         return redirect(url_for('wurker'))
+    if current_user.isemployee == 1:
+        return redirect(url_for('WP'))
     hasMeeting = request.args.get('hasMeeting')
     hasError = request.args.get('hasError')
     month = request.args.get('month')
@@ -372,24 +366,37 @@ def MTT():
     return render_template("MTT.html")
 
 @myapp.route("/WurkerPage", methods=['GET'])
+@login_required
 def WP():
+    if current_user.isemployee == 0:
+        return redirect(url_for('useraccount'))
+    popupremove = request.args.get('popupremove')
+    error = request.args.get('error')
+    u = BookedDays.query.all()
     day = request.args.get('day')
     month = request.args.get('month')
     popup = request.args.get('popup')
     err = request.args.get('err')
     name = request.args.get('name')
     form = wurkerEntry()
-    return render_template('wurker.html', form=form, day=day, month=month, err=err, popup=popup, name=name)
+    return render_template('wurker.html', user = PersonalInfo.query.filter_by(id= current_user.id).first().firstname, lst = u, popupremove = popupremove, form=form, day=day, month=month, err=err, popup=popup, name=name)
 
+@myapp.route("/deletebookedday/<id>")
+@login_required
+def deleteslot(id):
+    b = BookedDays.query.get(id)
+    error=False
+    try:
+        db.session.delete(b)
+        db.session.commit()
+    except:
+        error = True
+    return redirect(url_for('WP', popupremove=True, error=error))
+    
 
 @myapp.route("/wurkerhandler", methods=['post'])
 def addSceudel():
-    WID = request.form['WID']
-    w=Wurker.query.filter_by(wid = WID).first()
-    if not w:
-        return redirect(url_for('WP', err=True))
-    else:
-        name = w.fullname
+    w= PersonalInfo.query.filter_by(id=current_user.id).first()
     date = request.form['day']
     time = request.form['time']
     CN = request.form['clientName']
@@ -398,11 +405,11 @@ def addSceudel():
     print(date)
     month = returnMonth(date[5:7])
     day = int(date[8:10])
-    bd = BookedDays(name=w.fullname, day = day, month = month, wid = WID, jobtype = TOJ, peopleonjob = POTJ, clientname = CN, time = time)
+    bd = BookedDays(name=w.firstname, day = day, month = month, wid = current_user.username, jobtype = TOJ, peopleonjob = POTJ, clientname = CN, time = time)
     db.session.add(bd)
     db.session.commit()
-    print(name + "has updated their avaliblity")
-    return redirect(url_for('WP', day=day, month=month, popup=True, name=name))
+    print(w.firstname + "has updated their avaliblity")
+    return redirect(url_for('WP', day=day, month=month, popup=True, name=w.firstname))
 
 @myapp.route('/sitemap.xml')
 def site_map():
@@ -419,14 +426,44 @@ def site_map():
 def robots():
     return send_from_directory('static', 'robots.txt')
 
-@myapp.route('/<wurker>/profile')
+@myapp.route('/<wurker>/profile', methods = ['GET', 'POST'])
 def wurkerprofile(wurker):
+    form = UploadForm()
     try:
-        u = Wurker.query.filter_by(wid=wurker).first()
-        return render_template('employeefeed.html', name=u.fullname, bio=u.bio)
+        os.makedirs('app/static/css/img/' + wurker)
+    except:
+        print('Already exists')
+    if request.method == 'POST':
+        file = request.files['image']
+        try:
+            os.makedirs('app/static/css/img/' + wurker)
+        except:
+            print('Already exists')
+        finally:
+            filename = secure_filename(file.filename)
+            file.save(os.path.join('app/static/css/img/' + wurker, filename))
+            p = Post(pic=filename, desc=request.form['description'], poster=current_user.id)
+            db.session.add(p)
+            db.session.commit()
+    try:
+        u = User.query.filter_by(username=wurker).first()
+        p = PersonalInfo.query.filter_by(id=u.id).first()
+        files = Post.query.filter_by(poster = u.id)
+        if not current_user.is_anonymous and current_user.isemployee == 1 and current_user.username == wurker:
+            myaccount = True
+        else:
+            myaccount = False
+        filelst = os.listdir('app/static/css/img/' + wurker)
+        print(filelst)
+        return render_template('employeefeed.html', lst = files,username = u.username, form= form, name=p.firstname, bio=u.bio, myaccount = myaccount, title = p.firstname)
     except:
         return redirect(url_for('genericerror'))
 
+@myapp.route('/<wurker>/upload', methods = ['POST'])
+def uploadphoto(wurker):
+    filename1 = secure_filename(form.image.data.filename)
+    print(filename1)
+    return redirect(url_for('wurkerprofile'))
 
 #Error Handlers
 

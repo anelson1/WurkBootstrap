@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, PasswordField, SelectField
+from wtforms import StringField, SubmitField, BooleanField, PasswordField, SelectField, TextAreaField
+from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms.fields.html5 import DateField, TimeField
 from wtforms.validators import DataRequired, Email
 class dateEntry(FlaskForm):
@@ -48,3 +49,11 @@ class bookingform(FlaskForm):
     time = TimeField('Time',
                     validators=[DataRequired()])
     comments = StringField('Comments')
+
+class UploadForm(FlaskForm):
+    image = FileField('Image Upload', validators=[
+        FileRequired(),
+        FileAllowed(['jpg', 'png'], 'Images only!')
+    ])
+    description = TextAreaField('Image Description')
+    submit = SubmitField("Submit")
