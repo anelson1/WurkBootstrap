@@ -79,11 +79,23 @@ class BookedDays(db.Model):
     def __repr__(self):
         return '<booked day {}>'.format(self.wid)
 
+class Wurker(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    wid = db.Column(db.String(10),unique = True)
+    fullname = db.Column(db.String(30))
+    password = db.Column(db.String(128))
+    bio = db.Column(db.String(500))
+    wurkerspost = db.relationship('Post')
+
+
+    def __repr__(self):
+        return '<Wurker {}>'.format(self.wid)
+
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     pic = db.Column(db.String(128))
     desc = db.Column(db.String(128))
-    poster = db.Column(db.Integer)
+   
     def __repr__(self):
         return '<Post {}>'.format(self.id)
