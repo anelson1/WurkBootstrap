@@ -434,17 +434,17 @@ def wurkerprofile(wurker):
     except:
         print('Already exists')
     if request.method == 'POST':
-        file = request.files['image']
         try:
-            os.makedirs('app/static/css/img/' + wurker)
-        except:
-            print('Already exists')
-        finally:
+            file = request.files['image']
             filename = secure_filename(file.filename)
+            
             file.save(os.path.join('app/static/css/img/' + wurker, filename))
-            p = Post(pic=filename, desc=request.form['description'], poster=current_user.id)
-            db.session.add(p)
-            db.session.commit()
+        except:
+            file = None
+        
+        p = Post(pic=filename, desc=request.form['description'], poster=current_user.id)
+        db.session.add(p)
+        db.session.commit()
     try:
         u = User.query.filter_by(username=wurker).first()
         p = PersonalInfo.query.filter_by(id=u.id).first()
@@ -469,7 +469,7 @@ def uploadphoto(wurker):
     
 @myapp.route('/<wurker>/delete/<file>', methods = ['POST', 'Get'])
 def deletephoto(wurker, file):
-    pic = Post.query.filter_by(pic=file).first()
+    pic = Post.query.filter_by(id=file).first()
     db.session.delete(pic)
     db.session.commit()
     return redirect(url_for('wurkerprofile', wurker = wurker))

@@ -36,14 +36,18 @@
 
         {% for file in lst%}
         <div class="col">
+            {%if file.pic == ''%}
+            <p class="lead">{{file.desc}}</p>
+            {%else%}
             <figure class="figure">
                 <img src="{{ url_for('static', filename='css/img/' + username +'/'+ file.pic) }}"
                     class="figure-img img-fluid rounded"
                     alt="Blog Post" style="width: 400px;">
                 <figcaption class="figure-caption">{{file.desc}}</figcaption>
             </figure>
+            {%endif%}
             {%if myaccount%}
-            <form action="delete/{{file.pic}}">
+            <form action="delete/{{file.id}}">
                 <button class="btn btn-outline-danger" type="submit">X</button>
             </form>
             {%endif%}

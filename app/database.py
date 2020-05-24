@@ -83,7 +83,7 @@ class BookedDays(db.Model):
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     pic = db.Column(db.String(128))
-    desc = db.Column(db.String(128))
+    desc = db.Column(db.String(500))
     poster = db.Column(db.Integer)
     def __repr__(self):
         return '<Post {}>'.format(self.id)
