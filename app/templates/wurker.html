@@ -4,7 +4,7 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row align-items-center">
             <div class="col-md-5 mx-auto my-5">
 
                 {%if popup%}
@@ -31,7 +31,42 @@
                         </form>
                     </div>
                 </div>
-                
+
+            </div>
+            <div class="col-md-5 my-5 mx-auto">
+                {%if justclockedin%}
+                <div class="alert alert-success">
+                    You have clocked in!
+                </div>
+                {%endif%}
+                {%if justclockedout%}
+                <div class="alert alert-success">
+                    You have clocked out!
+                </div>
+                {%endif%}
+                <div class="card mb-5 fadein">
+                    <div class="card-body shadow-lg">
+                        <h1 class="card-title">Keep track of your hours</h1>
+                        {%if not clockedin%}
+                        <p class="card-text">You are currently not clocked in, please enter the type of job you are working on then press clock in</p>
+
+                        <form action="/clockin" method="POST">
+                            <div class="form-group">
+                                {{render_form_row([form.JobType])}}
+                                <button class="btn btn-outline-success" type="submit">Clock In</button>
+                            </div>
+                        </form>
+                        {%else%}
+                        <p class="card-text">You are currently clocked in</p>
+                        <p class="card-text">You started this job on {{time[:10]}} at {{time[11::]}}</p>
+                        <form action="/clockout">
+                            <div class="form-group">
+                                <button class="btn btn-outline-danger" type="submit">Clock Out</button>
+                            </div>
+                        </form>
+                        {%endif%}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -41,12 +76,12 @@
                 {%if popupremove%}
                 <div class="alert alert-success">
                     <strong>Success!</strong> Booking was successfully removed
-                  </div>
+                </div>
                 {%endif%}
                 {%if error == True%}
                 <div class="alert alert-danger">
                     <strong>Error!</strong> I'll keep it real with you chief, not sure what went wrong. Try again later
-                  </div>
+                </div>
                 {%endif%}
                 <div class="card mx-auto">
                     <div class="card-body">
@@ -78,8 +113,8 @@
                                         </form>
                                     </td>
                                 </tr>
-    
-    
+
+
                                 {%endfor%}
                             </tbody>
                         </table>

@@ -1,0 +1,33 @@
+{%extends "baseWOH.html"%}
+{%block title%}Time Sheet{%endblock%}
+
+{%block content%}
+<div class="container-fluid">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Wurker Name</th>
+            <th scope="col">Type of Job</th>
+            <th scope="col">Time In</th>
+            <th scope="col">Time Out</th>
+  
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in lst%}
+  
+          <tr>
+            <th scope="row">{{personalinfo.query.get(i.wurker).firstname}}</th>
+            <td>{{i.jobtype}}</td>
+            <td>{{i.timein}}</td>
+            <td>{{i.timeout}}</td>
+          </tr>
+  
+          {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+{%endblock%}

@@ -1,4 +1,6 @@
 {%extends "baseWOH.html"%}
+{%block title%}Admin{%endblock%}
+
 {%block content%}
 <script>
   $(function () {
@@ -15,48 +17,14 @@
         <strong>Success!</strong> That booking has been removed!
       </div>
       {%endif%}
-      <div class="card mx-auto mb-5">
+      <div class="card mx-auto mb-5 text-center">
         <div class="card-body">
-          <h4 class="card-title" style="text-align:center">Welcome to the admin page.</h4>
-          <form action="/admino" method='post'>
-            <div class="form-group">
-              <input type="text" class="form-control" id="FN" name="FN" placeholder="First Name"></input>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" id="LN" name="LN" placeholder="Last Name"></input>
-            </div>
-            <div class="form-group">
-              <select class="form-control p-1" id="TOT" name="TOT">
-                <option value="Acedemic Tutoring">Acedemic Tutoring</option>
-                <option value="Music Lessons">Music Lessons</option>
-                <option value="ACT and SAT Prep">ACT and SAT Prep</option>
-                <option value="Sports Coaching">Sports Coaching</option>
-              </select>
-            </div>
-            <button class="btn btn-outline-primary" type="submit">Create</button>
+          <h4 class="card-title">Welcome to the admin page.</h4>
+          <form action="/admin/timesheet">
+            <button class="btn btn-outline-success" type="submit">See Time Sheet</button>
           </form>
         </div>
       </div>
-      <script>
-        // Disable form submissions if there are invalid fields
-        (function () {
-          'use strict';
-          window.addEventListener('load', function () {
-            // Get the forms we want to add validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-              form.addEventListener('submit', function (event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-              }, false);
-            });
-          }, false);
-        })();
-      </script>
     </div>
   </div>
   <div class="col-md-4">

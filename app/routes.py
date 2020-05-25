@@ -11,6 +11,7 @@ import string
 import json
 import os
 from werkzeug.utils import secure_filename
+from datetime import datetime
 
 
 def getInfo(username):
@@ -105,39 +106,6 @@ def loginhandler():
 def logout():
     logout_user()
     return redirect(url_for("login"))
-@myapp.route("/admin", methods=['GET'])
-@login_required
-def admin():
-    if current_user.username != 'admin':
-        return redirect(url_for("useraccount"))
-    booking = Booking.query.all()
-    bookingtime = BookingTime.query.all()
-    client = Client.query.all()
-    u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all() 
-    popup = request.args.get('popup')
-    return render_template('adminpage.html', lst=u, popup = popup)
-
-@myapp.route("/deletebooking/<bookingid>")
-def deletebooking(bookingid):
-    booking = Booking.query.filter_by(bookingid=bookingid).first()
-    bookingtime = BookingTime.query.filter_by(bookingid=bookingid).first()
-    client = Client.query.filter_by(bookingid=bookingid).first()
-    print(booking, bookingtime, client)
-    db.session.delete(booking)
-    db.session.delete(bookingtime)
-    db.session.delete(client)
-    db.session.commit()
-    return redirect(url_for("admin",popup = True))
-
-@myapp.route("/wurker", methods=['GET'])
-@login_required
-def wurker():
-    if current_user.isemployee == 0:
-        return redirect(url_for('useraccount'))
-    popup = request.args.get('popup')
-    error = request.args.get('error')
-    u = BookedDays.query.all()
-    return render_template('tableData.html', lst=u, popup=popup, error=error)
     
 @myapp.route("/register")
 def register():
@@ -365,6 +333,7 @@ def CU():
 def MTT():
     return render_template("MTT.html")
 
+#Stuff for the wurker--------------------------------------------------------------------------------------------------
 @myapp.route("/WurkerPage", methods=['GET'])
 @login_required
 def WP():
@@ -378,8 +347,14 @@ def WP():
     popup = request.args.get('popup')
     err = request.args.get('err')
     name = request.args.get('name')
+    JCI = request.args.get('justclockedin')
+    JCO = request.args.get('justclockedout')
     form = wurkerEntry()
-    return render_template('wurker.html', user = PersonalInfo.query.filter_by(id= current_user.id).first().firstname, lst = u, popupremove = popupremove, form=form, day=day, month=month, err=err, popup=popup, name=name)
+    try:
+        time = TimeSheet.query.get(current_user.currenttimesheet).timein
+    except:
+        time = None
+    return render_template('wurker.html', time = time, justclockedin = JCI, justclockedout = JCO, clockedin = current_user.currenttimesheet, user = PersonalInfo.query.filter_by(id= current_user.id).first().firstname, lst = u, popupremove = popupremove, form=form, day=day, month=month, err=err, popup=popup, name=name)
 
 @myapp.route("/deletebookedday/<id>")
 @login_required
@@ -395,6 +370,7 @@ def deleteslot(id):
     
 
 @myapp.route("/wurkerhandler", methods=['post'])
+@login_required
 def addSceudel():
     w= PersonalInfo.query.filter_by(id=current_user.id).first()
     date = request.form['day']
@@ -410,22 +386,30 @@ def addSceudel():
     db.session.commit()
     print(w.firstname + "has updated their avaliblity")
     return redirect(url_for('WP', day=day, month=month, popup=True, name=w.firstname))
-
-@myapp.route('/sitemap.xml')
-def site_map():
-    sitemap_template = render_template('sitemap.xml')
-    response = make_response(sitemap_template)
-    response.headers["Content-Type"] = "application/xml"
-    return response
-
-
-
-
-
-@myapp.route('/robots.txt')
-def robots():
-    return send_from_directory('static', 'robots.txt')
-
+@myapp.route("/clockin", methods = ['POST'])
+@login_required
+def clockin():
+    currentTime = datetime.now()
+    dt_string = currentTime.strftime("%d/%m/%Y %H:%M:%S")
+    TOJ = request.form['JobType']
+    TS = TimeSheet(timein=dt_string, wurker=current_user.id, jobtype = TOJ)
+    db.session.add(TS)
+    db.session.commit()
+    u = User.query.get(current_user.id)
+    u.currenttimesheet = TS.id
+    db.session.commit()
+    return redirect(url_for("WP", justclockedin=True))
+@myapp.route("/clockout")
+@login_required
+def clockout():
+    currentTime = datetime.now()
+    dt_string = currentTime.strftime("%d/%m/%Y %H:%M:%S")
+    TS = TimeSheet.query.get(current_user.currenttimesheet)
+    TS.timeout = dt_string
+    u = User.query.get(current_user.id)
+    u.currenttimesheet = None
+    db.session.commit()
+    return redirect(url_for("WP", justclockedout = True))
 @myapp.route('/<wurker>/profile', methods = ['GET', 'POST'])
 def wurkerprofile(wurker):
     form = UploadForm()
@@ -472,9 +456,62 @@ def deletephoto(wurker, file):
     pic = Post.query.filter_by(id=file).first()
     db.session.delete(pic)
     db.session.commit()
-    return redirect(url_for('wurkerprofile', wurker = wurker))
-#Error Handlers
+    return redirect(url_for('wurkerprofile', wurker=wurker))
+    
+#End stuff for the wurker-------------------------------------------------------------------------------------------
 
+#Start Stuff For Admin----------------------------------------------------------------------------------------------
+@myapp.route("/deletebooking/<bookingid>")
+def deletebooking(bookingid):
+    booking = Booking.query.filter_by(bookingid=bookingid).first()
+    bookingtime = BookingTime.query.filter_by(bookingid=bookingid).first()
+    client = Client.query.filter_by(bookingid=bookingid).first()
+    print(booking, bookingtime, client)
+    db.session.delete(booking)
+    db.session.delete(bookingtime)
+    db.session.delete(client)
+    db.session.commit()
+    return redirect(url_for("admin", popup=True))
+
+@myapp.route("/admin", methods=['GET'])
+@login_required
+def admin():
+    if current_user.username != 'admin':
+        return redirect(url_for("useraccount"))
+    booking = Booking.query.all()
+    bookingtime = BookingTime.query.all()
+    client = Client.query.all()
+    u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all() 
+    popup = request.args.get('popup')
+    return render_template('adminpage.html', lst=u, popup=popup)
+@myapp.route("/admin/timesheet", methods=['GET'])
+@login_required
+def timesheet():
+    if current_user.username != 'admin':
+        return redirect(url_for("useraccount"))
+    lst = TimeSheet.query.all()
+    popup = request.args.get('popup')
+    return render_template('timesheet.html', lst=lst, personalinfo = PersonalInfo, popup = popup)
+#End Stuff For Admin----------------------------------------------------------------------------------------------
+
+
+@myapp.route('/sitemap.xml')
+def site_map():
+    sitemap_template = render_template('sitemap.xml')
+    response = make_response(sitemap_template)
+    response.headers["Content-Type"] = "application/xml"
+    return response
+
+
+
+
+
+@myapp.route('/robots.txt')
+def robots():
+    return send_from_directory('static', 'robots.txt')
+
+
+#Error Handlers
 @myapp.route('/error')
 def genericerror():
     return render_template('application-error.html', errormessage ='That page could not be found, please go home and try again!')

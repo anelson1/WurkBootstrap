@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(128))
     isemployee = db.Column(db.Integer)
     bio = db.Column(db.String(500))
+    currenttimesheet = db.Column(db.Integer)
     personalinfos = db.relationship('PersonalInfo',backref='user',lazy='dynamic')
     def __repr__(self):
         return '<User {}>'.format(self.id)
@@ -87,3 +88,13 @@ class Post(db.Model):
     poster = db.Column(db.Integer)
     def __repr__(self):
         return '<Post {}>'.format(self.id)
+
+
+class TimeSheet(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    timein = db.Column(db.String(128))
+    timeout = db.Column(db.String(128))
+    jobtype = db.Column(db.String(30))
+    wurker = db.Column(db.Integer)
+    def __repr__(self):
+        return '<TimeSheet {}>'.format(self.id)
