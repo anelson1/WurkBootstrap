@@ -36,12 +36,8 @@ pets, we provide a full array of services available at a moment's notice. All yo
   data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '5531c047-e943-4ded-a630-4c625deff899', f: true }); done = true; } }; })();</script>
 
 <body>
-  <div class="jumbotron bg-white p-3" style="margin-bottom:5px">
-    <a href="/"> <img class="img-fluid" src="{{ url_for('static', filename='css/img/WurkBan11.jpg') }}"
-        alt="Card image cap" width="40%"></a>
-  </div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/" style="font-size: 30px;">Wurk</a>
+    <a class="navbar-brand" href="/"><img width="50" height="50" class="d-inline-block align-top" alt="" src = "{{ url_for('static', filename='css/img/W.png') }}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

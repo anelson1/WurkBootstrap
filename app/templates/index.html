@@ -3,13 +3,15 @@
 {%block content%}
 
 
-<div class="container-fluid mt-1 h-100">
+<div class="container-fluid">
   <div class="row">
-    <div class="col text-white">
+    <div class="col p-0 text-white">
       <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll"
         data-image-src="{{ url_for('static', filename='css/img/paralax.jpg') }}" alt='Landscaping'>
-        <span class="bg-transdark my-5 p-3">
-          <h1>We do all odd jobs. Work less with Wurk today!</h1>
+        <span class="bg-transdark p-3 my-5">
+          <h1>Wurk Services</h1>
+
+          <h2>We do all odd jobs. Work less with Wurk today!</h2>
           <h3>Wurk Services is a management company. From maintaining your property to tutoring your kids and caring for
             your
             pets, we provide a full array of services available at a moment's notice. All you need to do is book! Wurk
@@ -61,21 +63,20 @@
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/paintnshain-min.jpg') }}"
-          alt="Landscaping">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/powerwash-min.jpg') }}" alt="Landscaping">
         <div class="card-body">
-          <h4 class="card-title">Painting and Staining</h4>
-          <a href="/services/Painting and Staining" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Powerwashing</h4>
+          <a href="/services/Powerwashing" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/dickrepair-min.jpg') }}"
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/paintnshain-min.jpg') }}"
           alt="Landscaping">
         <div class="card-body">
-          <h4 class="card-title">Deck and Roof Restoration</h4>
-          <a href="/services/Deck and Roof Restoration" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Painting and Staining</h4>
+          <a href="/services/Painting and Staining" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
@@ -96,10 +97,11 @@
     </div>
     <div class="col-lg-3">
       <div class="card mx-auto mb-5">
-        <img class="card-img-top" src="{{ url_for('static', filename='css/img/powerwash-min.jpg') }}" alt="Landscaping">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/dickrepair-min.jpg') }}"
+          alt="Landscaping">
         <div class="card-body">
-          <h4 class="card-title">Powerwashing</h4>
-          <a href="/services/Powerwashing" class="btn btn-outline-primary stretched-link">Learn More</a>
+          <h4 class="card-title">Deck and Roof Restoration</h4>
+          <a href="/services/Deck and Roof Restoration" class="btn btn-outline-primary stretched-link">Learn More</a>
         </div>
       </div>
     </div>
