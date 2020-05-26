@@ -72,7 +72,7 @@ def returnMonth(day):
 def index():
     return render_template("index.html", pagetitle="Wurk Services")
 
-
+#User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
 def login():
     error = request.args.get('uErr')
@@ -171,6 +171,8 @@ def useraccount():
         return redirect(url_for('wurker'))
     if current_user.isemployee == 1:
         return redirect(url_for('WP'))
+    if current_user.username == 'admin':
+        return redirect(url_for('admin'))
     hasMeeting = request.args.get('hasMeeting')
     hasError = request.args.get('hasError')
     month = request.args.get('month')
@@ -189,7 +191,7 @@ def useraccount():
         name = 'Unknown'
     return render_template('useraccount.html', hasError= hasError, month=month, day=day,TOB=TOB,start=start,hasMeeting = hasMeeting, uname=name, fTime=True,form=form, pagetitle="My Account")
    
-
+#End Account Stuff---------------------------------------------------------------------------------------------------------------------------------------------------------
 #Wurk in progess 
 @myapp.route("/adminhandler", methods=['post'])
 def adminhandler():
@@ -204,7 +206,7 @@ def adminhandler():
     conn.commit()
     return render_template('adminpage.html')
 
-
+#Booking Creation -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/CheckBooking", methods=['post'])
 def checkbooking():
     bid = request.form['bid']
@@ -231,26 +233,22 @@ def TOS(TOS):
         meta = ''
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
-        return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle='Barrington Landscaping Services | Lawn Care Services | Barrington, Il | Wurk Barrington Services')
+        return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS)
     if TOS == 'Junk Removal':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
-@myapp.route("/landscaping-services-barrington-il")
-def thingthatarchalwanted():
-    TOS = 'Lawn Care'
-    desc = dictofservices()
-    print(desc)
-    try:
-        meta = desc.serviceDict[TOS + " Meta"]
-    except KeyError as e:
-        meta = ''
-    filedirectory = 'css/img/'+TOS
-    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle='Barrington Landscaping Services | Lawn Care Services | Barrington, Il | Wurk Barrington Services')
+@myapp.route("/services/<TOS>/SelectSport")
+def SportSelect(TOS):
+    form = bookingform()
+    return render_template('sportpicker.html', pagetitle="Pick Your Sport", form=form)
 
-@myapp.route("/services/<TOS>/StartBooking")
+@myapp.route("/services/<TOS>/StartBooking", methods = ['POST',"GET"])
 def TOSBook(TOS):
-    session['TOB'] = TOS
+    if request.method == "POST":
+        session['TOB'] = request.form['sportsoffered'] + " Coaching"
+    else:
+        session['TOB'] = TOS
     if not current_user.is_anonymous:
         return redirect(url_for("CreateBookingTimeAndDate"))
     form = registerform()
@@ -323,15 +321,7 @@ def FinalizeBooking():
 def created():
     return render_template("BookingComplete.html", BID=session['bid'])
     
-
-@myapp.route("/ContactUs")
-def CU():
-    return render_template("contact.html")
-
-
-@myapp.route("/MeetTheTeam")
-def MTT():
-    return render_template("MTT.html")
+#End Of Booking Creation -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Stuff for the wurker--------------------------------------------------------------------------------------------------
 @myapp.route("/WurkerPage", methods=['GET'])
@@ -457,7 +447,6 @@ def deletephoto(wurker, file):
     db.session.delete(pic)
     db.session.commit()
     return redirect(url_for('wurkerprofile', wurker=wurker))
-    
 #End stuff for the wurker-------------------------------------------------------------------------------------------
 
 #Start Stuff For Admin----------------------------------------------------------------------------------------------
@@ -492,8 +481,17 @@ def timesheet():
     lst = TimeSheet.query.all()
     popup = request.args.get('popup')
     return render_template('timesheet.html', lst=lst, personalinfo = PersonalInfo, popup = popup)
-#End Stuff For Admin----------------------------------------------------------------------------------------------
+#End Stuff For Admin----------------------------------------------------------------------------------------------------------------------------------------
 
+#Static Pages -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@myapp.route("/ContactUs")
+def CU():
+    return render_template("contact.html")
+
+
+@myapp.route("/MeetTheTeam")
+def MTT():
+    return render_template("MTT.html")
 
 @myapp.route('/sitemap.xml')
 def site_map():
@@ -503,12 +501,10 @@ def site_map():
     return response
 
 
-
-
-
 @myapp.route('/robots.txt')
 def robots():
     return send_from_directory('static', 'robots.txt')
+#End Of Static Pages -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 #Error Handlers

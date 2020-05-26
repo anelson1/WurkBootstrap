@@ -49,6 +49,9 @@ class bookingform(FlaskForm):
     time = TimeField('Time',
                     validators=[DataRequired()])
     comments = StringField('Comments')
+    sportsoffered = SelectField("Sport", choices=['Soccer','Lacrosse',"Football","Golf","Tennis","Basketball","Wrestling"])
+    nextbutton = SubmitField("Next")
+
 
 class UploadForm(FlaskForm):
     bio = TextAreaField('Edit Bio')
