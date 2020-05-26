@@ -51,27 +51,43 @@
           <a class="nav-link text-white" href="/MeetTheTeam" style="font-size: 25px;">Meet The Team</a>
         </li>
       </ul>
-      <a href="http://instagram.com/wurkservices" target="_blank"><img class="img-fluid mr-3 my-2"
-          src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px"
-          alt="Card image cap"></a>
-      <a href="https://www.linkedin.com/company/wurk-llc" target="_blank"><img class="img-fluid mx-3 my-2"
-          src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px"
-          alt="Card image cap"></a>
-      <a href="https://www.facebook.com/pg/wurkservices/posts/" target="_blank"><img class="img-fluid mx-3 my-2"
-          src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px"
-          alt="Card image cap"></a>
-      <a href="https://twitter.com/wurkservices" target="_blank"><img class="img-fluid ml-3 mr-4 my-2"
-          src="{{ url_for('static', filename='css/svg/twitter.png') }}" height="30px" width="30px"
-          alt="Card image cap"></a>
-
-          {% if current_user.is_anonymous %}
-          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{ url_for('login') }}">Login</a>
-          {% else %}
-          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{ url_for('useraccount') }}">My Dashboard</a>
-          {% endif %}
-          {%if current_user.isemployee == 1%}
-          <a  class="btn btn-outline-light my-2 my-sm-0" href="{{url_for('wurkerprofile',wurker = current_user.username)}}">My Profile</a>
-          {%endif%}
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="http://instagram.com/wurkservices" target="_blank"><img class="img-fluid mx-3 my-2"
+              src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px"
+              alt="Card image cap"></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.linkedin.com/company/wurk-llc" target="_blank"><img class="img-fluid mx-3 my-2"
+              src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px"
+              alt="Card image cap"></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://www.facebook.com/pg/wurkservices/posts/" target="_blank"><img class="img-fluid mx-3 my-2"
+              src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px"
+              alt="Card image cap"></a>
+        </li>
+        <li class="nav-item">
+          <a href="https://twitter.com/wurkservices" target="_blank"><img class="img-fluid mx-3 my-2"
+              src="{{ url_for('static', filename='css/svg/twitter.png') }}" height="30px" width="30px"
+              alt="Card image cap"></a>
+        </li>
+        {% if current_user.is_anonymous %}
+        <li class="nav-item">
+          <a class="btn btn-outline-light my-2" href="{{ url_for('login') }}">Login</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="btn btn-outline-light my-2" href="{{ url_for('useraccount') }}">My Dashboard</a>
+        </li>
+        {% endif %}
+        {%if current_user.isemployee == 1%}
+        <li class="nav-item">
+          <a class="btn btn-outline-light my-2"
+            href="{{url_for('wurkerprofile',wurker = current_user.username)}}">My Profile</a>
+        </li>
+        {%endif%}
+      </ul>
     </div>
   </nav>
   {% block content %}
