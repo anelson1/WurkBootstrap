@@ -238,6 +238,18 @@ def TOS(TOS):
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
+@myapp.route("/Barrington-landscaping-services-il")
+def Archal():
+    TOS = 'Lawn Care'
+    desc = dictofservices()
+    print(desc)
+    try:
+        meta = desc.serviceDict[TOS + " Meta"]
+    except KeyError as e:
+        meta = ''
+    filedirectory = 'css/img/'+TOS
+    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS)
+   
 @myapp.route("/services/<TOS>/SelectSport")
 def SportSelect(TOS):
     form = bookingform()
