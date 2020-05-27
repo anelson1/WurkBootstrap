@@ -2,6 +2,14 @@
 {%block title%}{{title}}{%endblock%}
 {% from 'bootstrap/form.html' import render_form_row %}
 {%block content%}
+<script>
+  jQuery(document).ready(function($) {
+	$("#sumbit").on("click", function() {
+        $('#upload').submit();
+        $('#upload').get(0).reset();
+    });
+});
+</script>
 <div class="container my-2">
     <div class="row align-items-center">
         <div class="col">
@@ -20,10 +28,11 @@
         </div>
         {%if myaccount%}
         <div class="col">
-            <form method="POST" , enctype="multipart/form-data">
+            <form method="POST" action="posthandler" enctype="multipart/form-data">
                 {{render_form_row([form.image])}}
+                {{render_form_row([form.title])}}
                 {{render_form_row([form.description])}}
-                <button type="submit" class="btn btn-outline-primary">Upload</button>
+                <button type="submit" id = 'sumbit' class="btn btn-outline-primary">Upload</button>
             </form>
         </div>
         {%endif%}
@@ -37,7 +46,8 @@
         {% for file in lst%}
         <div class="col">
             {%if file.pic == ''%}
-            <p class="lead">{{file.desc}}</p>
+            <h2 class="lead">{{file.title}}</h2>
+            <p>{{file.desc}}</p>
             {%else%}
             <figure class="figure">
                 <img src="{{ url_for('static', filename='css/img/' + username +'/'+ file.pic) }}"

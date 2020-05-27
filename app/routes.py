@@ -416,6 +416,23 @@ def clockout():
 def wurkerprofile(wurker):
     form = UploadForm()
     try:
+        u = User.query.filter_by(username=wurker).first()
+        p = PersonalInfo.query.filter_by(id=u.id).first()
+        files = Post.query.filter_by(poster = u.id)
+        if not current_user.is_anonymous and current_user.isemployee == 1 and current_user.username == wurker:
+            myaccount = True
+        else:
+            myaccount = False
+        filelst = os.listdir('app/static/css/img/' + wurker)
+        print(filelst)
+        return render_template('employeefeed.html', lst = files,username = u.username, form= form, name=p.firstname, bio=u.bio, myaccount = myaccount, title = p.firstname)
+    except Exception as e:
+        print(e)
+        return redirect(url_for('genericerror'))
+        
+@myapp.route('/<wurker>/posthandler', methods=['POST'])
+def posthandler(wurker):
+    try:
         os.makedirs('app/static/css/img/' + wurker)
     except:
         print('Already exists')
@@ -427,23 +444,10 @@ def wurkerprofile(wurker):
             file.save(os.path.join('app/static/css/img/' + wurker, filename))
         except:
             file = None
-        
-        p = Post(pic=filename, desc=request.form['description'], poster=current_user.id)
+        p = Post(pic=filename, desc=request.form['description'], title = request.form['title'], poster=current_user.id)
         db.session.add(p)
         db.session.commit()
-    try:
-        u = User.query.filter_by(username=wurker).first()
-        p = PersonalInfo.query.filter_by(id=u.id).first()
-        files = Post.query.filter_by(poster = u.id)
-        if not current_user.is_anonymous and current_user.isemployee == 1 and current_user.username == wurker:
-            myaccount = True
-        else:
-            myaccount = False
-        filelst = os.listdir('app/static/css/img/' + wurker)
-        print(filelst)
-        return render_template('employeefeed.html', lst = files,username = u.username, form= form, name=p.firstname, bio=u.bio, myaccount = myaccount, title = p.firstname)
-    except:
-        return redirect(url_for('genericerror'))
+    return redirect(url_for('wurkerprofile', wurker=wurker))
 
 @myapp.route('/<wurker>/edit', methods = ['POST'])
 def uploadphoto(wurker):

@@ -58,5 +58,6 @@ class UploadForm(FlaskForm):
     image = FileField('Image Upload', validators=[
         FileAllowed(['jpg', 'png'], 'Images only!')
     ])
-    description = TextAreaField('Image Description')
+    title = TextAreaField('Post Title (Optional)')
+    description = TextAreaField('Post Description')
     submit = SubmitField("Submit")
