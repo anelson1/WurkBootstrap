@@ -170,7 +170,7 @@
 <!--- Services 4-->
 <div class="container-fluid my-5">
   <div class="row">
-    <div class="col-3 mx-auto">
+    <div class="col-3">
       <div class="card mx-auto mb-5">
         <img class="card-img-top" src="{{ url_for('static', filename='css/img/cardetail.jpg') }}" alt="Car Detailing">
         <div class="card-body">
@@ -179,7 +179,7 @@
         </div>
       </div>
     </div>
-    <div class="col-3 mx-auto">
+    <div class="col-3">
       <div class="card mx-auto mb-5">
         <img class="card-img-top" src="{{ url_for('static', filename='css/img/Passistant.jpg') }}" alt="Personal Assistant">
         <div class="card-body">
@@ -188,7 +188,17 @@
         </div>
       </div>
     </div>
+    <div class="col-3">
+      <div class="card mx-auto mb-5">
+        <img class="card-img-top" src="{{ url_for('static', filename='css/img/nanny.jpg') }}" alt="Nanny">
+        <div class="card-body">
+          <h4 class="card-title">Nanny Services</h4>
+          <a href="/nanny-services-barrington-il" class="btn btn-outline-primary stretched-link">Book Now</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 </body>
 {%endblock%}
+

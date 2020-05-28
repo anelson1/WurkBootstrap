@@ -24,7 +24,31 @@ class services:
     After serving many cars, we’ve seen it all and done it all. No job is too big or too small. Whether it be our ‘Ultra hand wash’ to complete reconditioning your car will reflect Wurk.''',
         "Academic Tutoring": "Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading.",
         "ACT and SAT Prep": "Live one-on-one SAT and ACT tutoring taught by experts from top universities. Our prep sessions provide proven strategies for time management and score maximization. You can receive guidance from one of our experts today for only $39 an hour",
-        "Sports Coaching": " Recieve individual lessons in any sport from our seasoned coaches and trainers. Have your lesson within just a 24 hour notice of booking!",
+        "Sports Coaching": '''Sports Coaching is vital to improving a kids future and current performance. We offer coaching for kids in the following sports:
+    <div class = "row">
+    <div class="col-xl-5 mx-auto mb-3">
+    <ul class="list-group text-left">
+  <li class="list-group-item">Soccer</li>
+  <li class="list-group-item">Lacrosse</li>
+  <li class="list-group-item">Football</li>
+  <li class="list-group-item">Golf</li>
+  <li class="list-group-item">Tennis</li>
+   <li class="list-group-item">Basketball</li>
+    <li class="list-group-item">Wrestling</li>
+</ul>
+</div>
+</div>
+ <p class = "lead">Q. What kind of impact will sports coaching have on my child? Or the trainee?</p>
+<div class = "row">
+    <div class="col-xl-5 mx-auto">
+    <ul class="list-group text-left">
+  <li class="list-group-item">Teach the love of the sport</li>
+  <li class="list-group-item">High calorie burning workout</li>
+  <li class="list-group-item">Increase endurance within the sport</li>
+  <li class="list-group-item">Learn tips and tactics to become a better player</li>
+</ul>
+</div>
+</div>''',
         "Music Lessons": "Want to learn an instrument or just better your current understanding of an instrument? Wurk has tons of veteran musicians waiting to help you achieve your dreams. Make a booking now and achieve professional help at an affordable price!",
         "Construction": "Looking to build or maintain a property? Look no further, as Wurk construction services provide a full spectrum of services that can create the design of your dreams! From benches to treehouses, Wurk can construct, maintain, or restore any residential or commercial project!",
         "Pet Care": "Even pets get lonely some times, and that is where we come in! With Wurk pet care, we take care of your animals while you are out of the house! No animal is too big or small for us!",
@@ -36,6 +60,30 @@ class services:
 Our talented team will work 1 on 1 with you to ensure that our car detailing project is always going as planned, and make sure that it fits your schedule too. 
 <br></br>
 After serving many cars, we’ve seen it all and done it all. No job is too big or too small. Whether it be our ‘Ultra hand wash’ to complete reconditioning your car will reflect Wurk. """,
-"Car Detailing Meta": """ Wurk Services Has Been Continuously Providing The Best Car Detailing & Washing Services in Barrington Il 60010. Our services include Interior and Exterior Car Detailing, Making Your Car Look Like New for our clients in Barrington. We are fully committed to making our cars look like new all the time."""
+"Car Detailing Meta": """ Wurk Services Has Been Continuously Providing The Best Car Detailing & Washing Services in Barrington Il 60010. Our services include Interior and Exterior Car Detailing, Making Your Car Look Like New for our clients in Barrington. We are fully committed to making our cars look like new all the time.""",
+"Nanny Services": '''Whether you’re a busy family that needs a sitter on a regular basis, or if you’re in a bind and need reliable child care at the drop of a dime, Wurk Services of Barrington & Schaumburg can help you with sitter services. <br></br>
+Based on your needs and specifications, we will match your family with a compassionate babysitter or nanny that you and your family will not only be comfortable with, but also impressed with. From your first phone call, our unique process takes into account, among other things, personality, needs, and expectations to match your family with the best possible fit.
+
+Our Sitter Services:
+<div class = "row">
+    <div class="col-xl-5 mx-auto mb-3">
+    <ul class="list-group text-left">
+  <li class="list-group-item">Care and support with multiples (twins, triplets, quadruplets and beyond)</li>
+  <li class="list-group-item">Newborn care</li>
+  <li class="list-group-item">Sick and well baby care</li>
+  <li class="list-group-item">Assistance with schoolwork and projects</li>
+  <li class="list-group-item">Engaging in arts and crafts</li>
+   <li class="list-group-item">Meal preparation</li>
+    <li class="list-group-item">Assistance with reading</li>
+    <li class="list-group-item">Facilitate safe cooking and baking activities</li>
+  <li class="list-group-item">Plan visits, outings and trips</li>
+  <li class="list-group-item">Transportation to and from activities</li>
+   <li class="list-group-item">Games and sports</li>
+    <li class="list-group-item">And more</li>
+</ul>
+</div>
+</div>
+''',
+"Nanny Services Meta":'''There’s a nanny that's just right for you at Wurk Services. Make sure that your child is taken care for with us. We haven’t gotten a review below 5 stars, because we incorporate compassion and care into our nanny services in the Barrington & Schaumburg Il Area.'''
    
     }

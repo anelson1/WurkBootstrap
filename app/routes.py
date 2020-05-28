@@ -249,6 +249,18 @@ def Archal():
         meta = ''
     filedirectory = 'css/img/'+TOS
     return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS)
+
+@myapp.route("/nanny-services-barrington-il")
+def nannystuff():
+    TOS = 'Nanny Services'
+    desc = dictofservices()
+    print(desc)
+    try:
+        meta = desc.serviceDict[TOS + " Meta"]
+    except KeyError as e:
+        meta = ''
+    filedirectory = 'css/img/'+TOS
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle="Nanny Services Barrington Il | Compassionate, and Caring Nannies in Barrington Il Services")
    
 @myapp.route("/services/<TOS>/SelectSport")
 def SportSelect(TOS):
