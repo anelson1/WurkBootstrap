@@ -443,7 +443,7 @@ def posthandler(wurker):
             
             file.save(os.path.join('app/static/css/img/' + wurker, filename))
         except:
-            file = None
+            filename = None
         p = Post(pic=filename, desc=request.form['description'], title = request.form['title'], poster=current_user.id)
         db.session.add(p)
         db.session.commit()
