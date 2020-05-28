@@ -29,7 +29,6 @@
         {%if myaccount%}
         <div class="col">
             <form method="POST" action="posthandler" enctype="multipart/form-data">
-                {{render_form_row([form.image])}}
                 {{render_form_row([form.title])}}
                 {{render_form_row([form.description])}}
                 <button type="submit" id = 'sumbit' class="btn btn-outline-primary">Upload</button>

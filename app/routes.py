@@ -423,13 +423,13 @@ def wurkerprofile(wurker):
             myaccount = True
         else:
             myaccount = False
-        filelst = os.listdir('app/static/css/img/' + wurker)
-        print(filelst)
+        #filelst = os.listdir('app/static/css/img/' + wurker)
+        #print(filelst)
         return render_template('employeefeed.html', lst = files,username = u.username, form= form, name=p.firstname, bio=u.bio, myaccount = myaccount, title = p.firstname)
     except Exception as e:
         print(e)
         return redirect(url_for('genericerror'))
-        
+
 @myapp.route('/<wurker>/posthandler', methods=['POST'])
 def posthandler(wurker):
     try:
