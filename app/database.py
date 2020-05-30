@@ -37,7 +37,9 @@ class Booking(db.Model):
     teachername = db.Column(db.String(128))
     typeofbooking = db.Column(db.String(128))
     comments = db.Column(db.String(1000))
-    bookingid = db.Column(db.String(6),unique = True)
+    bookingid = db.Column(db.String(6), unique=True)
+    isclaimed = db.Column(db.Boolean)
+    claimedby = db.Column(db.String(30))
     bookingtime = db.relationship('BookingTime')
 
 

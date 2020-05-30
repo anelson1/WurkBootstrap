@@ -39,6 +39,17 @@ def sendemail(bid):
     msg.html = render_template('emailtemplate.html', name=client.name, service=booking.typeofbooking, month=bookingtime.month, day=bookingtime.day, time=bookingtime.starttime, email=client.email, pnum=client.phonenumber, address=client.address + " " +
                                client.city + " " + client.state, comment=booking.comments)
     mail.send(msg)
+def sendclaimemail(wurker, bid):
+    booking = Booking.query.filter_by(bookingid=bid).first()
+    bookingtime = BookingTime.query.filter_by(bookingid=bid).first()
+    client = Client.query.filter_by(bookingid=bid).first()
+
+    msg = Message("Someone has claimed your booking",
+                  sender='wurkservices@gmail.com', recipients=[client.email], bcc=["bookings@wurkservices.com"])
+    msg.body = wurker + " has claimed your booking!"
+    msg.html = render_template('emailtemplateclaim.html', wurker = wurker, name=client.name, service=booking.typeofbooking, month=bookingtime.month, day=bookingtime.day, time=bookingtime.starttime, email=client.email, pnum=client.phonenumber, address=client.address + " " +
+                               client.city + " " + client.state, comment=booking.comments)
+    mail.send(msg)
 
 
 def returnMonth(day):
@@ -330,7 +341,7 @@ def FinalizeBooking():
         session['state'] = info.state
     else:
         name = session['name']
-    booking = Booking(bookingid=session['bid'], clientname=name, typeofbooking=session['TOB'], comments=request.form['comments'])
+    booking = Booking(bookingid=session['bid'], clientname=name, typeofbooking=session['TOB'], comments=request.form['comments'], isclaimed = False, claimedby = None)
     bookingtime = BookingTime(bookingid=session['bid'], month=month, day=day, starttime=request.form['time'])
     client = Client(name = name, email = session['email'], phonenumber = session['pnum'], address = session['address'], city = session['city'], state = session['state'], bookingid = session['bid'])
     
@@ -368,7 +379,7 @@ def WP():
         time = TimeSheet.query.get(current_user.currenttimesheet).timein
     except:
         time = None
-    return render_template('wurker.html', time = time, justclockedin = JCI, justclockedout = JCO, clockedin = current_user.currenttimesheet, user = PersonalInfo.query.filter_by(id= current_user.id).first().firstname, lst = u, popupremove = popupremove, form=form, day=day, month=month, err=err, popup=popup, name=name)
+    return render_template('wurker.html', time = time, justclockedin = JCI, justclockedout = JCO, clockedin = current_user.currenttimesheet, user = current_user, nameofemployee = PersonalInfo.query.filter_by(id= current_user.id).first().firstname, lst = u, popupremove = popupremove, form=form, day=day, month=month, err=err, popup=popup, name=name)
 
 @myapp.route("/deletebookedday/<id>")
 @login_required
@@ -475,6 +486,26 @@ def deletephoto(wurker, file):
     db.session.delete(pic)
     db.session.commit()
     return redirect(url_for('wurkerprofile', wurker=wurker))
+
+@myapp.route('/<wurker>/bookingslist')
+@login_required
+def booklist(wurker):
+    popup = request.args.get('popup')
+    booking = Booking.query.all()
+    bookingtime = BookingTime.query.all()
+    client = Client.query.all()
+    u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all() 
+    popup = request.args.get('popup')
+    return render_template('bookingslist.html', lst=u, popup=popup)
+
+@myapp.route('/<wurker>/bookingslist/claim/<idofbooking>', methods = ['POST'])
+def booklistclaimhandler(wurker, idofbooking):
+    booking = Booking.query.filter_by(bookingid = idofbooking).first()
+    booking.isclaimed = True
+    booking.claimedby = wurker
+    db.session.commit()
+    sendclaimemail(wurker, idofbooking)
+    return redirect(url_for('booklist', wurker=wurker, popup = True))
 #End stuff for the wurker-------------------------------------------------------------------------------------------
 
 #Start Stuff For Admin----------------------------------------------------------------------------------------------

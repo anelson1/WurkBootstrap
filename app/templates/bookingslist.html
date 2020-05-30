@@ -1,5 +1,5 @@
 {%extends "baseWOH.html"%}
-{%block title%}Admin{%endblock%}
+{%block title%}Bookings List{%endblock%}
 
 {%block content%}
 <script>
@@ -14,15 +14,13 @@
     <div class="col-md-4">
       {%if popup%}
       <div class="alert alert-success">
-        <strong>Success!</strong> That booking has been removed!
+        <strong>Success!</strong> You claimed that booking!
       </div>
       {%endif%}
       <div class="card mx-auto mb-5 text-center">
         <div class="card-body">
-          <h4 class="card-title">Welcome to the admin page.</h4>
-          <form action="/admin/timesheet">
-            <button class="btn btn-outline-success" type="submit">See Time Sheet</button>
-          </form>
+          <h4 class="card-title">Welcome to the bookings list</h4>
+         <p class="card-text">Here you will find all the bookings that have been created. Please claim as many as you wish to do.</p>
         </div>
       </div>
     </div>
@@ -42,10 +40,8 @@
           <th scope="col">Day</th>
           <th scope="col">Start Time</th>
           <th scope="col">Comments</th>
-          <th scope="col">Claimed?</th>
           <th scope="col">Claimed By</th>
-          <th scope="col">Delete</th>
-
+          <th scope="col">Claimed?</th>
         </tr>
       </thead>
       <tbody>
@@ -61,13 +57,16 @@
           <td>{{i[1].day}}</td>
           <td>{{i[1].starttime}}</td>
           <td>{{i[0].comments}}</td>
-          <td>{{i[0].claimed}}</td>
           <td>{{i[0].claimedby}}</td>
+          {%if not i[0].isclaimed%}
           <td>
-            <form action="/deletebooking/{{i[0].bookingid}}">
-              <button class="btn btn-outline-danger" type="submit">X</button>
+            <form action="bookingslist/claim/{{i[0].bookingid}}" method="POST">
+              <button class="btn btn-outline-success" type="submit">Claim</button>
             </form>
           </td>
+          {%else%}
+          <td>Claimed!</td>
+          {%endif%}
         </tr>
 
         {%endfor%}
