@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, PasswordField, SelectField, TextAreaField
+from wtforms import StringField, SubmitField, BooleanField, PasswordField, SelectField, TextAreaField, HiddenField
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms.fields.html5 import DateField, TimeField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired, Email, AnyOf
 class dateEntry(FlaskForm):
     day = DateField('Date',
                     validators=[DataRequired()], format='% Y-%m-%d')
@@ -40,6 +40,9 @@ class registerform(FlaskForm):
     address = StringField('Address', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     state = StringField('State', validators=[DataRequired()])
+    confirmationcode = StringField('Confirmation Code', validators=[DataRequired()])
+    submit = SubmitField("Register")
+
 
 
 class bookingform(FlaskForm):

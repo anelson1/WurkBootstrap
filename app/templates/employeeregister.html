@@ -1,0 +1,72 @@
+{% extends "baseWOH.html" %}
+{%block title%}Employee Registration{%endblock%}
+{% from 'bootstrap/form.html' import render_form_row %}
+
+{%block content%}
+<div class="container-fluid my-5">
+    <div class="row align-items-center">
+        <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
+            <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
+                height="50px">
+            <div class="card mx-auto mb-5 shadow-lg">
+                <div class="card-body">
+                    <h4 class="card-title" style="text-align:center">Create Employee Account</h4>
+                    <form action="/empreghandler" method="post" id="form">
+                        {{ render_form_row([form.firstname]) }}
+                        {{render_form_row([form.lastname])}}
+                        {{ render_form_row([form.username]) }}
+                        {{ render_form_row([form.password]) }}
+                        {{render_form_row([form.confirmpassword])}}
+                        {{ render_form_row([form.email]) }}
+                        {{ render_form_row([form.phonenumber]) }}
+                        {{render_form_row([form.address])}}
+                        {{ render_form_row([form.city]) }}
+                        {{render_form_row([form.state])}}
+                        {{render_form_row([form.confirmationcode])}}
+                        {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
+                    </form>
+                    <script>
+                        $('form').submit(function () {
+                            var confcode = $('#confirmationcode');
+                            if (confcode.val() === "{{secret}}") {
+                                confcode.addClass('is-valid').removeClass('is-invalid');
+                            }
+                            else {
+                                confcode.addClass('is-invalid').removeClass('is-valid');
+                                return false;
+
+                            }
+                            return true;
+                        });
+                    </script>
+                    <script>
+                        (function () {
+                            setInterval(function () {
+                                var pass = $('#password');
+                                var cpass = $('#confirmpassword');
+
+                                if ((pass.val() === "") || (cpass.val() === "")) {
+                                    pass.removeClass('is-invalid').removeClass('is-valid');
+                                    cpass.removeClass('is-invalid').removeClass('is-valid');
+
+                                } else if (!(pass.val() === cpass.val())) {
+                                    pass.addClass('is-invalid').removeClass('is-valid');
+                                    cpass.addClass('is-invalid').removeClass('is-valid');
+                                }
+                                else {
+                                    pass.addClass('is-valid').removeClass('is-invalid');
+                                    cpass.addClass('is-valid').removeClass('is-invalid');
+                                }
+                            }, 100);
+
+                        })();
+
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+{%endblock%}

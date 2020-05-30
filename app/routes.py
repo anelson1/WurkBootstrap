@@ -201,7 +201,31 @@ def useraccount():
     except:
         name = 'Unknown'
     return render_template('useraccount.html', hasError= hasError, month=month, day=day,TOB=TOB,start=start,hasMeeting = hasMeeting, uname=name, fTime=True,form=form, pagetitle="My Account")
-   
+
+@myapp.route("/EmployeeRegister")
+def EmpReg():
+    form = registerform()
+    error = request.args.get('error')
+    return render_template('employeeregister.html', form = form, error=error, secret = "WurkServices2020*")
+@myapp.route("/empreghandler", methods=['POST'])
+def EmpRegHandle():
+    confcode = request.form['confirmationcode']
+    firstname = request.form['firstname']
+    lastname = request.form['lastname']
+    username = request.form['username']
+    password = request.form['password']
+    email = request.form['email']
+    phonenumber = request.form['phonenumber']
+    address = request.form['address']
+    city = request.form['city']
+    state = request.form['state']
+    id = randint(1000000,9999999)
+    u = User(id = id, username=username, password=password, isemployee = 1, bio = '')
+    db.session.add(u)
+    pi = PersonalInfo(id = id, email=email, phonenumber=phonenumber, city=city, state=state, address=address, person = id,firstname = firstname, lastname=lastname)
+    db.session.add(pi)
+    db.session.commit()
+    return redirect(url_for('registered'))
 #End Account Stuff---------------------------------------------------------------------------------------------------------------------------------------------------------
 #Wurk in progess 
 @myapp.route("/adminhandler", methods=['post'])
