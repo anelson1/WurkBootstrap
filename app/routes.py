@@ -268,7 +268,7 @@ def TOS(TOS):
         meta = ''
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
-        return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS)
+        return redirect(url_for("Archal"))
     if TOS == 'Junk Removal':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
