@@ -258,8 +258,9 @@ def services():
     return render_template('services.html', pagetitle='services')
 
 
-@myapp.route("/services/<TOS>")
+@myapp.route("/services/<TOS>" + "-services-il")
 def TOS(TOS):
+    TOS = TOS.replace('-', ' ')
     desc = dictofservices()
     print(desc)
     try:
@@ -273,9 +274,9 @@ def TOS(TOS):
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
-@myapp.route("/Barrington-landscaping-services-il")
-def Archal():
-    TOS = 'Lawn Care'
+@myapp.route("/services/<TOS>" + "-barrington-il")
+def TOSBarrington(TOS):
+    TOS = TOS.replace('-', ' ')
     desc = dictofservices()
     print(desc)
     try:
@@ -283,8 +284,28 @@ def Archal():
     except KeyError as e:
         meta = ''
     filedirectory = 'css/img/'+TOS
-    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS)
+    if TOS == "Lawn Care":
+        return redirect(url_for("Archal"))
+    if TOS == 'Junk Removal':
+        return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
+@myapp.route("/landscaping/<area>" + "-landscaping-services-il")
+def Archal(area):
+    area = area.replace("-", " ")
+    TOS = area + " landscaping"
+    print(TOS)
+    desc = dictofservices()
+    try:
+        meta = desc.serviceDict[TOS + " Meta"]
+    except KeyError as e:
+        meta = ''
+    filedirectory = 'css/img/Lawn Care'
+    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=area+ " Landscaping Services | Lawn Care Services |"+area+", Il | Wurk " + area+" Services")
+
+@myapp.route("/landscaping")
+def sansscaping():
+    return render_template('landscaping.html')
 @myapp.route("/nanny-services-barrington-il")
 def nannystuff():
     TOS = 'Nanny Services'

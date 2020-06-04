@@ -1,22 +1,117 @@
 class services:
     serviceDict = {
-        "Lawn Care": """Wurk Services is run by local students who know the Barrington and Chicago land area. <br></br>
+        "Barrington landscaping": """Wurk Services is run by local students who know the Barrington and Chicago land area. <br></br>
     Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the barrington and the Chicago land area with local high quality landscaping services, maintenance, and design. <br></br>
     As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel. <br></br>
-    We service properties in the Chicagoland area on a weekly basis, that allow us to keep your lawn green, healthy and free of weeds. Our grass cutting service includes cutting the lawn, edging, trimming and blowing.""",
-        "Lawn Care Meta": """Wurk Services Has Been Continuously Providing Highest Rated Landscaping Services in Chicago, Barrington Il, 60007, 60010. Our services include landscaping services, lawn maintenance, 
+    We service properties in the Chicagoland area on a weekly basis, that allow us to keep your lawn green, healthy and free of weeds. Our grass cutting service includes cutting the lawn, edging, trimming and blowing.<br></br>
+    Here is a list of services that we offer to our clients in Barrington:
+    <ul class="list-group text-left">
+  <li class="list-group-item">Bush & Tree Trimming and Removal</li>
+  <li class="list-group-item">Weeding and Bed Edging</li>
+  <li class="list-group-item">Mulch Installation & Decorative Rock</li>
+  <li class="list-group-item">Leaf Raking and Disposal</li>
+  <li class="list-group-item">Bobcat Work, Excavating, Hauling and Disposal</li>
+   <li class="list-group-item">Landscape & Pathway Lighting</li>
+    <li class="list-group-item">Brick Patios</li>
+    <li class="list-group-item">Retaining Walls and Pillars</li>
+  <li class="list-group-item">Built-in Grills and Mailboxes</li>
+   <li class="list-group-item">Paver Brick Cleaning, Sealing & Joint Sanding</li>
+    <li class="list-group-item">Drainage Work & Gutter Cleaning</li>
+</ul>
+    """,
+        "Barrington landscaping Meta": """Wurk Services Has Been Continuously Providing Highest Rated Landscaping Services in Chicago, Barrington Il, 60007, 60010. Our services include landscaping services, lawn maintenance, 
         landscaping design, landscaping installation, sod for our clients in Chicago, Barrington. We are fully committed to providing top of the line landscape services to fit our client’s lifestyles.""",
-        "Junk Removal": '''Wurk is a leading junk removal service, specializing in removing junk and clutter of all kinds. Contact us today to get your junk removed! Wurk Junk Removal Services can save you money over dumpster rentals, by charging you only for how much you need removed!. <br></br>
+        "Sutton landscaping": '''Wurk Services is run by local students who know the Sutton Area.
+<br></br>
+Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Barrington area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Sutton Landscaping Clients get the best services possible. 
+<br></br>
+As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel
+<br></br>
+We service properties in the Sutton area on a daily and weekly basis, that allow us to keep your lawn green, healthy and free of weeds. Our grass cutting service includes cutting the lawn, edging, trimming and blowing.
+<br></br>
+Here is a list of services that we offer to our clients in Sutton:
+    <ul class="list-group text-left">
+  <li class="list-group-item">Bush & Tree Trimming and Removal</li>
+  <li class="list-group-item">Weeding and Bed Edging</li>
+  <li class="list-group-item">Mulch Installation & Decorative Rock</li>
+  <li class="list-group-item">Leaf Raking and Disposal</li>
+  <li class="list-group-item">Bobcat Work, Excavating, Hauling and Disposal</li>
+   <li class="list-group-item">Landscape & Pathway Lighting</li>
+    <li class="list-group-item">Brick Patios</li>
+    <li class="list-group-item">Retaining Walls and Pillars</li>
+  <li class="list-group-item">Built-in Grills and Mailboxes</li>
+   <li class="list-group-item">Paver Brick Cleaning, Sealing & Joint Sanding</li>
+    <li class="list-group-item">Drainage Work & Gutter Cleaning</li>
+</ul>''',
+"Sutton landscaping Meta":"Wurk Services Has Been Continuously Providing Highest Rated Landscaping Services in Sutton Il. Our services include landscaping services, lawn maintenance, landscaping design, weeding, mulching, sod for our clients in Sutton. We are fully committed to providing top of the line landscape services to fit our client’s lifestyles with our easy to book system.",
+        "Deer Park landscaping":'''Wurk Services is run by local students who know the Deer Park and the Chicagoland area.
+<br></br>
+Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Deer Park area with local high quality landscaping services, maintenance, and design. 
+<br></br>
+As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel
+<br></br>
+We service properties in the Deer Park area on a weekly basis, that allow us to keep your lawn green, healthy and free of weeds. Our grass cutting service includes cutting the lawn, edging, trimming and blowing.
+<br></br>
+Here is a list of services that we offer to our clients in Deer Park:
+    <ul class="list-group text-left">
+  <li class="list-group-item">Bush & Tree Trimming and Removal</li>
+  <li class="list-group-item">Weeding and Bed Edging</li>
+  <li class="list-group-item">Mulch Installation & Decorative Rock</li>
+  <li class="list-group-item">Leaf Raking and Disposal</li>
+  <li class="list-group-item">Bobcat Work, Excavating, Hauling and Disposal</li>
+   <li class="list-group-item">Landscape & Pathway Lighting</li>
+    <li class="list-group-item">Brick Patios</li>
+    <li class="list-group-item">Retaining Walls and Pillars</li>
+  <li class="list-group-item">Built-in Grills and Mailboxes</li>
+   <li class="list-group-item">Paver Brick Cleaning, Sealing & Joint Sanding</li>
+    <li class="list-group-item">Drainage Work & Gutter Cleaning</li>
+</ul>
+''',
+"Deer Park landscaping Meta":"Wurk Services Deer Park Landscaping is one the best the city has seen. We are a team of college students who are always learning new techniques to make your lawn and house look better.",
+        "Inverness landscaping":'''Wurk Services is run by local students who know the Inverness Area.
+<br></br>
+
+Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Inverness area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Inverness Landscaping Clients get the best services possible. 
+<br></br>
+
+As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel
+<br></br>
+
+We service properties in the Inverness area on a daily and weekly basis, that allow us to keep your lawn green, healthy and free of weeds. Our grass cutting service includes cutting the lawn, edging, trimming and blowing.
+<br></br>
+Here is a list of services that we offer to our clients in Inverness:
+    <ul class="list-group text-left">
+  <li class="list-group-item">Bush & Tree Trimming and Removal</li>
+  <li class="list-group-item">Weeding and Bed Edging</li>
+  <li class="list-group-item">Mulch Installation & Decorative Rock</li>
+  <li class="list-group-item">Leaf Raking and Disposal</li>
+  <li class="list-group-item">Bobcat Work, Excavating, Hauling and Disposal</li>
+   <li class="list-group-item">Landscape & Pathway Lighting</li>
+    <li class="list-group-item">Brick Patios</li>
+    <li class="list-group-item">Retaining Walls and Pillars</li>
+  <li class="list-group-item">Built-in Grills and Mailboxes</li>
+   <li class="list-group-item">Paver Brick Cleaning, Sealing & Joint Sanding</li>
+    <li class="list-group-item">Drainage Work & Gutter Cleaning</li>
+</ul>
+''',
+        "Inverness landscaping Meta":"If you live in the Inverness Area, then you must try out Wurk Services's Landscaping. A team of college students that founded a landscaping company in Deer Park. Affordable, and reliable. ",
+        
+        "Junk Removal services": '''Wurk is a leading junk removal service, specializing in removing junk and clutter of all kinds. Contact us today to get your junk removed! Wurk Junk Removal Services can save you money over dumpster rentals, by charging you only for how much you need removed!. <br></br>
     Our Junk Removal Services and Haul Away Services is professional, affordable, and quick. There is no job too big or small. After removing your items, when possible we donate what we can, recycle what we can then dispose of the what needs to be eliminated. <br></br>
     While residential junk removal may seem like all you need is a little elbow grease, the reality is that quite often waste disposal can be dangerous. In addition to the known dangers of loose nails, broken boards, and sharp metal, hazardous chemicals may be found within the junk or waste that is being removed. Without proper protection, exposure to chemicals or other contaminants can be detrimental to your health. <br></br>
     Whether we are providing residential or commercial junk removal, Wurk Junk Removal Services always comes prepared. With hard hats, hazmat suits, and professional grade work masks, we can help you to safely take out the trash so that you can get back to your life. We can even help you with junk recycling if you have large amounts of metal, plastic, glass, or other recyclables.''',
-        "Junk Removal Meta": "Meta: Wurk Services Has Been Continuously Providing Highest Rated Junk Removal Services in Chicago, Barrington Il, 60007, 60010. Our services include Junk Removal, Hauling Services, and Removing Junk Service for our clients in Chicago, Barrington. We are fully committed to making our client’s life easier buy offering affordable junk removal services.",
+        "Junk Removal services Meta": "Meta: Wurk Services Has Been Continuously Providing Highest Rated Junk Removal Services in Chicago, Barrington Il, 60007, 60010. Our services include Junk Removal, Hauling Services, and Removing Junk Service for our clients in Chicago, Barrington. We are fully committed to making our client’s life easier buy offering affordable junk removal services.",
         "Painting and Staining": """Wurk Chicago Services is a professional painting company with many years of experience servicing the Chicagoland Area. We offer a wide range of painting services including interior and exterior painting, deck staining and restoration and remodeling.  <br></br>
     We have a very simple policy. Make sure every customer is Happy. Period. Our friendly customer service, humbling awards and numerous reviews have historically proven that our mission is succeeding. <br></br>
     If you are looking for an interior or an estimate that fits within your spending limits, click on the book now button below.""",
         "Painting and Staining Meta": ''' Wurk Services Has Been Continuously Providing Highest Rated Painting & Staining Services in Chicago, Barrington Il, 60007, 60010. Our services include Painting, Painter Services, and providing interior & exterior commercial & residential painter services for our clients in Chicago, Barrington. We are fully committed to making our client’s properties look better, with quality services.''',
-        "Powerwashing": '''One of the services that Wurk Chicago Services offer is power washing / pressure washing services. Pressure washing in Barrington is not just ‘something we do, we are constantly researching new procedures and techniques to give you the best clean for your money. We are devoted to the business and your total satisfaction.  <br></br>
-        We offer commercial and residential power washing services to anyone who would like to use our expert power washing services.''',
+        "Powerwashing": '''One of the services that Wurk Chicago Services offer is power washing / pressure washing services. Pressure washing in Barrington is not just ‘something we do, we are constantly researching new procedures and techniques to give you the best clean for your money. We are devoted to the business and your total satisfaction. We offer commercial and residential power washing services to anyone who would like to use our expert power washing services. 
+Each member of our staff understands that you desire service that is efficient, thorough, and accountable, so you can be sure that when you put your home on the line for us, we put our efforts on the line for you. All of our window washers, gutter cleaners, and power washers work directly for the company and have completed vigorous training requirements in order to provide the most thorough window washing, gutter cleaning, and power washing services.
+<br></br>
+Our up-front, accountable service guarantees that you will be blown away not only by our professionalism, but by our expert service. Our window washers, gutter cleaners, and power washers have all been trained directly to company specifications and have years of experience in the field. Their training gives them an unmatched attention to detail and the quality of each service reflects this. We are licensed, bonded, and insured to make sure that your home and your interests are protected above all else.
+<br></br>
+
+Our service areas include: South Barrington, Barrington, Lake Barrington, Barrington Hills, Schaumburg, Hoffman Estates, Algonquin, Arlington Heights, Palatine, Lake Zurich, North Barrington, Naperville, Northbrook, Northfield, Evanston, Skokie, Glenview, Elk Grove Village, Elgin, and other surrounding areas.''',
         "Powerwashing Meta": "Wurk Services Has Been Continuously Providing Highest Rated Pressure Washing Services in Chicago, Barrington Il, 60007, 60010. Our services include Power Washing, Pressure Washing, and Sanitation Services for our clients in Chicago, Barrington. We are fully committed to residential and commercial power washing services.",
         "Car Detail Meta": "Wurk Services Has Been Continuously Providing The Best Car Detailing & Washing Services in Barrington Il 60010. Our services include Interior and Exterior Car Detailing, Making Your Car Look Like New for our clients in Barrington. We are fully committed to making our cars look like new all the time.",
         "Car Detail": '''Wurk Services has been providing top of the line car detailing services for the Barrington and Greater Chicago Area. We are passionate about providing our customers with the highest quality car care, utilizing state-of-the-art auto detailing techniques, cutting edge products and a network of knowledge that is always being updated to make your car stand out. <br></br>

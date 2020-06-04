@@ -1,0 +1,48 @@
+{% extends "baseWH.html" %}
+{%block title%}Landscaping{%endblock%}
+{%block content%}
+<div class="container-fluid my-5">
+    <h1>Please select your area</h1>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/Landscapesauce-min.jpg') }}"
+            alt="Landscaping">
+          <div class="card-body">
+            <h4 class="card-title">Barrington</h4>
+            <a href="/landscaping/Barrington-landscaping-services-il" class="btn btn-outline-primary stretched-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/suttonscape.jpg') }}"
+            alt="Landscaping">
+          <div class="card-body">
+            <h4 class="card-title">Sutton</h4>
+            <a href="/landscaping/Sutton-landscaping-services-il" class="btn btn-outline-primary stretched-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/deerparkscape.jpg') }}" alt="Landscaping">
+          <div class="card-body">
+            <h4 class="card-title">Deer Park</h4>
+            <a href="/landscaping/Deer-Park-landscaping-services-il" class="btn btn-outline-primary stretched-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="card mx-auto mb-5">
+          <img class="card-img-top" src="{{ url_for('static', filename='css/img/invernessscape.jpg') }}"
+            alt="Landscaping">
+          <div class="card-body">
+            <h4 class="card-title">Inverness</h4>
+            <a href="/landscaping/Inverness-landscaping-services-il" class="btn btn-outline-primary stretched-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{%endblock%}
