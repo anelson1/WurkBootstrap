@@ -23,7 +23,7 @@ class services:
         landscaping design, landscaping installation, sod for our clients in Chicago, Barrington. We are fully committed to providing top of the line landscape services to fit our client’s lifestyles.""",
         "Sutton landscaping": '''Wurk Services is run by local students who know the Sutton Area.
 <br></br>
-Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Barrington area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Sutton Landscaping Clients get the best services possible. 
+Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Sutton area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Sutton Landscaping Clients get the best services possible. 
 <br></br>
 As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel
 <br></br>
