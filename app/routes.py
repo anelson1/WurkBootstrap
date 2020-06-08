@@ -78,7 +78,8 @@ def returnMonth(day):
     if day == '12':
         return 'December'
 
-
+def get_employees():
+    return User.query.filter_by(isemployee = 1)
 @myapp.route("/")
 def index():
     return render_template("index.html", pagetitle="Wurk Services")
@@ -277,8 +278,8 @@ def TOS(TOS):
 @myapp.route("/services/<TOS>" + "-barrington-il")
 def TOSBarrington(TOS):
     TOS = TOS.replace('-', ' ')
+    print(TOS)
     desc = dictofservices()
-    print(desc)
     try:
         meta = desc.serviceDict[TOS + " Meta"]
     except KeyError as e:
@@ -286,8 +287,11 @@ def TOSBarrington(TOS):
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
-    if TOS == 'Junk Removal':
+    if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+    if TOS == 'Sports Coaching' or TOS == 'ACT and SAT Prep' or TOS == 'Academic Tutoring':
+        emp = get_employees()
+        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = emp, PersonalInfo = PersonalInfo)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/landscaping/<area>" + "-landscaping-services-il")

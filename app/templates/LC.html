@@ -1,6 +1,7 @@
 {% extends "baseWOH.html" %}
 {%block title%}{{pagetitle}}{%endblock%}
-{%block meta%} <meta name="description" content="{{meta}}">{%endblock%}
+{%block meta%}
+<meta name="description" content="{{meta}}">{%endblock%}
 {%block content%}
 
 <div class="container-fluid my-3 p-3 bg-white">
@@ -97,6 +98,30 @@
         </div>
     </div>
 </div>
+{%endif%}
+{%if tutor%}
+<hr class="border border-primary">
+<div class="container text-center bg-white">
+    <h3><strong>Here are just some Wurkers that perform these fantastic feats for {{service}}</strong></h3>
+    <div class="row">
+{%for e in emp%}
+{%if e.username == 'nedels'%}
+        <div class="col col-xl-4 col-lg-4">
+            <div class="card mb-5">
+                <img class="card-img-top" src="{{ url_for('static', filename='css/img/' + PersonalInfo.query.get(e.id).firstname + '.jpg') }}"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">{{PersonalInfo.query.get(e.id).firstname + ' ' + PersonalInfo.query.get(e.id).lastname}}</h3>
+                    <p class="card-text">{{e.bio}}</p>
+                    <a href="{{e.username}}/profile" class="btn btn-primary stretched-link text-center">Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endif%}
+{%endfor%}
+<hr class="border border-primary">
 {%endif%}
 <div class="row mt-5">
     <div class="col-5 mx-auto">
