@@ -112,8 +112,7 @@
                     alt="Card image cap">
                 <div class="card-body">
                     <h3 class="card-title">{{PersonalInfo.query.get(e.id).firstname + ' ' + PersonalInfo.query.get(e.id).lastname}}</h3>
-                    <p class="card-text">{{e.bio}}</p>
-                    <a href="{{e.username}}/profile" class="btn btn-primary stretched-link text-center">Profile</a>
+                    <a href="/{{e.username}}/profile" class="btn btn-primary stretched-link text-center">Profile</a>
                 </div>
             </div>
         </div>
