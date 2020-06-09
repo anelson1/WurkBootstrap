@@ -188,6 +188,9 @@ Our Sitter Services:
 </div>
 </div>
 ''',
-"Nanny Services Meta":'''There’s a nanny that's just right for you at Wurk Services. Make sure that your child is taken care for with us. We haven’t gotten a review below 5 stars, because we incorporate compassion and care into our nanny services in the Barrington & Schaumburg Il Area.'''
+"Nanny Services Meta":'''There’s a nanny that's just right for you at Wurk Services. Make sure that your child is taken care for with us. We haven’t gotten a review below 5 stars, because we incorporate compassion and care into our nanny services in the Barrington & Schaumburg Il Area.''',
+"Electrician Services Meta":"In Barrington, IL and the surrounding Chicago suburbs, our team has you covered. Are you looking to find an electrician “near me” in Barrington or Schaumburg? Look no further than Wurk Electrician Services for your resedential and industrial electrician needs.",
+"Electrician Services":'''When you hire an electrician, how can you trust who is working in your home? At ABC we don’t just hire the most qualified electrician, but expect the highest level of professionalism and courtesy from everyone on our team. For your peace of mind all of our electricians are background tested and drug screened. Wurk provides Barrington homeowners with complete electrical services including installation, upgrades and repairs. No matter what type of electrical needs you may have it’s important to hire a qualified, experienced electrician. <br></br>
+When the job is finished the work area is thoroughly cleaned and the price we quoted is the price you pay. All work and your satisfaction are guaranteed 100%. We’ll follow up to make sure you’re satisfied with our work and our people.'''
    
     }
