@@ -305,8 +305,11 @@ def Archal(area):
     except KeyError as e:
         meta = ''
     filedirectory = 'css/img/Lawn Care'
-    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=area+ " Landscaping Services | Lawn Care Services |"+area+", Il | Wurk " + area+" Services")
-
+    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=area + " Landscaping Services | Lawn Care Services |" + area + ", Il | Wurk " + area + " Services")
+    
+@myapp.route("/<area>" + "-landscaping-services-il")
+def anytypeoflandscaping(area):
+    return redirect(url_for('Archal', area = area))
 @myapp.route("/landscaping")
 def sansscaping():
     return render_template('landscaping.html')
