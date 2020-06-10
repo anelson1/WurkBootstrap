@@ -309,7 +309,11 @@ def Archal(area):
     
 @myapp.route("/<area>" + "-landscaping-services-il")
 def anytypeoflandscaping(area):
-    return redirect(url_for('Archal', area = area))
+    return redirect(url_for('Archal', area = area.capitalize()))
+
+@myapp.route("/landscaping-services-" + "<area>" + "-il"  )
+def anytypeoflandscapingreverse(area):
+    return redirect(url_for('Archal', area = area.capitalize()))
 @myapp.route("/landscaping")
 def sansscaping():
     return render_template('landscaping.html')
