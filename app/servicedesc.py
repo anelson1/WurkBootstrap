@@ -101,7 +101,7 @@ Here is a list of services that we offer to our clients in Inverness:
     While residential junk removal may seem like all you need is a little elbow grease, the reality is that quite often waste disposal can be dangerous. In addition to the known dangers of loose nails, broken boards, and sharp metal, hazardous chemicals may be found within the junk or waste that is being removed. Without proper protection, exposure to chemicals or other contaminants can be detrimental to your health. <br></br>
     Whether we are providing residential or commercial junk removal, Wurk Junk Removal Services always comes prepared. With hard hats, hazmat suits, and professional grade work masks, we can help you to safely take out the trash so that you can get back to your life. We can even help you with junk recycling if you have large amounts of metal, plastic, glass, or other recyclables.''',
         "Junk Removal Services Meta": "Meta: Wurk Services Has Been Continuously Providing Highest Rated Junk Removal Services in Chicago, Barrington Il, 60007, 60010. Our services include Junk Removal, Hauling Services, and Removing Junk Service for our clients in Chicago, Barrington. We are fully committed to making our client’s life easier buy offering affordable junk removal services.",
-        "Painting and Staining": """Wurk Chicago Services is a professional painting company with many years of experience servicing the Chicagoland Area. We offer a wide range of painting services including interior and exterior painting, deck staining and restoration and remodeling.  <br></br>
+        "Painting And Staining": """Wurk Chicago Services is a professional painting company with many years of experience servicing the Chicagoland Area. We offer a wide range of painting services including interior and exterior painting, deck staining and restoration and remodeling.  <br></br>
     We have a very simple policy. Make sure every customer is Happy. Period. Our friendly customer service, humbling awards and numerous reviews have historically proven that our mission is succeeding. <br></br>
     If you are looking for an interior or an estimate that fits within your spending limits, click on the book now button below.""",
         "Painting and Staining Meta": ''' Wurk Services Has Been Continuously Providing Highest Rated Painting & Staining Services in Chicago, Barrington Il, 60007, 60010. Our services include Painting, Painter Services, and providing interior & exterior commercial & residential painter services for our clients in Chicago, Barrington. We are fully committed to making our client’s properties look better, with quality services.''',
@@ -191,6 +191,35 @@ Our Sitter Services:
 "Nanny Services Meta":'''There’s a nanny that's just right for you at Wurk Services. Make sure that your child is taken care for with us. We haven’t gotten a review below 5 stars, because we incorporate compassion and care into our nanny services in the Barrington & Schaumburg Il Area.''',
 "Electrician Services Meta":"In Barrington, IL and the surrounding Chicago suburbs, our team has you covered. Are you looking to find an electrician “near me” in Barrington or Schaumburg? Look no further than Wurk Electrician Services for your resedential and industrial electrician needs.",
 "Electrician Services":'''When you hire an electrician, how can you trust who is working in your home? At ABC we don’t just hire the most qualified electrician, but expect the highest level of professionalism and courtesy from everyone on our team. For your peace of mind all of our electricians are background tested and drug screened. Wurk provides Barrington homeowners with complete electrical services including installation, upgrades and repairs. No matter what type of electrical needs you may have it’s important to hire a qualified, experienced electrician. <br></br>
-When the job is finished the work area is thoroughly cleaned and the price we quoted is the price you pay. All work and your satisfaction are guaranteed 100%. We’ll follow up to make sure you’re satisfied with our work and our people.'''
-   
+When the job is finished the work area is thoroughly cleaned and the price we quoted is the price you pay. All work and your satisfaction are guaranteed 100%. We’ll follow up to make sure you’re satisfied with our work and our people.''',
+"Snow Removal": '''Wurk Services provides prompt, professional commercial and residential snow removal to keep your outdoor landscape safe and enjoyable in any weather in the greater Barrington Area.  We maintain and operate our own fleet of snow removal vehicles and equipment, so we ready whenever you need us.
+
+<br></br>
+We understand every client’s needs, spaces and environments are different, and we offer customized plans to suit your schedule and budget.  Whether you need snow blowing or plowing at your home to save time and eliminate strain, specialized snow removal for extreme weather conditions or regular de-icing and snow removal throughout the winter to protect your customers, we are happy to serve you. We have pre-paid seasonal contracts based on average snowfall in the area or per-inch contracts based on snowfall after storms. We utilize data and reports from the National Weather Service to dispatch our fleets and to schedule seasonal contracts in the Barrington Il Area. 
+<br></br>
+Snow Plowing - Driveways and parking lots
+<br></br>
+
+Snow Blowing - Sidewalks
+<br></br>
+
+Shoveling - Sidewalks and steps
+<br></br>
+
+De-Icing - Driveways, parking Lots, sidewalks and steps
+<br></br>
+
+Marker Stakes - Good for everyone to prevent damage to turf and landscaping''',
+"Snow Removal Meta":"Wurk Services provides personalized residential and commercial Snow Removal to the greater Barrington IL area. We serve our customers to ensure that they are safe and able to leave right after storms, in the Greater Barrington Area. ",
+"Garage Cleaning": '''When you book Wurk Services for your garage cleaning project, our professionally trained team will handle all the sorting, labor, loading, hauling, and proper disposal, recycling, or donating. We’ll clean up your garage or car port space and rid you of clutter so that you can finally park your car where it belongs. Whether you’ve just got a few items that need to go, or your garage is so full of junk it’s about to burst at the seams, Wurk can and will help.
+<br></br>
+<h3>
+Is your Garage so cluttered your car is always outside?
+<br></br>
+Get rid of your junk by donating, or properly recycling it for you. 
+</h3>
+<br></br>
+
+You can count on Wurk Services to clean out your Garage for you. Book now so we can come at your convinience. ''',
+"Garage Cleaning Meta":"Wurk Services provides Garage Cleaning services for the Barrington Area, where we help our customers remove junk, clean out, clean flooring and clear out your garage in the Barrington Area."
     }

@@ -13,21 +13,6 @@ import os
 from werkzeug.utils import secure_filename
 from datetime import datetime
 
-
-def getInfo(username):
-    select = "SELECT * from users where username = '" + str(username) + "'"
-    cursor.execute(select)
-    records = cursor.fetchall()
-    return records
-
-
-def getService(tos):
-    select = "SELECT description from services where name = '" + str(tos) + "'"
-    cursor.execute(select)
-    records = cursor.fetchall()
-    return records
-
-
 def sendemail(bid):
     booking = Booking.query.filter_by(bookingid=bid).first()
     bookingtime = BookingTime.query.filter_by(bookingid=bid).first()
@@ -258,10 +243,14 @@ def checkbooking():
 def services():
     return render_template('services.html', pagetitle='services')
 
+@myapp.route("/services/<service>")
+def servicesgeneric(service):
+    return redirect(url_for("TOS",TOS=service))
 
 @myapp.route("/services/<TOS>" + "-services-il")
 def TOS(TOS):
     TOS = TOS.replace('-', ' ')
+    TOS = TOS.title()
     desc = dictofservices()
     print(desc)
     try:
@@ -271,15 +260,16 @@ def TOS(TOS):
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
-    if TOS == 'Junk Removal':
+    if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/services/<TOS>" + "-barrington-il")
 def TOSBarrington(TOS):
     TOS = TOS.replace('-', ' ')
-    print(TOS)
+    TOS = TOS.title()
     desc = dictofservices()
+    print(desc)
     try:
         meta = desc.serviceDict[TOS + " Meta"]
     except KeyError as e:
@@ -289,9 +279,6 @@ def TOSBarrington(TOS):
         return redirect(url_for("Archal"))
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
-    if TOS == 'Sports Coaching' or TOS == 'ACT and SAT Prep' or TOS == 'Academic Tutoring':
-        emp = get_employees()
-        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = emp, PersonalInfo = PersonalInfo)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/landscaping/<area>" + "-landscaping-services-il")
