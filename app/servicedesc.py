@@ -95,9 +95,17 @@ class services:
           While residential junk removal may seem like all you need is a little elbow grease, the reality is that quite often waste disposal can be dangerous. In addition to the known dangers of loose nails, broken boards, and sharp metal, hazardous chemicals may be found within the junk or waste that is being removed. Without proper protection, exposure to chemicals or other contaminants can be detrimental to your health. <br></br>
           Whether we are providing residential or commercial junk removal, Wurk Junk Removal Services always comes prepared. With hard hats, hazmat suits, and professional grade work masks, we can help you to safely take out the trash so that you can get back to your life. We can even help you with junk recycling if you have large amounts of metal, plastic, glass, or other recyclables.''',
         "Junk Removal Services Meta": "Meta: Wurk Services Has Been Continuously Providing Highest Rated Junk Removal Services in Chicago, Barrington Il, 60007, 60010. Our services include Junk Removal, Hauling Services, and Removing Junk Service for our clients in Chicago, Barrington. We are fully committed to making our client’s life easier buy offering affordable junk removal services.",
-        "Electrician Services Meta": "In Barrington, IL and the surrounding Chicago suburbs, our team has you covered. Are you looking to find an electrician “near me” in Barrington or Schaumburg? Look no further than Wurk Electrician Services for your resedential and industrial electrician needs.",
-        "Electrician Services": '''When you hire an electrician, how can you trust who is working in your home? At ABC we don’t just hire the most qualified electrician, but expect the highest level of professionalism and courtesy from everyone on our team. For your peace of mind all of our electricians are background tested and drug screened. Wurk provides Barrington homeowners with complete electrical services including installation, upgrades and repairs. No matter what type of electrical needs you may have it’s important to hire a qualified, experienced electrician. <br></br>
-          When the job is finished the work area is thoroughly cleaned and the price we quoted is the price you pay. All work and your satisfaction are guaranteed 100%. We’ll follow up to make sure you’re satisfied with our work and our people.''',
+        "Garage Cleaning": '''When you book Wurk Services for your garage cleaning project, our professionally trained team will handle all the sorting, labor, loading, hauling, and proper disposal, recycling, or donating. We’ll clean up your garage or car port space and rid you of clutter so that you can finally park your car where it belongs. Whether you’ve just got a few items that need to go, or your garage is so full of junk it’s about to burst at the seams, Wurk can and will help.
+          <br></br>
+          <h3>
+          Is your Garage so cluttered your car is always outside?
+          <br></br>
+          Get rid of your junk by donating, or properly recycling it for you. 
+          </h3>
+          <br></br>
+          You can count on Wurk Services to clean out your Garage for you. Book now so we can come at your convinience. ''',
+        "Garage Cleaning Meta": "Wurk Services provides Garage Cleaning services for the Barrington Area, where we help our customers remove junk, clean out, clean flooring and clear out your garage in the Barrington Area.",
+        
         "Snow Removal": '''Wurk Services provides prompt, professional commercial and residential snow removal to keep your outdoor landscape safe and enjoyable in any weather in the greater Barrington Area.  We maintain and operate our own fleet of snow removal vehicles and equipment, so we ready whenever you need us.
           <br></br>
           We understand every client’s needs, spaces and environments are different, and we offer customized plans to suit your schedule and budget.  Whether you need snow blowing or plowing at your home to save time and eliminate strain, specialized snow removal for extreme weather conditions or regular de-icing and snow removal throughout the winter to protect your customers, we are happy to serve you. We have pre-paid seasonal contracts based on average snowfall in the area or per-inch contracts based on snowfall after storms. We utilize data and reports from the National Weather Service to dispatch our fleets and to schedule seasonal contracts in the Barrington Il Area. 
@@ -113,16 +121,10 @@ class services:
           Marker Stakes - Good for everyone to prevent damage to turf and landscaping''',
         "Snow Removal Meta": "Wurk Services provides personalized residential and commercial Snow Removal to the greater Barrington IL area. We serve our customers to ensure that they are safe and able to leave right after storms, in the Greater Barrington Area. ",
         "breaknotitle a":"Place Holder",
-        "Garage Cleaning": '''When you book Wurk Services for your garage cleaning project, our professionally trained team will handle all the sorting, labor, loading, hauling, and proper disposal, recycling, or donating. We’ll clean up your garage or car port space and rid you of clutter so that you can finally park your car where it belongs. Whether you’ve just got a few items that need to go, or your garage is so full of junk it’s about to burst at the seams, Wurk can and will help.
-          <br></br>
-          <h3>
-          Is your Garage so cluttered your car is always outside?
-          <br></br>
-          Get rid of your junk by donating, or properly recycling it for you. 
-          </h3>
-          <br></br>
-          You can count on Wurk Services to clean out your Garage for you. Book now so we can come at your convinience. ''',
-        "Garage Cleaning Meta": "Wurk Services provides Garage Cleaning services for the Barrington Area, where we help our customers remove junk, clean out, clean flooring and clear out your garage in the Barrington Area.",
+        "Electrician Services Meta": "In Barrington, IL and the surrounding Chicago suburbs, our team has you covered. Are you looking to find an electrician “near me” in Barrington or Schaumburg? Look no further than Wurk Electrician Services for your resedential and industrial electrician needs.",
+        "Electrician Services": '''When you hire an electrician, how can you trust who is working in your home? At ABC we don’t just hire the most qualified electrician, but expect the highest level of professionalism and courtesy from everyone on our team. For your peace of mind all of our electricians are background tested and drug screened. Wurk provides Barrington homeowners with complete electrical services including installation, upgrades and repairs. No matter what type of electrical needs you may have it’s important to hire a qualified, experienced electrician. <br></br>
+          When the job is finished the work area is thoroughly cleaned and the price we quoted is the price you pay. All work and your satisfaction are guaranteed 100%. We’ll follow up to make sure you’re satisfied with our work and our people.''',
+        
         "Powerwashing": '''One of the services that Wurk Chicago Services offer is power washing / pressure washing services. Pressure washing in Barrington is not just ‘something we do, we are constantly researching new procedures and techniques to give you the best clean for your money. We are devoted to the business and your total satisfaction. We offer commercial and residential power washing services to anyone who would like to use our expert power washing services. 
           Each member of our staff understands that you desire service that is efficient, thorough, and accountable, so you can be sure that when you put your home on the line for us, we put our efforts on the line for you. All of our window washers, gutter cleaners, and power washers work directly for the company and have completed vigorous training requirements in order to provide the most thorough window washing, gutter cleaning, and power washing services.
           <br></br>
