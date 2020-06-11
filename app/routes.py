@@ -67,7 +67,12 @@ def get_employees():
     return User.query.filter_by(isemployee = 1)
 @myapp.route("/")
 def index():
-    return render_template("index.html", pagetitle="Wurk Services")
+    olddic = dictofservices.serviceDict.keys()
+    listofservices = []
+    for i in olddic:
+        if not ("Meta" in i or "landscaping" in i):
+            listofservices.append(i)
+    return render_template("index.html", pagetitle="Wurk Services", listofservices = listofservices, types = ["Property Management", "Home Improvement", "Personal Services"])
 
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
@@ -269,11 +274,12 @@ def TOSBarrington(TOS):
     TOS = TOS.replace('-', ' ')
     TOS = TOS.title()
     desc = dictofservices()
-    print(desc)
+    print(TOS + " Meta")
     try:
         meta = desc.serviceDict[TOS + " Meta"]
     except KeyError as e:
         meta = ''
+    print(meta)
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
