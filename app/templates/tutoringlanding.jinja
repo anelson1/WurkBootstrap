@@ -1,0 +1,83 @@
+{% extends "baseWH.html" %}
+{%block title%}Home{%endblock%}
+{%block content%}
+<!--Services Loop -->
+<div class="container-fluid">
+  <div class="row border border-primary">
+    <div class="col p-0 text-white">
+      <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll"
+        data-image-src="{{ url_for('static', filename='css/img/tutoring/1.jpg') }}" alt='Tutoring'>
+        <span class="bg-transdark p-3 my-5">
+          <h1>Tutoring with Wurk Services</h1></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+<div class="row bg-white p-3">
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row border border-primary">
+    <div class="col p-0 text-white">
+      <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll"
+        data-image-src="{{ url_for('static', filename='css/img/tutoring/2.jpg') }}" alt='Tutoring'>
+        <span class="bg-transdark p-3 my-5 mx-5">
+         <p class='lead'>Wurk has been tutoring for years now, and the results our students see are clearly shown. Many companies often hire kids that aren't qualified enough to decrease cost, or hire older people who don't know the modern education system properly. At Wurk, we hire top rated graduates, who have recently majored in the subject you need us for, to help you child improve their test scores, and understand concepts, and perform better even more.</p>
+         </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+<div class="row bg-white p-3">
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row border border-primary">
+    <div class="col p-0 text-white">
+      <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll"
+        data-image-src="{{ url_for('static', filename='css/img/tutoring/3.jpg') }}" alt='Tutoring'>
+        <span class="bg-transdark p-3 my-5 mx-5">
+         <p class='lead'>Each child learns differently. Each child has their own methods. Teachers and schools just don't allow students to learn at their own rate, and with their own methods. At Wurk, we train tutors to help students learn at their own pace, and with methods that would make sense for them.</p>
+         </span>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="container-fluid">
+<div class="row bg-white p-3">
+</div>
+</div>
+<div class="container-fluid overflow-hidden">
+  <div class="row my-3 mx-5">
+  <h1>Types of Tutoring Offered</h1>
+    <div class="card-deck">
+      {%for k in listofservices%}
+      {%if "break" in k%}
+    </div>
+  </div>
+  <div class="row my-3 mx-5 ">
+    <div class="card-deck">
+      {%else%}
+      <div class="card text-light shadow shadow-lg grow border border-primary">
+        <div class="card-header bg-primary">{{k}}</div>
+        <img class="card-img-top border border-primary" src="{{ url_for('static', filename='css/img/' + k + '.jpg') }}" alt="{{k}}">
+        <div class="card-footer bg-white">
+          {%set k = k.replace(" ", "-")%}
+          {%if k == 'Lawn-Care'%}
+          <a href="/landscaping" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
+          {%elif k == 'Tutoring'%}
+          <a href="/tutoring" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
+          {%else%}
+          <a href="/services/{{k}}-barrington-il" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
+          {%endif%}
+        </div>
+      </div>
+      {%endif%}
+      {%endfor%}
+    </div>
+  </div>
+</div>
+</body>
+{%endblock%}

@@ -265,6 +265,8 @@ def TOS(TOS):
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
+    if TOS == 'Tutoring':
+        return redirect(url_for('TutoringLanding'))
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
@@ -310,6 +312,9 @@ def anytypeoflandscapingreverse(area):
 @myapp.route("/landscaping")
 def sansscaping():
     return render_template('landscaping.html')
+@myapp.route("/tutoring")
+def tutoring_landing():
+    return render_template('tutoringlanding.jinja', listofservices = dictofservices.tutoring_dict.keys(), filedirectory = "css/img/Tutoring", TOS = "Tutoring")
 @myapp.route("/nanny-services-barrington-il")
 def nannystuff():
     TOS = 'Nanny Services'
@@ -320,7 +325,7 @@ def nannystuff():
     except KeyError as e:
         meta = ''
     filedirectory = 'css/img/'+TOS
-    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle="Nanny Services Barrington Il | Compassionate, and Caring Nannies in Barrington Il Services")
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle="Nanny Services Barrington Il | Compassionate, and Caring Nannies in Barrington Il Services", meta=meta)
    
 @myapp.route("/services/<TOS>/SelectSport")
 def SportSelect(TOS):

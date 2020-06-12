@@ -139,8 +139,9 @@ class services:
         "Deck And Roof Restoration": """Keeping the wood on the exterior of your home in good condition is required to ensure it lasts as long as possible. We are Barrington’s best and most experienced wood restoration company and we give our customers the services needed to keep their homes beautiful and long-lasting. We offer deck cleaning and staining services and other solutions to keep your fence, porch, cedar roof, and other wood structures looking great. We can help with all exterior wood-related services for your home.<br></br>Call Barrington’s best deck and roof restoration service providers, to get your job done!<br></br>We’re always rated at 5 stars, because our motto is in our name, Wurk.""",
         "Deck And Roof Restoration Meta": """Call Us, Wurk Barrington Services for Restoring Your Roof and Deck to make them look like new and last longer! Whether you’re selling your home or you are going to live there for the rest of your life, Wurk Barrington Services Deck and Roof Restoration services will help them look like new and last long all the time!""",
         "break 2": "filler for site",
-        "Academic Tutoring": "Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading.",
-        "Act And Sat Prep": "Live one-on-one SAT and ACT tutoring taught by experts from top universities. Our prep sessions provide proven strategies for time management and score maximization. You can receive guidance from one of our experts today for only $39 an hour",
+        "Tutoring": "Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading.",
+        "Tutoring Meta":"Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us.",      
+      "Act And Sat Prep": "Live one-on-one SAT and ACT tutoring taught by experts from top universities. Our prep sessions provide proven strategies for time management and score maximization. You can receive guidance from one of our experts today for only $39 an hour",
         "Music Lessons": "Want to learn an instrument or just better your current understanding of an instrument? Wurk has tons of veteran musicians waiting to help you achieve your dreams. Make a booking now and achieve professional help at an affordable price!",
         "Sports Coaching": '''Sports Coaching is vital to improving a kids future and current performance. We offer coaching for kids in the following sports:
           <div class = "row">
@@ -204,3 +205,9 @@ class services:
           </div> ''',
         "Nanny Services Meta": '''There’s a nanny that's just right for you at Wurk Services. Make sure that your child is taken care for with us. We haven’t gotten a review below 5 stars, because we incorporate compassion and care into our nanny services in the Barrington & Schaumburg Il Area.'''
       }
+    tutoring_dict = {
+        "Computer Science":"",
+        "Math":"",
+        "English":"",
+        "ACT and SAT Prep":""
+    }
