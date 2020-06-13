@@ -1,7 +1,8 @@
 {% extends "baseWH.html" %}
 {%block title%}Home{%endblock%}
 {%block content%}
-<div class="container-fluid">
+
+<div class="container-fluid bg-primary">
   <div class="row border border-primary">
     <div class="col p-0 text-white">
       <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll"
@@ -23,7 +24,7 @@
   </div>
 </div>
 <!--Services Loop -->
-<div class="container-fluid overflow-hidden">
+<div class="container-fluid overflow-hidden bg-primary text-light">
   <div class="row my-5 mx-5">
     <h2>{{types[0]}}</h2>
     <div class="card-deck">
@@ -36,12 +37,12 @@
     {%set k = k[-1]%}
     <h2>{{types[k|int]}}</h2>
     {%endif%}
-    <div class="card-deck">
+    <div data-aos="fade-right" data-aos-duration="1000" class="card-deck">
       {%else%}
-      <div class="card text-light shadow shadow-lg grow border border-primary">
-        <div class="card-header bg-primary">{{k}}</div>
+      <div class="card text-dark shadow shadow-lg border border-primary">
         <img class="card-img-top border border-primary" src="{{ url_for('static', filename='css/img/' + k + '.jpg') }}" alt="{{k}}">
-        <div class="card-footer bg-white">
+        <div class="card-body">
+          <h5 class="card-title">{{k}}</h5>
           {%set k = k.replace(" ", "-")%}
           {%if k == 'Lawn-Care'%}
           <a href="/landscaping" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
@@ -50,7 +51,7 @@
           {%else%}
           <a href="/services/{{k}}-barrington-il" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
           {%endif%}
-        </div>
+        </div>      
       </div>
       {%endif%}
       {%endfor%}

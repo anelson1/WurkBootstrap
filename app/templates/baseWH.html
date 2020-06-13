@@ -12,6 +12,7 @@
   <link rel="manifest" href="static/css/img/favicons/site.webmanifest">
   <link rel="mask-icon" href="static/css/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="static/css/img/favicons/favicon.ico">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <meta name="apple-mobile-web-app-title" content="Wurk Services">
   <meta name="application-name" content="Wurk Services">
   <meta name="msapplication-TileColor" content="#603cba">
@@ -43,8 +44,11 @@ pets, we provide a full array of services available at a moment's notice. All yo
 <!-- End of HubSpot Embed Code -->
 <script type='text/javascript'
   data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '5531c047-e943-4ded-a630-4c625deff899', f: true }); done = true; } }; })();</script>
-
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <body>
+  <script>
+    AOS.init();
+  </script>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/"><img width="50" height="50" class="d-inline-block align-top" alt=""
         src="{{ url_for('static', filename='css/img/W.png') }}"></a>
