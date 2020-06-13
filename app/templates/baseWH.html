@@ -22,7 +22,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-  <script src="{{ url_for('static', filename='css/js/parallax.js') }}"></script>
   <meta property="og:title" content="Wurk Services">
   <meta property="og:description" content="Wurk Services is a management company. From maintaining your property to tutoring your kids and caring for your
 pets, we provide a full array of services available at a moment's notice. All you need to do is book!">
@@ -45,11 +44,13 @@ pets, we provide a full array of services available at a moment's notice. All yo
 <script type='text/javascript'
   data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '5531c047-e943-4ded-a630-4c625deff899', f: true }); done = true; } }; })();</script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<body>
+  <script src="{{ url_for('static', filename='css/js/parallax.js') }}"></script>
+
+<body class="pt-5">
   <script>
     AOS.init();
   </script>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/"><img width="50" height="50" class="d-inline-block align-top" alt=""
         src="{{ url_for('static', filename='css/img/W.png') }}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

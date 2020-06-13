@@ -1,12 +1,25 @@
 {% extends "baseWH.html" %}
 {%block title%}Home{%endblock%}
 {%block content%}
-
-<div class="container-fluid bg-primary">
+<style>
+  .parallax {
+    /* The image used */
+    background-image: url("{{url_for('static', filename='/css/img/paralax.jpg')}}");
+  
+    /* Set a specific height */
+    height: 1000px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  </style>
+<div class="container-fluid">
   <div class="row border border-primary">
     <div class="col p-0 text-white">
-      <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll"
-        data-image-src="{{ url_for('static', filename='css/img/paralax.jpg') }}" alt='Landscaping'>
+      <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll" data-image-src="static/css/img/paralax.jpg" alt='Landscaping'>
         <span class="bg-transdark p-3 my-5">
           <h1>Wurk Services</h1>
           <h2>We do all odd jobs. Work less with Wurk today!</h2>
@@ -27,7 +40,7 @@
 <div class="container-fluid overflow-hidden bg-primary text-light">
   <div class="row my-5 mx-5">
     <h2>{{types[0]}}</h2>
-    <div class="card-deck">
+    <div class="card-deck" data-aos="fade-right" data-aos-duration="1000"> 
       {%for k in listofservices%}
       {%if "break" in k%}
     </div>
