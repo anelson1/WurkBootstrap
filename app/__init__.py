@@ -15,7 +15,7 @@ migrate = Migrate(myapp, db)
 login = LoginManager(myapp)
 mail = Mail(myapp)
 bootstrap = Bootstrap(myapp)
-#talisman = Talisman(myapp,content_security_policy=None)
+talisman = Talisman(myapp,content_security_policy=None)
 
 
 login.login_view = 'login'
