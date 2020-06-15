@@ -267,6 +267,9 @@ def TOS(TOS):
         return redirect(url_for("Archal"))
     if TOS == 'Tutoring':
         return redirect(url_for('TutoringLanding'))
+    if TOS == 'Sports Coaching':
+        print("shalom")
+        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees())
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
@@ -285,6 +288,9 @@ def TOSBarrington(TOS):
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
+    if TOS == 'Sports Coaching':
+        print("shalom")
+        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees())
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
