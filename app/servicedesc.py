@@ -19,11 +19,11 @@ class services:
           <li class="list-group-item">Paver Brick Cleaning, Sealing & Joint Sanding</li>
           <li class="list-group-item">Drainage Work & Gutter Cleaning</li>
           </ul>""",
-        "Barrington landscaping Meta": """Wurk Services Has Been Continuously Providing Highest Rated Landscaping Services in Chicago, Barrington Il, 60007, 60010. Our services include landscaping services, lawn maintenance, 
+        "Barrington landscaping Meta": """Wurk Services Has Been Continuously Providing Highest Rated Landscaping Services in Chicago, Barrington Il, 60007, 60010. Our services include landscaping services, lawn maintenance,
           landscaping design, landscaping installation, sod for our clients in Chicago, Barrington. We are fully committed to providing top of the line landscape services to fit our client’s lifestyles.""",
         "Sutton landscaping": '''Wurk Services is run by local students who know the Sutton Area.
           <br></br>
-          Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Sutton area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Sutton Landscaping Clients get the best services possible. 
+          Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Sutton area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Sutton Landscaping Clients get the best services possible.
           <br></br>
           As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel
           <br></br>
@@ -46,7 +46,7 @@ class services:
         "Sutton landscaping Meta": "Wurk Services Has Been Continuously Providing Highest Rated Landscaping Services in Sutton Il. Our services include landscaping services, lawn maintenance, landscaping design, weeding, mulching, sod for our clients in Sutton. We are fully committed to providing top of the line landscape services to fit our client’s lifestyles with our easy to book system.",
         "Deer Park landscaping": '''Wurk Services is run by local students who know the Deer Park and the Chicagoland area.
           <br></br>
-          Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Deer Park area with local high quality landscaping services, maintenance, and design. 
+          Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Deer Park area with local high quality landscaping services, maintenance, and design.
           <br></br>
           As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel
           <br></br>
@@ -69,7 +69,7 @@ class services:
         "Deer Park landscaping Meta": "Wurk Services Deer Park Landscaping is one the best the city has seen. We are a team of college students who are always learning new techniques to make your lawn and house look better.",
         "Inverness landscaping": '''Wurk Services is run by local students who know the Inverness Area.
           <br></br>
-          Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Inverness area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Inverness Landscaping Clients get the best services possible. 
+          Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the Inverness area with local high quality landscaping services, maintenance, and design. We don't cut corners, we make sure that our products come from the best local suppliers, and to ensure that every thing is placed in the perfect way to make sure that our Inverness Landscaping Clients get the best services possible.
           <br></br>
           As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel
           <br></br>
@@ -100,15 +100,15 @@ class services:
           <h3>
           Is your Garage so cluttered your car is always outside?
           <br></br>
-          Get rid of your junk by donating, or properly recycling it for you. 
+          Get rid of your junk by donating, or properly recycling it for you.
           </h3>
           <br></br>
           You can count on Wurk Services to clean out your Garage for you. Book now so we can come at your convinience. ''',
         "Garage Cleaning Meta": "Wurk Services provides Garage Cleaning services for the Barrington Area, where we help our customers remove junk, clean out, clean flooring and clear out your garage in the Barrington Area.",
-        
+
         "Snow Removal": '''Wurk Services provides prompt, professional commercial and residential snow removal to keep your outdoor landscape safe and enjoyable in any weather in the greater Barrington Area.  We maintain and operate our own fleet of snow removal vehicles and equipment, so we ready whenever you need us.
           <br></br>
-          We understand every client’s needs, spaces and environments are different, and we offer customized plans to suit your schedule and budget.  Whether you need snow blowing or plowing at your home to save time and eliminate strain, specialized snow removal for extreme weather conditions or regular de-icing and snow removal throughout the winter to protect your customers, we are happy to serve you. We have pre-paid seasonal contracts based on average snowfall in the area or per-inch contracts based on snowfall after storms. We utilize data and reports from the National Weather Service to dispatch our fleets and to schedule seasonal contracts in the Barrington Il Area. 
+          We understand every client’s needs, spaces and environments are different, and we offer customized plans to suit your schedule and budget.  Whether you need snow blowing or plowing at your home to save time and eliminate strain, specialized snow removal for extreme weather conditions or regular de-icing and snow removal throughout the winter to protect your customers, we are happy to serve you. We have pre-paid seasonal contracts based on average snowfall in the area or per-inch contracts based on snowfall after storms. We utilize data and reports from the National Weather Service to dispatch our fleets and to schedule seasonal contracts in the Barrington Il Area.
           <br></br>
           Snow Plowing - Driveways and parking lots
           <br></br>
@@ -120,17 +120,16 @@ class services:
           <br></br>
           Marker Stakes - Good for everyone to prevent damage to turf and landscaping''',
         "Snow Removal Meta": "Wurk Services provides personalized residential and commercial Snow Removal to the greater Barrington IL area. We serve our customers to ensure that they are safe and able to leave right after storms, in the Greater Barrington Area. ",
-        "breaknotitle a":"Place Holder",
         "Electrician Services Meta": "In Barrington, IL and the surrounding Chicago suburbs, our team has you covered. Are you looking to find an electrician “near me” in Barrington or Schaumburg? Look no further than Wurk Electrician Services for your resedential and industrial electrician needs.",
         "Electrician Services": '''When you hire an electrician, how can you trust who is working in your home? At ABC we don’t just hire the most qualified electrician, but expect the highest level of professionalism and courtesy from everyone on our team. For your peace of mind all of our electricians are background tested and drug screened. Wurk provides Barrington homeowners with complete electrical services including installation, upgrades and repairs. No matter what type of electrical needs you may have it’s important to hire a qualified, experienced electrician. <br></br>
           When the job is finished the work area is thoroughly cleaned and the price we quoted is the price you pay. All work and your satisfaction are guaranteed 100%. We’ll follow up to make sure you’re satisfied with our work and our people.''',
-        
-        "Powerwashing": '''One of the services that Wurk Chicago Services offer is power washing / pressure washing services. Pressure washing in Barrington is not just ‘something we do, we are constantly researching new procedures and techniques to give you the best clean for your money. We are devoted to the business and your total satisfaction. We offer commercial and residential power washing services to anyone who would like to use our expert power washing services. 
+
+        "Powerwashing": '''One of the services that Wurk Chicago Services offer is power washing / pressure washing services. Pressure washing in Barrington is not just ‘something we do, we are constantly researching new procedures and techniques to give you the best clean for your money. We are devoted to the business and your total satisfaction. We offer commercial and residential power washing services to anyone who would like to use our expert power washing services.
           Each member of our staff understands that you desire service that is efficient, thorough, and accountable, so you can be sure that when you put your home on the line for us, we put our efforts on the line for you. All of our window washers, gutter cleaners, and power washers work directly for the company and have completed vigorous training requirements in order to provide the most thorough window washing, gutter cleaning, and power washing services.
           <br></br>
           Our up-front, accountable service guarantees that you will be blown away not only by our professionalism, but by our expert service. Our window washers, gutter cleaners, and power washers have all been trained directly to company specifications and have years of experience in the field. Their training gives them an unmatched attention to detail and the quality of each service reflects this. We are licensed, bonded, and insured to make sure that your home and your interests are protected above all else.''',
         "Powerwashing Meta": "Wurk Services Has Been Continuously Providing Highest Rated Pressure Washing Services in Chicago, Barrington Il, 60007, 60010. Our services include Power Washing, Pressure Washing, and Sanitation Services for our clients in Chicago, Barrington. We are fully committed to residential and commercial power washing services.",
-        "break 1": "filler for site",
+        "break 1": "Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style.",
         "Construction": "Looking to build or maintain a property? Look no further, as Wurk construction services provide a full spectrum of services that can create the design of your dreams! From benches to treehouses, Wurk can construct, maintain, or restore any residential or commercial project!",
         "Painting And Staining": """Wurk Chicago Services is a professional painting company with many years of experience servicing the Chicagoland Area. We offer a wide range of painting services including interior and exterior painting, deck staining and restoration and remodeling.  <br></br>
           We have a very simple policy. Make sure every customer is Happy. Period. Our friendly customer service, humbling awards and numerous reviews have historically proven that our mission is succeeding. <br></br>
@@ -138,9 +137,9 @@ class services:
         "Painting And Staining Meta": ''' Wurk Services Has Been Continuously Providing Highest Rated Painting & Staining Services in Chicago, Barrington Il, 60007, 60010. Our services include Painting, Painter Services, and providing interior & exterior commercial & residential painter services for our clients in Chicago, Barrington. We are fully committed to making our client’s properties look better, with quality services.''',
         "Deck And Roof Restoration": """Keeping the wood on the exterior of your home in good condition is required to ensure it lasts as long as possible. We are Barrington’s best and most experienced wood restoration company and we give our customers the services needed to keep their homes beautiful and long-lasting. We offer deck cleaning and staining services and other solutions to keep your fence, porch, cedar roof, and other wood structures looking great. We can help with all exterior wood-related services for your home.<br></br>Call Barrington’s best deck and roof restoration service providers, to get your job done!<br></br>We’re always rated at 5 stars, because our motto is in our name, Wurk.""",
         "Deck And Roof Restoration Meta": """Call Us, Wurk Barrington Services for Restoring Your Roof and Deck to make them look like new and last longer! Whether you’re selling your home or you are going to live there for the rest of your life, Wurk Barrington Services Deck and Roof Restoration services will help them look like new and last long all the time!""",
-        "break 2": "filler for site",
+        "break 2": "Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ",
         "Tutoring": "Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading.",
-        "Tutoring Meta":"Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us.",      
+        "Tutoring Meta":"Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us.",
       "Act And Sat Prep": "Live one-on-one SAT and ACT tutoring taught by experts from top universities. Our prep sessions provide proven strategies for time management and score maximization. You can receive guidance from one of our experts today for only $39 an hour",
         "Music Lessons": "Want to learn an instrument or just better your current understanding of an instrument? Wurk has tons of veteran musicians waiting to help you achieve your dreams. Make a booking now and achieve professional help at an affordable price!",
         "Sports Coaching": '''Sports Coaching is vital to improving a kids future and current performance. We offer coaching for kids in the following sports:
@@ -168,7 +167,6 @@ class services:
           </ul>
           </div>
           </div>''',
-        "breaknotitle b":"Place Holder",
         "Pet Services": '''You’re working long hours, or you’re going on a trip. You need someone kind, responsible, and experienced to take care of your pets while you’re away. Let Wurk take care of them. <br></br>
           When you just can’t be home, we visit, feed, walk, take the vet visits, mid day walks. <br></br>
           It is a difficult task these days to be able to trust people and companies not only with your pet, but also with your home. We understand. We love animals and we do what we do for a living, for a reason.  For years It has been our purpose and personal goal to provide the same type of care and love for your pet while you are away as you give to your furry friend when you are at home. From the moment that we check in, to the moment that we check out you know that your pet’s entire routine was followed to the letter. And as the saying goes… “A picture is worth a 1000 words.” Most of all you will see how happy your pet is with the service we provide them, with a quick snapshot of their real time happiness.

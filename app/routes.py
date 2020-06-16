@@ -72,7 +72,7 @@ def index():
     for i in olddic:
         if not ("Meta" in i or "landscaping" in i):
             listofservices.append(i)
-    return render_template("index.html", pagetitle="Wurk Services", listofservices = listofservices, types = ["Property Management", "Home Improvement", "Personal Services"])
+    return render_template("index.html.j2", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
 
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
@@ -108,7 +108,7 @@ def loginhandler():
 def logout():
     logout_user()
     return redirect(url_for("login"))
-    
+
 @myapp.route("/register")
 def register():
     form = registerform()
@@ -132,7 +132,7 @@ def register2Handler():
     session['pword'] = request.form['password']
     u = User.query.filter_by(username=session['uname']).first()
     if u:
-        return redirect(url_for("register2",err = True)) 
+        return redirect(url_for("register2",err = True))
     return redirect(url_for("register3"))
 
 @myapp.route("/register3")
@@ -218,7 +218,7 @@ def EmpRegHandle():
     db.session.commit()
     return redirect(url_for('registered'))
 #End Account Stuff---------------------------------------------------------------------------------------------------------------------------------------------------------
-#Wurk in progess 
+#Wurk in progess
 @myapp.route("/adminhandler", methods=['post'])
 def adminhandler():
     FN = request.form['FN']
@@ -269,7 +269,7 @@ def TOS(TOS):
         return redirect(url_for('TutoringLanding'))
     if TOS == 'Sports Coaching':
         print("shalom")
-        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees())
+        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
@@ -290,7 +290,7 @@ def TOSBarrington(TOS):
         return redirect(url_for("Archal"))
     if TOS == 'Sports Coaching':
         print("shalom")
-        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees())
+        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
@@ -307,7 +307,7 @@ def Archal(area):
         meta = ''
     filedirectory = 'css/img/Lawn Care'
     return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=area + " Landscaping Services | Lawn Care Services |" + area + ", Il | Wurk " + area + " Services")
-    
+
 @myapp.route("/<area>" + "-landscaping-services-il")
 def anytypeoflandscaping(area):
     return redirect(url_for('Archal', area = area.capitalize()))
@@ -320,7 +320,7 @@ def sansscaping():
     return render_template('landscaping.html')
 @myapp.route("/tutoring")
 def tutoring_landing():
-    return render_template('tutoringlanding.jinja', listofservices = dictofservices.tutoring_dict.keys(), filedirectory = "css/img/Tutoring", TOS = "Tutoring")
+    return render_template('tutoringlanding.html.j2', listofservices = dictofservices.tutoring_dict.keys(), filedirectory = "css/img/Tutoring", TOS = "Tutoring")
 @myapp.route("/nanny-services-barrington-il")
 def nannystuff():
     TOS = 'Nanny Services'
@@ -332,7 +332,7 @@ def nannystuff():
         meta = ''
     filedirectory = 'css/img/'+TOS
     return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle="Nanny Services Barrington Il | Compassionate, and Caring Nannies in Barrington Il Services", meta=meta)
-   
+
 @myapp.route("/services/<TOS>/SelectSport")
 def SportSelect(TOS):
     form = bookingform()
@@ -404,7 +404,7 @@ def FinalizeBooking():
     booking = Booking(bookingid=session['bid'], clientname=name, typeofbooking=session['TOB'], comments=request.form['comments'], isclaimed = False, claimedby = None)
     bookingtime = BookingTime(bookingid=session['bid'], month=month, day=day, starttime=request.form['time'])
     client = Client(name = name, email = session['email'], phonenumber = session['pnum'], address = session['address'], city = session['city'], state = session['state'], bookingid = session['bid'])
-    
+
     db.session.add(booking)
     db.session.add(bookingtime)
     db.session.add(client)
@@ -415,7 +415,7 @@ def FinalizeBooking():
 @myapp.route("/BookingCreated")
 def created():
     return render_template("BookingComplete.html", BID=session['bid'])
-    
+
 #End Of Booking Creation -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #Stuff for the wurker--------------------------------------------------------------------------------------------------
@@ -452,7 +452,7 @@ def deleteslot(id):
     except:
         error = True
     return redirect(url_for('WP', popupremove=True, error=error))
-    
+
 
 @myapp.route("/wurkerhandler", methods=['post'])
 @login_required
@@ -523,7 +523,7 @@ def posthandler(wurker):
         try:
             file = request.files['image']
             filename = secure_filename(file.filename)
-            
+
             file.save(os.path.join('app/static/css/img/' + wurker, filename))
         except:
             filename = ''
@@ -539,7 +539,7 @@ def uploadphoto(wurker):
     u.bio = newbio
     db.session.commit()
     return redirect(url_for('wurkerprofile', wurker=wurker))
-    
+
 @myapp.route('/<wurker>/delete/<file>', methods = ['POST', 'Get'])
 def deletephoto(wurker, file):
     pic = Post.query.filter_by(id=file).first()
@@ -554,7 +554,7 @@ def booklist(wurker):
     booking = Booking.query.all()
     bookingtime = BookingTime.query.all()
     client = Client.query.all()
-    u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all() 
+    u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all()
     popup = request.args.get('popup')
     return render_template('bookingslist.html', lst=u, popup=popup)
 
@@ -589,7 +589,7 @@ def admin():
     booking = Booking.query.all()
     bookingtime = BookingTime.query.all()
     client = Client.query.all()
-    u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all() 
+    u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all()
     popup = request.args.get('popup')
     return render_template('adminpage.html', lst=u, popup=popup)
 @myapp.route("/admin/timesheet", methods=['GET'])
@@ -630,7 +630,7 @@ def robots():
 @myapp.route('/error')
 def genericerror():
     return render_template('application-error.html', errormessage ='That page could not be found, please go home and try again!')
-    
+
 @myapp.errorhandler(404)
 def page_not_found(e):
     return render_template('application-error.html', error = e, errormessage = "That page could not be found, please go home and try again!"), 404

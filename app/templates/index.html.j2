@@ -5,10 +5,10 @@
   .parallax {
     /* The image used */
     background-image: url("{{url_for('static', filename='/css/img/paralax.jpg')}}");
-  
+
     /* Set a specific height */
     height: 1000px;
-  
+
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: bottom;
@@ -37,25 +37,39 @@
   </div>
 </div>
 <!--Services Loop -->
-<div class="container-fluid overflow-hidden bg-primary text-light">
-  <div class="row my-5 mx-5">
-    <h2>{{types[0]}}</h2>
-    <div class="card-deck" data-aos="fade-right" data-aos-duration="1000"> 
+<div class="container-fluid overflow-hidden">
+  <div class="row my-5 mx-5 align-items-center">
+    <div class="col text-center">
+          <h1>{{types[0][0]}}</h1>
+          <h2>{{types[0][1]}}</h2>
+        </div>
+  <div class="col">
+    <div class="card-deck">
       {%for k in listofservices%}
       {%if "break" in k%}
     </div>
   </div>
-  <div class="row my-5 mx-5 ">
+</div>
+<hr class="border border-primary">
+
+  <div class="row my-5 mx-5 align-items-center">
     {%if not "breaknotitle" in k%}
     {%set k = k[-1]%}
-    <h2>{{types[k|int]}}</h2>
+    <div class="col text-center">
+    <h1>{{types[k|int][0]}}</h1>
+    <h2>{{types[k|int][1]}}</h2>
+  </div>
+  <div class="col">
+
     {%endif%}
-    <div data-aos="fade-right" data-aos-duration="1000" class="card-deck">
+    <div class="card-deck">
       {%else%}
-      <div class="card text-dark shadow shadow-lg border border-primary">
+      <div class="card text-dark shadow shadow-lg border border-primary mb-4" style="min-width: 11rem;" data-aos="fade-right" data-aos-duration="1000">
         <img class="card-img-top border border-primary" src="{{ url_for('static', filename='css/img/' + k + '.jpg') }}" alt="{{k}}">
         <div class="card-body">
           <h5 class="card-title">{{k}}</h5>
+        </div>
+        <div class="card-footer bg-white">
           {%set k = k.replace(" ", "-")%}
           {%if k == 'Lawn-Care'%}
           <a href="/landscaping" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
@@ -64,12 +78,14 @@
           {%else%}
           <a href="/services/{{k}}-barrington-il" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
           {%endif%}
-        </div>      
+        </div>
       </div>
       {%endif%}
       {%endfor%}
     </div>
   </div>
+</div>
+
 </div>
 </body>
 {%endblock%}
