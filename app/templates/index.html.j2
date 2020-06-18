@@ -16,7 +16,7 @@
     background-size: cover;
   }
   </style>
-<div class="container-fluid">
+<div class="container-fluid mb-2">
   <div class="row border border-primary">
     <div class="col p-0 text-white">
       <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll" data-image-src="static/css/img/paralax.jpg" alt='Landscaping'>
@@ -48,10 +48,12 @@
       {%for k in listofservices%}
       {%if "break" in k%}
     </div>
-  </div>
+</div>
+</div>
+
 </div>
 <hr class="border border-primary">
-
+<div class="container-fluid overflow-hidden">
   <div class="row my-5 mx-5 align-items-center">
     {%if not "breaknotitle" in k%}
     {%set k = k[-1]%}
@@ -84,6 +86,7 @@
       {%endfor%}
     </div>
   </div>
+</div>
 </div>
 
 </div>
