@@ -143,7 +143,6 @@ class services:
         "break 2": "Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ",
         "Tutoring": "Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading.",
         "Tutoring Meta":"Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us.",
-      "Act And Sat Prep": "Live one-on-one SAT and ACT tutoring taught by experts from top universities. Our prep sessions provide proven strategies for time management and score maximization. You can receive guidance from one of our experts today for only $39 an hour",
         "Music Lessons": "Want to learn an instrument or just better your current understanding of an instrument? Wurk has tons of veteran musicians waiting to help you achieve your dreams. Make a booking now and achieve professional help at an affordable price!",
         "Sports Coaching": '''Sports Coaching is vital to improving a kids future and current performance. We offer coaching for kids in the following sports:
           <div class = "row">
@@ -217,5 +216,5 @@ Our math courses are available for all topics like algebra (simple and advanced)
 <br>
 We work hard to make sure that our students excel at every subject and task, so tutors are compensated appropriately based on the needs of the student, and timings. Fill out the form belowto see your rate, and our expertise. ''',
         "English Meta":'''English Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us. ''',
-        "ACT and SAT Prep":""
+      "Act And Sat Prep": "Live one-on-one SAT and ACT tutoring taught by experts from top universities. Our prep sessions provide proven strategies for time management and score maximization. You can receive guidance from one of our experts today for only $39 an hour"
     }

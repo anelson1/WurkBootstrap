@@ -320,7 +320,12 @@ def sansscaping():
     return render_template('landscaping.html')
 @myapp.route("/tutoring")
 def tutoring_landing():
-    return render_template('tutoringlanding.html.j2', listofservices = dictofservices.tutoring_dict.keys(), filedirectory = "css/img/Tutoring", TOS = "Tutoring")
+    olddic = dictofservices.tutoring_dict.keys()
+    listofservices = []
+    for i in olddic:
+        if not ("Meta" in i or "landscaping" in i):
+            listofservices.append(i)
+    return render_template('tutoringlanding.html.j2', listofservices = listofservices, filedirectory = "css/img/Tutoring", TOS = "Tutoring")
 @myapp.route("/tutoring/<TOS>")
 def tutoring(TOS):
     TOS = TOS.replace('-', ' ')
@@ -333,7 +338,7 @@ def tutoring(TOS):
         meta = ''
     print(meta)
     filedirectory = 'css/img/'+TOS
-    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.tutoring_dict[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/nanny-services-barrington-il")
 def nannystuff():
