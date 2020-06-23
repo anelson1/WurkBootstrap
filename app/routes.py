@@ -326,6 +326,7 @@ def tutoring_landing():
         if not ("Meta" in i or "landscaping" in i):
             listofservices.append(i)
     return render_template('tutoringlanding.html.j2', listofservices = listofservices, filedirectory = "css/img/Tutoring", TOS = "Tutoring")
+    
 @myapp.route("/tutoring/<TOS>")
 def tutoring(TOS):
     TOS = TOS.replace('-', ' ')
