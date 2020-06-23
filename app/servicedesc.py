@@ -204,8 +204,15 @@ class services:
         "Nanny Services Meta": '''There’s a nanny that's just right for you at Wurk Services. Make sure that your child is taken care for with us. We haven’t gotten a review below 5 stars, because we incorporate compassion and care into our nanny services in the Barrington & Schaumburg Il Area.'''
       }
     tutoring_dict = {
-        "Computer Science":"",
-        "Math":"",
-        "English":"",
+        "Computer Science":"Whether you’re taking a computer science course, in a coding bootcamp, need a refresher on computer science fundamentals, or simply learning how to code, we have the best computer science tutors online available to help you with your coding needs. Learn faster with a computer science expert.",
+        "Computer Science Meta":"Computer Science Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us.",
+        "Math":'''Work to improve the math learning experience of you or your child, it might be wise to consider retaining the services of a math tutor. There are several factors that you should keep in mind when choosing the right tutor:Our tutors have lots of experience, have a good formal education, and are available to help you or your child excel at your math courses.
+<br>
+Our math courses are available for all topics like algebra (simple and advanced), geometry, calculus and any other topic that you need help in. Tutors need to be compensated for their time, since we work hard to make sure that every child that works with us, has the best chance at succeeding with us. Please fill out the form below in order to get a pricing strucutre from us on how much it costs for your particular topic, and your particular times. ''',
+        "Math Meta":"Math Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us.",
+        "English":'''We understand the importance for all students to effectively communicate and express their ideas in writing. For our youngest students we work on handwriting, spelling and letter formation. From there, we move on to writing sentences, paragraphs, and cohesive essays. Many of our students benefit from executive functioning strategies to improve their writing process.
+<br>
+We work hard to make sure that our students excel at every subject and task, so tutors are compensated appropriately based on the needs of the student, and timings. Fill out the form belowto see your rate, and our expertise. ''',
+        "English Meta":'''English Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us. ''',
         "ACT and SAT Prep":""
     }

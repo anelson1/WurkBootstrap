@@ -321,6 +321,20 @@ def sansscaping():
 @myapp.route("/tutoring")
 def tutoring_landing():
     return render_template('tutoringlanding.html.j2', listofservices = dictofservices.tutoring_dict.keys(), filedirectory = "css/img/Tutoring", TOS = "Tutoring")
+@myapp.route("/tutoring/<TOS>")
+def tutoring(TOS):
+    TOS = TOS.replace('-', ' ')
+    TOS = TOS.title()
+    desc = dictofservices()
+    print(TOS + " Meta")
+    try:
+        meta = desc.tutoring_dict[TOS + " Meta"]
+    except KeyError as e:
+        meta = ''
+    print(meta)
+    filedirectory = 'css/img/'+TOS
+    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+
 @myapp.route("/nanny-services-barrington-il")
 def nannystuff():
     TOS = 'Nanny Services'
