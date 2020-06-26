@@ -1,15 +1,7 @@
-@font-face{
-	font-family: thathuntershit;
-	src: url(font/Roboto-Thin.ttf)
-}
-@font-face{
-	font-family: thathuntershititalics;
-	src: url(font/Roboto-Thin.ttf);
-	font-style: italic;
-}
+
 $primary: #8700dc;
 $secondary: #d3d3d3;
-$font-family-sans-serif: thathuntershit;
+
 .parallax-window {
     min-height: 400px;
     background: transparent;
