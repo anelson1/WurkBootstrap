@@ -1,8 +1,10 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, BooleanField, PasswordField, SelectField, TextAreaField, HiddenField
+from wtforms import StringField, SubmitField, BooleanField, PasswordField, SelectField, TextAreaField, HiddenField,SelectMultipleField
 from flask_wtf.file import FileField, FileAllowed, FileRequired
 from wtforms.fields.html5 import DateField, TimeField
 from wtforms.validators import DataRequired, Email, AnyOf
+from app.servicedesc import services as dictofservices
+
 class dateEntry(FlaskForm):
     day = DateField('Date',
                     validators=[DataRequired()], format='% Y-%m-%d')
@@ -64,3 +66,17 @@ class UploadForm(FlaskForm):
     title = TextAreaField('Post Title (Optional)')
     description = TextAreaField('Post Description')
     submit = SubmitField("Submit")
+
+class applicantform(FlaskForm):
+    def tuple_gen():
+        olddic = dictofservices.serviceDict.keys()
+        tuplelist = []
+        for i in olddic:
+            if not ("Meta" in i or "landscaping" in i or "break" in i):
+                tuplelist.append((i,i))
+        return tuplelist
+    fullname = StringField('Full Name', validators=[DataRequired()])
+    email = StringField('Email Address', validators=[DataRequired(), Email()])
+    phonenumber = StringField('Phone Number', validators=[DataRequired()])
+    jobs = SelectMultipleField("Jobs you are applying for", choices=tuple_gen())
+    submit = SubmitField("Submit Application")

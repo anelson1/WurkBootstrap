@@ -5,11 +5,17 @@
 <body>
   <div class="container-fluid my-5">
     <div class="row align-items-center">
-      <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
+      <div class="col mx-auto">
         <img class="mb-5 mx-auto d-block" src="{{ url_for('static', filename='css/img/Wurk2.png') }}" width="50px"
           height="50px">
         <div class="card mx-auto mb-5" style="width:500px;">
           <div class="card-body">
+            {%if type == "applicant"%}
+            <h4 class="card-title" style="text-align:center">Congratulations</h4>
+            <p class="card-text">You have just applied to become a Wurker. The hiring team will contact you soon to follow up</p>
+            <a href="/" class="btn btn-outline-primary">Go home</a>
+
+            {%else%}
             <h4 class="card-title" style="text-align:center">Congratulations {{uname}}</h4>
             <form action="/login">
               <div class="form-group text-center">
@@ -22,6 +28,7 @@
                 <button class="btn btn-outline-primary" type="submit">Back to Login</button>
               </div>
             </form>
+            {%endif%}
           </div>
         </div>
       </div>

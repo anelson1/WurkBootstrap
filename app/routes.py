@@ -36,6 +36,13 @@ def sendclaimemail(wurker, bid):
                                client.city + " " + client.state, comment=booking.comments)
     mail.send(msg)
 
+def sendapplicantemail(name, phonenumber, email, jobs):
+    msg = Message("A new applicant just applied!",
+                  sender='wurkservices@gmail.com', recipients=["bookings@wurkservices.com"])
+    msg.body = name + " has applied to become a wurker for the jobs: " + jobs
+    msg.html = render_template('emailtemplateapplicant.html.j2', name = name, phonenumber = phonenumber, email = email, jobs = jobs)
+    mail.send(msg)
+
 
 def returnMonth(day):
     if day == '01':
@@ -65,13 +72,16 @@ def returnMonth(day):
 
 def get_employees():
     return User.query.filter_by(isemployee = 1)
-@myapp.route("/")
-def index():
+def get_services():
     olddic = dictofservices.serviceDict.keys()
     listofservices = []
     for i in olddic:
         if not ("Meta" in i or "landscaping" in i):
             listofservices.append(i)
+    return listofservices
+@myapp.route("/")
+def index():
+    listofservices = get_services()
     return render_template("index.html.j2", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
 
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
@@ -197,7 +207,7 @@ def useraccount():
 def EmpReg():
     form = registerform()
     error = request.args.get('error')
-    return render_template('employeeregister.html', form = form, error=error, secret = "WurkServices2020*")
+    return render_template('employeeregister.html',empreg = True, form = form, error=error, secret = "WurkServices2020*")
 @myapp.route("/empreghandler", methods=['POST'])
 def EmpRegHandle():
     confcode = request.form['confirmationcode']
@@ -217,6 +227,30 @@ def EmpRegHandle():
     db.session.add(pi)
     db.session.commit()
     return redirect(url_for('registered'))
+@myapp.route("/apply")
+def apply():
+    listofservices = get_services()
+    listoftuples = []
+    for i in listofservices:
+        listoftuples.append((i,i))
+        form = applicantform(tupes = listoftuples)
+    return render_template("employeeregister.html", form = form, empreg = False)
+@myapp.route("/sendapp", methods=["POST"])
+def apphandler():
+    fullname = request.form['fullname']
+    phonenumber = request.form['phonenumber']
+    email = request.form['email']
+    jobs = request.form.getlist("jobs")
+    print(jobs)
+    jobstr = ""
+    for i in jobs:
+        jobstr += i + ", "
+    print(jobstr)
+    applicant = Applicant(fullname = fullname, email = email, phonenumber = phonenumber, jobs = jobstr)
+    db.session.add(applicant)
+    db.session.commit()
+    sendapplicantemail(fullname, phonenumber, email, jobstr)
+    return redirect(url_for("created", type = "applicant"))
 #End Account Stuff---------------------------------------------------------------------------------------------------------------------------------------------------------
 #Wurk in progess
 @myapp.route("/adminhandler", methods=['post'])
@@ -326,7 +360,7 @@ def tutoring_landing():
         if not ("Meta" in i or "landscaping" in i):
             listofservices.append(i)
     return render_template('tutoringlanding.html.j2', listofservices = listofservices, filedirectory = "css/img/Tutoring", TOS = "Tutoring")
-    
+
 @myapp.route("/tutoring/<TOS>")
 def tutoring(TOS):
     TOS = TOS.replace('-', ' ')
@@ -434,7 +468,12 @@ def FinalizeBooking():
 
 @myapp.route("/BookingCreated")
 def created():
-    return render_template("BookingComplete.html", BID=session['bid'])
+    type = request.args.get('type')
+    try:
+        BID=session['bid']
+    except:
+        BID = None
+    return render_template("BookingComplete.html", BID=BID, type = type)
 
 #End Of Booking Creation -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -612,6 +651,7 @@ def admin():
     u = db.session.query(Booking,BookingTime,Client).filter(Booking.bookingid == BookingTime.bookingid).filter(BookingTime.bookingid == Client.bookingid).all()
     popup = request.args.get('popup')
     return render_template('adminpage.html', lst=u, popup=popup)
+
 @myapp.route("/admin/timesheet", methods=['GET'])
 @login_required
 def timesheet():
@@ -619,7 +659,16 @@ def timesheet():
         return redirect(url_for("useraccount"))
     lst = TimeSheet.query.all()
     popup = request.args.get('popup')
-    return render_template('timesheet.html', lst=lst, personalinfo = PersonalInfo, popup = popup)
+    return render_template('timesheet.html.j2', lst=lst, personalinfo = PersonalInfo, popup = popup, type = "timesheet")
+
+@myapp.route("/admin/applicants", methods=['GET'])
+@login_required
+def applicants():
+    if current_user.username != 'admin':
+        return redirect(url_for("useraccount"))
+    lst = Applicant.query.all()
+    popup = request.args.get('popup')
+    return render_template('timesheet.html.j2', lst=lst, popup = popup, type="applicant")
 #End Stuff For Admin----------------------------------------------------------------------------------------------------------------------------------------
 
 #Static Pages -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------

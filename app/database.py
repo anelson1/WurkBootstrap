@@ -29,7 +29,7 @@ class PersonalInfo(db.Model):
     person = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return '<Users Info {}>'.format(self.id)  
+        return '<Users Info {}>'.format(self.id)
 
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -44,7 +44,7 @@ class Booking(db.Model):
 
 
     def __repr__(self):
-        return '<Booking {}>'.format(self.bookingid)  
+        return '<Booking {}>'.format(self.bookingid)
 
 class BookingTime(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -54,7 +54,7 @@ class BookingTime(db.Model):
     bookingid = db.Column(db.String(6), db.ForeignKey('booking.bookingid'))
     def __repr__(self):
         return '<Booking Times {}>'.format(self.bookingid)
-        
+
 class Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
@@ -78,7 +78,7 @@ class BookedDays(db.Model):
     time = db.Column(db.String(10))
     clientname = db.Column(db.String(30))
     name = db.Column(db.String(40))
-    
+
     def __repr__(self):
         return '<booked day {}>'.format(self.wid)
 
@@ -101,3 +101,12 @@ class TimeSheet(db.Model):
     wurker = db.Column(db.Integer)
     def __repr__(self):
         return '<TimeSheet {}>'.format(self.id)
+
+class Applicant(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    fullname = db.Column(db.String(40))
+    email = db.Column(db.String(40))
+    phonenumber = db.Column(db.String(30))
+    jobs = db.Column(db.String(128))
+    def __repr__(self):
+        return '<applicant number {}>'.format(self.id)

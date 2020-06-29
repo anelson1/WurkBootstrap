@@ -7,19 +7,26 @@
     $('[data-toggle="tooltip"]').tooltip()
   });
 </script>
-<div class="container-fluid my-5">
+<div class="container-fluid">
+
+  <h1 class="display-1 text-center mb-3">Welcome to the Admin Page</h1>
+
   <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      {%if popup%}
-      <div class="alert alert-success">
-        <strong>Success!</strong> That booking has been removed!
-      </div>
-      {%endif%}
-      <div class="card mx-auto mb-5 text-center">
+
+    <div class="col">
+      <div class="card mx-auto mb-5 text-center" style="min-width: 10rem;  max-width: 30rem; word-wrap: normal;">
+        <h4 class="card-header">See Applicants</h4>
         <div class="card-body">
-          <h4 class="card-title">Welcome to the admin page.</h4>
+          <form action="/admin/applicants">
+            <button class="btn btn-outline-success" type="submit">See Applicants</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mx-auto mb-5 text-center"style="min-width: 10rem;  max-width: 30rem; word-wrap: normal;">
+        <h4 class="card-header">See TimeSheet</h4>
+        <div class="card-body">
           <form action="/admin/timesheet">
             <button class="btn btn-outline-success" type="submit">See Time Sheet</button>
           </form>
@@ -27,10 +34,13 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
-  </div>
 </div>
 <div class="container-fluid">
+  {%if popup%}
+  <div class="alert alert-success">
+    <strong>Success!</strong> That booking has been removed!
+  </div>
+  {%endif%}
   <div class="col">
     <table class="table table-hover">
       <thead>

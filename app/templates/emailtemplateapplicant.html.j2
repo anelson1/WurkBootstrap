@@ -1,0 +1,29 @@
+<head>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<title>Wurk Services</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <div class="card mx-auto mb-5">
+                    <div class="card-body">
+                        <h1 class="card-title" style="text-align:center">A New Applicant Has Applied</h1>
+                        <p class='card-body'>{{name}} has applied to become a wurker</p>
+                        <p class='card-body'>{{name}} is able to perform {{jobs}}</p>
+                        <h4 class='card-body'>{{name}}'s personal info'</h4>
+                        <p class='card-body'>Phone Number: {{phonenumber}}</p>
+                        <p class='card-body'>Email: {{email}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+</body>
