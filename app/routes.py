@@ -106,9 +106,9 @@ def loginhandler():
     if u.password == password:
         login_user(u, remember=remember)
         if u.username == 'admin':
-                return redirect(url_for("admin"))
+            return redirect(url_for("admin"))
         if u.username == 'wurker':
-                return redirect(url_for('wurker'))
+            return redirect(url_for('wurker'))
         return redirect(url_for("useraccount", username = username))
     else:
         flash("Error")
