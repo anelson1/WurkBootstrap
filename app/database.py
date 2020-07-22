@@ -1,5 +1,5 @@
-from app import db
 from flask_login import UserMixin
+from app import db
 from app import login
 
 @login.user_loader
@@ -8,12 +8,12 @@ def load_user(id):
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True, unique = True)
+    username = db.Column(db.String(64), index=True, unique=True)
     password = db.Column(db.String(128))
     isemployee = db.Column(db.Integer)
     bio = db.Column(db.String(500))
     currenttimesheet = db.Column(db.Integer)
-    personalinfos = db.relationship('PersonalInfo',backref='user',lazy='dynamic')
+    personalinfos = db.relationship('PersonalInfo', backref='user', lazy='dynamic')
     def __repr__(self):
         return '<User {}>'.format(self.id)
 
@@ -63,7 +63,7 @@ class Client(db.Model):
     address = db.Column(db.String(128))
     city = db.Column(db.String(128))
     state = db.Column(db.String(128))
-    bookingid = db.Column(db.String(6),unique = True)
+    bookingid = db.Column(db.String(6), unique=True)
 
     def __repr__(self):
         return '<Client {}>'.format(self.bookingid)

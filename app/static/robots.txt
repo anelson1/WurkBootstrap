@@ -1,5 +1,6 @@
 # Group 1
 User-agent: *
 Allow: /
+Disallow: /StartBooking
 
 Sitemap: https://www.wurkservices.com/sitemap.xml
