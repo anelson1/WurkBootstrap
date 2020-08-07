@@ -567,7 +567,11 @@ def wurkerprofile(wurker):
             myaccount = False
         #filelst = os.listdir('app/static/css/img/' + wurker)
         #print(filelst)
-        return render_template('employeefeed.html', lst = files,username = u.username, form= form, name=p.firstname, bio=u.bio, myaccount = myaccount, title = p.firstname)
+        if p.lastname:
+            return render_template('employeefeed.html', lst = files,username = u.username, form= form, name=p.firstname + " " + p.lastname, bio=u.bio, myaccount = myaccount, title = p.firstname)
+        else:
+            return render_template('employeefeed.html', lst = files,username = u.username, form= form, name=p.firstname, bio=u.bio, myaccount = myaccount, title = p.firstname)
+
     except Exception as e:
         print(e)
         return redirect(url_for('genericerror'))
