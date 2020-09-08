@@ -1,4 +1,6 @@
 {% extends "baseWOH.html" %}
+{% from 'bootstrap/form.html' import render_form_row %}
+
 {%block title%}{{pagetitle}}{%endblock%}
 {%block meta%}
 <meta name="description" content="{{meta}}">{%endblock%}
@@ -47,7 +49,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-2">
+        <div class="col-4">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-light"><h3>Booked with us before? Log in or create an account!</h3></div>
+                <div class="card-body">
+                    <form action="/loginhandler" method="post">
+                        {{ render_form_row([form.username]) }}
+                        {{render_form_row([form.password])}}
+                        {{ render_form_row([form.remember]) }}
+                        {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="col-8 text-center">
             <p class="lead">{{desc|safe}}</p>
@@ -57,8 +70,6 @@
             {%else%}
             <a href="/services/{{service}}/StartBooking" class="btn btn-outline-primary">Start a booking!</a>
             {%endif%}
-        </div>
-        <div class="col-2">
         </div>
     </div>
 </div>

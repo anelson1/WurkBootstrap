@@ -310,6 +310,7 @@ def TOS(TOS):
 
 @myapp.route("/services/<TOS>" + "-barrington-il")
 def TOSBarrington(TOS):
+    form = loginform()
     TOS = TOS.replace('-', ' ')
     TOS = TOS.title()
     desc = dictofservices()
@@ -324,10 +325,10 @@ def TOSBarrington(TOS):
         return redirect(url_for("Archal"))
     if TOS == 'Sports Coaching':
         print("shalom")
-        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
+        return render_template('LC.html', form = form, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
     if TOS == 'Junk Removal Services':
-        return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
-    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+        return render_template('LC.html', form=form, baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+    return render_template('LC.html', form = form, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/landscaping/<area>" + "-landscaping-services-il")
 def Archal(area):
