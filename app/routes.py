@@ -472,6 +472,47 @@ def FinalizeBooking():
     sendemail(session['bid'])
     return redirect(url_for('created'))
 
+@myapp.route("/services/<TOS>/onpagebooking", methods = ["POST"])
+def onpagebooking(TOS):
+    print(TOS)
+    BID = ''.join([random.choice(string.ascii_letters + string.digits)
+                   for n in range(6)])
+    session['bid'] = BID
+    session['name'] = request.form['firstname'] + " " + request.form['lastname']
+    session['email'] = request.form['email']
+    session['pnum'] = request.form['phonenumber']
+    session['address'] = request.form['address']
+    session['city'] = request.form['city']
+    session['state'] = request.form['state']
+    date = request.form['day']
+    time = request.form['time']
+    month = returnMonth(date[5:7])
+    day = str(int(date[8:10]))
+    check = BookedDays.query.filter_by(day=day).first()
+    if check:
+        return redirect(url_for("CreateBookingTimeAndDate",error = True))
+    if not current_user.is_anonymous:
+        cu = current_user
+        u = User.query.filter_by(id=cu.id).all()
+        info = PersonalInfo.query.filter_by(id=cu.id).first()
+        name = info.firstname + " " + info.lastname
+        session['email'] = info.email
+        session['pnum'] = info.phonenumber
+        session['address'] = info.address
+        session['city'] = info.city
+        session['state'] = info.state
+    else:
+        name = session['name']
+    booking = Booking(bookingid=session['bid'], clientname=name, typeofbooking=TOS.upper().replace("-"," "), comments=request.form['comments'], isclaimed = False, claimedby = None)
+    bookingtime = BookingTime(bookingid=session['bid'], month=month, day=day, starttime=request.form['time'])
+    client = Client(name = name, email = session['email'], phonenumber = session['pnum'], address = session['address'], city = session['city'], state = session['state'], bookingid = session['bid'])
+
+    db.session.add(booking)
+    db.session.add(bookingtime)
+    db.session.add(client)
+    db.session.commit()
+    sendemail(session['bid'])
+    return redirect(url_for('created'))
 @myapp.route("/BookingCreated")
 def created():
     type = request.args.get('type')

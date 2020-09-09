@@ -10,6 +10,8 @@
     <div class="row">
      <div class="col-4">
             <div class="card border-primary mb-2">
+                {%if user%}
+                {%endif%}
                 <div class="card-header bg-primary text-light"><h4>Booked with us before? Log in or create an account!</h4></div>
                 <div class="card-body">
                     <form action="/loginhandler" method="post">
@@ -18,11 +20,15 @@
                         {{ render_form_row([form.remember]) }}
                         {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
                     </form>
+                    <form action="/register">
+                        <p class="card-text mb-0">Dont have an account? Register Now!</p>
+                        {{render_form_row([form.register], button_style='outline-primary')}}
+                    </form>
                 </div>
             </div>
             <div class="card border-primary">
                 <div class="card-body">
-                    <form action="/onpagebooking" method="post">
+                    <form action="{{service.lower().replace(' ', '-')}}/onpagebooking" method="post">
                         {{render_form_row([form2.firstname])}}
                         {{render_form_row([form2.lastname])}}
                         {{render_form_row([form2.email])}}
@@ -79,11 +85,6 @@
             </div>
              <p class="lead">{{desc|safe}}</p>
             <p>What are you waiting for? Let's get a booking started!</p>
-            {%if service == 'Sports Coaching'%}
-            <a href="/services/{{service}}/SelectSport" class="btn btn-outline-primary">Select Your Sport!</a>
-            {%else%}
-            <a href="/services/{{service}}/StartBooking" class="btn btn-outline-primary">Start a booking!</a>
-            {%endif%}
         </div>
         
     </div>
@@ -124,29 +125,6 @@
         </div>
     </div>
 </div>
-{%endif%}
-{%if tutor%}
-<hr class="border border-primary">
-<div class="container text-center bg-white">
-    <h3><strong>Here are just some Wurkers that perform these fantastic feats for {{service}}</strong></h3>
-    <div class="row">
-{%for e in emp%}
-{%if e.username == 'nedels'%}
-        <div class="col col-xl-4 col-lg-4">
-            <div class="card mb-5">
-                <img class="card-img-top" src="{{ url_for('static', filename='css/img/' + PersonalInfo.query.get(e.id).firstname + '.jpg') }}"
-                    alt="Card image cap">
-                <div class="card-body">
-                    <h3 class="card-title">{{PersonalInfo.query.get(e.id).firstname + ' ' + PersonalInfo.query.get(e.id).lastname}}</h3>
-                    <a href="/{{e.username}}/profile" class="btn btn-primary stretched-link text-center">Profile</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{%endif%}
-{%endfor%}
-<hr class="border border-primary">
 {%endif%}
 <div class="row mt-5">
     <div class="col-5 mx-auto">
