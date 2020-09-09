@@ -55,7 +55,7 @@ class bookingform(FlaskForm):
                     validators=[DataRequired()])
     comments = StringField('Comments')
     sportsoffered = SelectField("Sport", choices=['Soccer','Lacrosse',"Football","Golf","Tennis","Basketball","Wrestling"])
-    nextbutton = SubmitField("Next")
+    nextbutton = SubmitField("Book")
 
 
 class UploadForm(FlaskForm):

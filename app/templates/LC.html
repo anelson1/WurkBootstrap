@@ -8,6 +8,37 @@
 
 <div class="container-fluid my-3 p-3 bg-white">
     <div class="row">
+     <div class="col-4">
+            <div class="card border-primary mb-2">
+                <div class="card-header bg-primary text-light"><h4>Booked with us before? Log in or create an account!</h4></div>
+                <div class="card-body">
+                    <form action="/loginhandler" method="post">
+                        {{ render_form_row([form.username]) }}
+                        {{render_form_row([form.password])}}
+                        {{ render_form_row([form.remember]) }}
+                        {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
+                    </form>
+                </div>
+            </div>
+            <div class="card border-primary">
+                <div class="card-body">
+                    <form action="/onpagebooking" method="post">
+                        {{render_form_row([form2.firstname])}}
+                        {{render_form_row([form2.lastname])}}
+                        {{render_form_row([form2.email])}}
+                        {{render_form_row([form2.phonenumber])}}
+                        {{render_form_row([form2.address])}}
+                        {{render_form_row([form2.city])}}
+                        {{render_form_row([form2.state])}}
+                        {{render_form_row([form3.services])}}
+                        {{render_form_row([form3.day])}}
+                        {{render_form_row([form3.time])}}
+                        {{render_form_row([form3.comments])}}
+                        {{ render_form_row([form3.nextbutton], button_style='outline-primary', row_class = 'text-center') }}
+                   </form>
+                </div>
+            </div>
+        </div>
         <div class="col text-center">
             <div id="carouselExampleControls" class="carousel slide my-1 border border-primary carousel-fade"
                 data-ride="carousel">
@@ -46,24 +77,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <div class="card border-primary">
-                <div class="card-header bg-primary text-light"><h3>Booked with us before? Log in or create an account!</h3></div>
-                <div class="card-body">
-                    <form action="/loginhandler" method="post">
-                        {{ render_form_row([form.username]) }}
-                        {{render_form_row([form.password])}}
-                        {{ render_form_row([form.remember]) }}
-                        {{ render_form_row([form.submit], button_style='outline-primary', row_class = 'text-center') }}
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="col-8 text-center">
-            <p class="lead">{{desc|safe}}</p>
+             <p class="lead">{{desc|safe}}</p>
             <p>What are you waiting for? Let's get a booking started!</p>
             {%if service == 'Sports Coaching'%}
             <a href="/services/{{service}}/SelectSport" class="btn btn-outline-primary">Select Your Sport!</a>
@@ -71,6 +85,7 @@
             <a href="/services/{{service}}/StartBooking" class="btn btn-outline-primary">Start a booking!</a>
             {%endif%}
         </div>
+        
     </div>
 </div>
 {%if baa%}

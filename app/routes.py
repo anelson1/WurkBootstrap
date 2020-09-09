@@ -311,8 +311,13 @@ def TOS(TOS):
 @myapp.route("/services/<TOS>" + "-barrington-il")
 def TOSBarrington(TOS):
     form = loginform()
+    form2 = registerform()
+    form3 = bookingform()
+    
+    form3.process()
     TOS = TOS.replace('-', ' ')
     TOS = TOS.title()
+    form3.services.choices = [TOS]
     desc = dictofservices()
     print(TOS + " Meta")
     try:
@@ -325,10 +330,10 @@ def TOSBarrington(TOS):
         return redirect(url_for("Archal"))
     if TOS == 'Sports Coaching':
         print("shalom")
-        return render_template('LC.html', form = form, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
+        return render_template('LC.html', form = form,form2=form2,form3=form3, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
     if TOS == 'Junk Removal Services':
-        return render_template('LC.html', form=form, baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
-    return render_template('LC.html', form = form, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+        return render_template('LC.html', form=form, form2=form2,form3=form3,baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+    return render_template('LC.html', form = form, form2=form2,form3=form3,service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/landscaping/<area>" + "-landscaping-services-il")
 def Archal(area):
