@@ -32,109 +32,106 @@ pets, we provide a full array of services available at a moment's notice. All yo
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168468580-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'UA-168468580-1');
 </script>
 <!-- Facebook Pixel Code -->
 <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '3281360631908657');
   fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=3281360631908657&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Facebook Pixel Code -->
-  
+</script>
+<noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3281360631908657&ev=PageView&noscript=1" /></noscript>
+<!-- End Facebook Pixel Code -->
+
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7132540.js"></script>
 <!-- End of HubSpot Embed Code -->
 <script type='text/javascript'
   data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '5531c047-e943-4ded-a630-4c625deff899', f: true }); done = true; } }; })();</script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="{{ url_for('static', filename='css/js/parallax.js') }}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{{ url_for('static', filename='css/js/parallax.js') }}"></script>
 
-<body class="pt-5">
+<body>
   <script>
     AOS.init();
   </script>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/"><img width="50" height="50" class="d-inline-block align-top" alt=""
-        src="{{ url_for('static', filename='css/img/W.png') }}"></a>
+  <nav class="navbar navbar-expand-xl navbar-dark bg-primary">
+    <a class="navbar-brand" href="/"><img width="30" height="30" class="d-inline-block align-top mr-2" alt=""
+        src="{{ url_for('static', filename='css/img/W.png') }}">Wurk Services</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/" style="font-size: 25px;">Home</a>
+        <li class="nav-item {{home}}">
+          <a class="nav-link" href="/" style="font-size: 20px;">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/ContactUs" style="font-size: 25px;">Contact Us</a>
+        <li class="nav-item {{contact}}">
+          <a class="nav-link " href="/ContactUs" style="font-size: 20px;">Contact Us</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/MeetTheTeam" style="font-size: 25px;">Meet The Team</a>
+        <li class="nav-item {{MTT}}">
+          <a class="nav-link" href="/MeetTheTeam" style="font-size: 20px;">Meet The Team</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/apply" style="font-size: 25px;">Become a Wurker</a>
+        <li class="nav-item {{apply}}">
+          <a class="nav-link" href="/apply" style="font-size: 20px;">Become a Wurker</a>
         </li>
-        <li class="nav-item">
-          <a href="tel:+18476481764"><img class="img-fluid mx-3 my-2"
-              src="{{ url_for('static', filename='css/svg/call.png') }}" height="30px" width="30px"
-              alt="Card image cap"></a>
-        </li>
+
       </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a href="http://instagram.com/wurkservices" target="_blank"><img class="img-fluid mx-3 my-2"
-              src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px"
-              alt="Card image cap"></a>
-        </li>
-        <li class="nav-item">
-          <a href="https://www.linkedin.com/company/wurk-llc" target="_blank"><img class="img-fluid mx-3 my-2"
-              src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px"
-              alt="Card image cap"></a>
-        </li>
-        <li class="nav-item">
-          <a href="https://www.facebook.com/pg/wurkservices/posts/" target="_blank"><img class="img-fluid mx-3 my-2"
-              src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px"
-              alt="Card image cap"></a>
-        </li>
-        <li class="nav-item">
-          <a href="https://twitter.com/wurkservices" target="_blank"><img class="img-fluid mx-3 my-2"
-              src="{{ url_for('static', filename='css/svg/twitter.png') }}" height="30px" width="30px"
-              alt="Card image cap"></a>
-        </li>
+
+      <a href="http://instagram.com/wurkservices" target="_blank"><img class="img-fluid my-1 mx-2"
+          src="{{ url_for('static', filename='css/svg/insta.png') }}" height="30px" width="30px"
+          alt="Card image cap"></a>
+
+      <a href="https://www.linkedin.com/company/wurk-llc" target="_blank"><img class="img-fluid my-1 mx-2"
+          src="{{ url_for('static', filename='css/svg/link.png') }}" height="30px" width="30px"
+          alt="Card image cap"></a>
+
+      <a href="https://www.facebook.com/pg/wurkservices/posts/" target="_blank"><img class="img-fluid my-1 mx-2"
+          src="{{ url_for('static', filename='css/svg/facebook.png') }}" height="30px" width="30px"
+          alt="Card image cap"></a>
+
+      <a href="https://twitter.com/wurkservices" target="_blank"><img class="img-fluid my-auto mx-2"
+          src="{{ url_for('static', filename='css/svg/twitter.png') }}" height="30px" width="30px"
+          alt="Card image cap"></a>
+
+      <form class="form-inline my-1">
         {% if current_user.is_anonymous %}
-        <li class="nav-item">
-          <a class="btn btn-outline-light my-2 mx-1" href="{{ url_for('login') }}">Login</a>
-        </li>
+
+        <a class="btn btn-outline-light mx-1" href="{{ url_for('login') }}">Login</a>
+
         {% else %}
-        <li class="nav-item">
-          <a class="btn btn-outline-light my-2 mx-1" href="{{ url_for('useraccount') }}">My Dashboard</a>
-        </li>
+
+        <a class="btn btn-outline-light mx-1" href="{{ url_for('useraccount') }}">Dashboard</a>
+
         {%if current_user.isemployee == 1%}
-        <li class="nav-item">
-          <a class="btn btn-outline-light my-2 mx-1"
-            href="{{url_for('wurkerprofile',wurker = current_user.username)}}">My Profile</a>
-        </li>
+
+        <a class="btn btn-outline-light mx-1"
+          href="{{url_for('wurkerprofile',wurker = current_user.username)}}">Profile</a>
+
         {%endif%}
-        <li class="nav-item">
-      <a class="btn btn-outline-light my-2 mx-1" href="{{ url_for('logout') }}">Logout</a>
-    </li>
+
+        <a class="btn btn-outline-light my-2 mx-1" href="{{ url_for('logout') }}">Logout</a>
+
         {% endif %}
-        
-      </ul>
+      </form>
+
+
     </div>
   </nav>
   {% block content %}

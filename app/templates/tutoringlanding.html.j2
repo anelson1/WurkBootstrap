@@ -8,7 +8,7 @@
       <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll"
         data-image-src="{{ url_for('static', filename='css/img/tutoring/1.jpg') }}" alt='Tutoring'>
         <span class="bg-transdark p-3 my-5">
-          <h1>Tutoring with Wurk Services</h1></span>
+          <h1 class="display-1">Tutoring with Wurk Services</h1></span>
       </div>
     </div>
   </div>
@@ -45,24 +45,21 @@
     </div>
   </div>
 </div>
- <div class="container-fluid">
-<div class="row bg-white p-3">
-</div>
-</div>
 <div class="container-fluid overflow-hidden">
   <div class="row my-3 mx-5">
   <h1>Types of Tutoring Offered</h1>
-    <div class="card-deck">
+    <div class="card-deck my-5">
       {%for k in listofservices%}
       {%if "break" in k%}
     </div>
   </div>
   <div class="row my-3 mx-5 ">
-    <div class="card-deck">
+    <div class="card-deck my-5">
       {%else%}
-      <div class="card text-light shadow shadow-lg grow border border-primary">
-        <div class="card-header bg-primary">{{k}}</div>
+      <div class="card grow border border-primary">
+        
         <img class="card-img-top border border-primary" src="{{ url_for('static', filename='css/img/' + k + '.jpg') }}" alt="{{k}}">
+        <div class="card-body"><h5 class="card-title">{{k}}</h5></div>
         <div class="card-footer bg-white">
           {%set k = k.replace(" ", "-")%}
           {%if k == 'Lawn-Care'%}

@@ -82,7 +82,7 @@ def get_services():
 @myapp.route("/")
 def index():
     listofservices = get_services()
-    return render_template("index.html.j2", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
+    return render_template("index.html.j2", home = "active", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
 
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
@@ -234,7 +234,7 @@ def apply():
     for i in listofservices:
         listoftuples.append((i,i))
         form = applicantform(tupes = listoftuples)
-    return render_template("employeeregister.html", form = form, empreg = False)
+    return render_template("employeeregister.html", form = form, empreg = False, apply = "active")
 @myapp.route("/sendapp", methods=["POST"])
 def apphandler():
     fullname = request.form['fullname']
@@ -282,58 +282,36 @@ def checkbooking():
 def services():
     return render_template('services.html', pagetitle='services')
 
-@myapp.route("/services/<service>")
-def servicesgeneric(service):
-    return redirect(url_for("TOS",TOS=service))
-
-@myapp.route("/services/<TOS>" + "-services-il")
-def TOS(TOS):
-    TOS = TOS.replace('-', ' ')
-    TOS = TOS.title()
-    desc = dictofservices()
-    print(desc)
-    try:
-        meta = desc.serviceDict[TOS + " Meta"]
-    except KeyError as e:
-        meta = ''
-    filedirectory = 'css/img/'+TOS
-    if TOS == "Lawn Care":
-        return redirect(url_for("Archal"))
-    if TOS == 'Tutoring':
-        return redirect(url_for('TutoringLanding'))
-    if TOS == 'Sports Coaching':
-        print("shalom")
-        return render_template('LC.html', tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
-    if TOS == 'Junk Removal Services':
-        return render_template('LC.html', baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
-    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
-
-@myapp.route("/services/<TOS>" + "-barrington-il")
-def TOSBarrington(TOS):
+@myapp.route("/services/<TOS>")
+def servicesgeneric(TOS):
     form = loginform()
     form2 = registerform()
     form3 = bookingform()
-    
     form3.process()
     TOS = TOS.replace('-', ' ')
     TOS = TOS.title()
     form3.services.choices = [TOS]
     desc = dictofservices()
-    print(TOS + " Meta")
     try:
         meta = desc.serviceDict[TOS + " Meta"]
     except KeyError as e:
         meta = ''
-    print(meta)
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
     if TOS == 'Sports Coaching':
-        print("shalom")
         return render_template('LC.html', form = form,form2=form2,form3=form3, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', form=form, form2=form2,form3=form3,baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', form = form, form2=form2,form3=form3,service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+
+@myapp.route("/services/<TOS>" + "-services-il")
+def TOS(TOS):
+    return servicesgeneric(TOS)
+
+@myapp.route("/services/<TOS>" + "-barrington-il")
+def TOSBarrington(TOS):
+    return servicesgeneric(TOS)
 
 @myapp.route("/landscaping/<area>" + "-landscaping-services-il")
 def Archal(area):
@@ -369,8 +347,13 @@ def tutoring_landing():
 
 @myapp.route("/tutoring/<TOS>")
 def tutoring(TOS):
+    form = loginform()
+    form2 = registerform()
+    form3 = bookingform()
+    form3.process()
     TOS = TOS.replace('-', ' ')
     TOS = TOS.title()
+    form3.services.choices = [TOS]
     desc = dictofservices()
     print(TOS + " Meta")
     try:
@@ -379,7 +362,7 @@ def tutoring(TOS):
         meta = ''
     print(meta)
     filedirectory = 'css/img/'+TOS
-    return render_template('LC.html', service=TOS, filedirectory=filedirectory, desc=desc.tutoring_dict[TOS], pagetitle=TOS, meta=meta)
+    return render_template('LC.html', form=form, form2=form2,form3=form3, service=TOS, filedirectory=filedirectory, desc=desc.tutoring_dict[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/nanny-services-barrington-il")
 def nannystuff():
@@ -477,33 +460,35 @@ def onpagebooking(TOS):
     print(TOS)
     BID = ''.join([random.choice(string.ascii_letters + string.digits)
                    for n in range(6)])
-    session['bid'] = BID
-    session['name'] = request.form['firstname'] + " " + request.form['lastname']
-    session['email'] = request.form['email']
-    session['pnum'] = request.form['phonenumber']
-    session['address'] = request.form['address']
-    session['city'] = request.form['city']
-    session['state'] = request.form['state']
-    date = request.form['day']
-    time = request.form['time']
-    month = returnMonth(date[5:7])
-    day = str(int(date[8:10]))
-    check = BookedDays.query.filter_by(day=day).first()
-    if check:
-        return redirect(url_for("CreateBookingTimeAndDate",error = True))
     if not current_user.is_anonymous:
         cu = current_user
         u = User.query.filter_by(id=cu.id).all()
         info = PersonalInfo.query.filter_by(id=cu.id).first()
         name = info.firstname + " " + info.lastname
+        session['name'] = name
         session['email'] = info.email
         session['pnum'] = info.phonenumber
         session['address'] = info.address
         session['city'] = info.city
         session['state'] = info.state
     else:
+        session['name'] = request.form['firstname'] + " " + request.form['lastname']
+        session['email'] = request.form['email']
+        session['pnum'] = request.form['phonenumber']
+        session['address'] = request.form['address']
+        session['city'] = request.form['city']
+        session['state'] = request.form['state']
+    date = request.form['day']
+    time = request.form['time']
+    session['bid'] = BID
+    month = returnMonth(date[5:7])
+    day = str(int(date[8:10]))
+    check = BookedDays.query.filter_by(day=day).first()
+    if check:
+        return redirect(url_for("CreateBookingTimeAndDate",error = True))
+    else:
         name = session['name']
-    booking = Booking(bookingid=session['bid'], clientname=name, typeofbooking=TOS.upper().replace("-"," "), comments=request.form['comments'], isclaimed = False, claimedby = None)
+    booking = Booking(bookingid=session['bid'], clientname=name, typeofbooking=TOS.title().replace("-"," "), comments=request.form['comments'], isclaimed = False, claimedby = None)
     bookingtime = BookingTime(bookingid=session['bid'], month=month, day=day, starttime=request.form['time'])
     client = Client(name = name, email = session['email'], phonenumber = session['pnum'], address = session['address'], city = session['city'], state = session['state'], bookingid = session['bid'])
 
@@ -725,12 +710,12 @@ def applicants():
 #Static Pages -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/ContactUs")
 def CU():
-    return render_template("contact.html")
+    return render_template("contact.html", contact = "active")
 
 
 @myapp.route("/MeetTheTeam")
 def MTT():
-    return render_template("MTT.html")
+    return render_template("MTT.html", MTT = "active")
 
 @myapp.route('/sitemap.xml')
 def site_map():
