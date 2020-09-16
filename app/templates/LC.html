@@ -9,9 +9,9 @@
 <div class="container-fluid my-3 p-3 bg-white">
     <div class="row">
         <div class="col-3">
-            <div class="card border-primary mb-2">
+            <div class="card border-primary mb-2" style="border-width: 3px;" >
                 {% if current_user.is_anonymous %}
-                <div class="card-header bg-primary text-light" >
+                <div class="card-header bg-primary text-light">
                     <h4>Booked with us before? Log in or create an account!</h4>
                 </div>
                 <div class="card-body">
@@ -20,10 +20,10 @@
                         {{render_form_row([form.password])}}
                         {{ render_form_row([form.remember]) }}
                         <div class="btn-group">
-                            {{ render_form_row([form.submit], button_style='outline-primary ') }}
+                            {{ render_form_row([form.submit], button_style='primary ') }}
                         </form>
                             <form action="/register">
-                                {{render_form_row([form.register], button_style='outline-primary mx-2')}}
+                                {{render_form_row([form.register], button_style='primary mx-2')}}
                             </form>
                         </div>
                     
@@ -42,14 +42,14 @@
                             {{render_form_row([form3.day])}}
                             {{render_form_row([form3.time])}}
                             {{render_form_row([form3.comments])}}
-                            {{ render_form_row([form3.nextbutton], button_style='outline-primary', row_class = 'text-center') }}
+                            {{ render_form_row([form3.nextbutton], button_style='primary', row_class = 'text-center') }}
                         </form>
                     </div>
 
                 {%endif%}
             </div>
             {% if current_user.is_anonymous %}
-            <div class="card border-primary">
+            <div class="card border-primary mb-2" style="border-width: 3px;" >
                 <div class="card-body">
                     <form action="{{service.lower().replace(' ', '-')}}/onpagebooking" method="post">
                         {{render_form_row([form2.firstname])}}
@@ -63,7 +63,7 @@
                         {{render_form_row([form3.day])}}
                         {{render_form_row([form3.time])}}
                         {{render_form_row([form3.comments])}}
-                        {{ render_form_row([form3.nextbutton], button_style='outline-primary', row_class = 'text-center') }}
+                        {{ render_form_row([form3.nextbutton], button_style='primary', row_class = 'text-center') }}
                     </form>
                 </div>
             </div>
