@@ -69,7 +69,7 @@ class UploadForm(FlaskForm):
 
 class applicantform(FlaskForm):
     def tuple_gen():
-        olddic = dictofservices.serviceDict.keys()
+        olddic = dictofservices.prop_dict.keys()
         tuplelist = []
         for i in olddic:
             if not ("Meta" in i or "landscaping" in i or "break" in i):

@@ -71,18 +71,23 @@ def returnMonth(day):
         return 'December'
 
 def get_employees():
-    return User.query.filter_by(isemployee = 1)
-def get_services():
-    olddic = dictofservices.serviceDict.keys()
+    return User.query.filter_by(isemployee=1)
+    
+def get_services(dict):
+    olddic = dict.keys()
     listofservices = []
     for i in olddic:
         if not ("Meta" in i or "landscaping" in i):
             listofservices.append(i)
     return listofservices
+
 @myapp.route("/")
 def index():
-    listofservices = get_services()
-    return render_template("index.html.j2", home = "active", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
+    prop_dict = get_services(dictofservices.prop_dict)
+    home_dict = get_services(dictofservices.home_dict)
+    personal_dict = get_services(dictofservices.personal_dict)
+
+    return render_template("landing.html.j2", home = "active", pagetitle="Wurk Services", prop_dict = prop_dict, home_dict = home_dict, personal_dict = personal_dict, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
 
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
@@ -229,7 +234,7 @@ def EmpRegHandle():
     return redirect(url_for('registered'))
 @myapp.route("/apply")
 def apply():
-    listofservices = get_services()
+    listofservices = get_services(dictofservices.prop_dict)
     listoftuples = []
     for i in listofservices:
         listoftuples.append((i,i))
@@ -291,19 +296,25 @@ def servicesgeneric(TOS):
     TOS = TOS.replace('-', ' ')
     TOS = TOS.title()
     form3.services.choices = [TOS]
-    desc = dictofservices()
+    prop_dict = dictofservices.prop_dict
+    home_dict = dictofservices.home_dict
+    personal_dict = dictofservices.personal_dict
+    desc = {}
+    desc.update(prop_dict)
+    desc.update(home_dict)
+    desc.update(personal_dict)
     try:
-        meta = desc.serviceDict[TOS + " Meta"]
+        meta = desc[TOS + " Meta"]
     except KeyError as e:
         meta = ''
     filedirectory = 'css/img/'+TOS
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
     if TOS == 'Sports Coaching':
-        return render_template('LC.html', form = form,form2=form2,form3=form3, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
+        return render_template('LC.html', form = form,form2=form2,form3=form3, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
     if TOS == 'Junk Removal Services':
-        return render_template('LC.html', form=form, form2=form2,form3=form3,baa=True, service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
-    return render_template('LC.html', form = form, form2=form2,form3=form3,service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=TOS, meta=meta)
+        return render_template('LC.html', form=form, form2=form2,form3=form3,baa=True, service=TOS, filedirectory=filedirectory, desc=desc[TOS], pagetitle=TOS, meta=meta)
+    return render_template('LC.html', form = form, form2=form2,form3=form3,service=TOS, filedirectory=filedirectory, desc=desc[TOS], pagetitle=TOS, meta=meta)
 
 @myapp.route("/services/<TOS>" + "-services-il")
 def TOS(TOS):
@@ -318,13 +329,19 @@ def Archal(area):
     area = area.replace("-", " ")
     TOS = area + " landscaping"
     print(TOS)
-    desc = dictofservices()
+    prop_dict = dictofservices.prop_dict
+    home_dict = dictofservices.home_dict
+    personal_dict = dictofservices.personal_dict
+    desc = {}
+    desc.update(prop_dict)
+    desc.update(home_dict)
+    desc.update(personal_dict)
     try:
-        meta = desc.serviceDict[TOS + " Meta"]
+        meta = desc[TOS + " Meta"]
     except KeyError as e:
         meta = ''
     filedirectory = 'css/img/Lawn Care'
-    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc.serviceDict[TOS], pagetitle=area + " Landscaping Services | Lawn Care Services |" + area + ", Il | Wurk " + area + " Services")
+    return render_template('lawncare.html', service=TOS, filedirectory=filedirectory, desc=desc[TOS], pagetitle=area + " Landscaping Services | Lawn Care Services |" + area + ", Il | Wurk " + area + " Services")
 
 @myapp.route("/<area>" + "-landscaping-services-il")
 def anytypeoflandscaping(area):

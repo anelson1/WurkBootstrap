@@ -1,6 +1,5 @@
 class services:
-    serviceDict = {
-        "Lawn Care": "This is filler",
+    prop_dict = {"Lawn Care": "This is filler",
         "Barrington landscaping": """Wurk Services is run by local students who know the Barrington and Chicago land area. <br></br>
           Our team has the capability to meet all your common landscaping needs, to keep your lawn green and free of weeds, from: basic mowing to more complex tasks like tree removal and garden design. Our landscaping team takes pride in providing the barrington and the Chicago land area with local high quality landscaping services, maintenance, and design. <br></br>
           As our customers, you can be assured that you will receive the finest combination of lawn care, quality materials and highly trained local personnel. <br></br>
@@ -145,8 +144,8 @@ We service all commercial and residential locations throughout Schaumburg. There
 <br></br>
 Vacuuming on a regular basis will only remove surface dirt and dust, leaving pounds of built-up grime embedded in your carpet fibers. We recommended that you have your carpets professionally cleaned once a year to remove deeply layered dirt underneath your carpet. Our professional equipment is powerful enough to eliminate the unseen dry contaminants, improving the air quality inside your home.
 ''',
-"Carpet Cleaning Meta":"Wurk Services provides exceptional Schaumburg Carpet Cleaning services in the Schaumburg & Surrounding Areas. ",
-        "break 1": "Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style.",
+"Carpet Cleaning Meta":"Wurk Services provides exceptional Schaumburg Carpet Cleaning services in the Schaumburg & Surrounding Areas. "}
+    home_dict = {
         "Construction": "Looking to build or maintain a property? Look no further, as Wurk construction services provide a full spectrum of services that can create the design of your dreams! From benches to treehouses, Wurk can construct, maintain, or restore any residential or commercial project!",
         "Painting And Staining": """Wurk Chicago Services is a professional painting company with many years of experience servicing the Chicagoland Area. We offer a wide range of painting services including interior and exterior painting, deck staining and restoration and remodeling.  <br></br>
           We have a very simple policy. Make sure every customer is Happy. Period. Our friendly customer service, humbling awards and numerous reviews have historically proven that our mission is succeeding. <br></br>
@@ -154,7 +153,8 @@ Vacuuming on a regular basis will only remove surface dirt and dust, leaving pou
         "Painting And Staining Meta": ''' Wurk Services Has Been Continuously Providing Highest Rated Painting & Staining Services in Chicago, Barrington Il, 60007, 60010. Our services include Painting, Painter Services, and providing interior & exterior commercial & residential painter services for our clients in Chicago, Barrington. We are fully committed to making our client’s properties look better, with quality services.''',
         "Deck And Roof Restoration": """Keeping the wood on the exterior of your home in good condition is required to ensure it lasts as long as possible. We are Barrington’s best and most experienced wood restoration company and we give our customers the services needed to keep their homes beautiful and long-lasting. We offer deck cleaning and staining services and other solutions to keep your fence, porch, cedar roof, and other wood structures looking great. We can help with all exterior wood-related services for your home.<br></br>Call Barrington’s best deck and roof restoration service providers, to get your job done!<br></br>We’re always rated at 5 stars, because our motto is in our name, Wurk.""",
         "Deck And Roof Restoration Meta": """Call Us, Wurk Barrington Services for Restoring Your Roof and Deck to make them look like new and last longer! Whether you’re selling your home or you are going to live there for the rest of your life, Wurk Barrington Services Deck and Roof Restoration services will help them look like new and last long all the time!""",
-        "break 2": "Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ",
+        }
+    personal_dict = {
         "Tutoring": "Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading.",
         "Tutoring Meta":"Tutoring Services from Wurk. We tutor in every subject, and we have been proven time and time again, to increase test scores, and improve concept understanding for all students who come with us.",
         "Music Lessons": "Want to learn an instrument or just better your current understanding of an instrument? Wurk has tons of veteran musicians waiting to help you achieve your dreams. Make a booking now and achieve professional help at an affordable price!",
