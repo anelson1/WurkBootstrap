@@ -1,0 +1,56 @@
+{% extends "baseWH.html" %}
+{%block title%}Home{%endblock%}
+{%block content%}
+<style>
+.parallax {
+  /* The image used */
+  background-image: url("{{url_for('static', filename='/css/img/paralax.jpg')}}");
+
+  /* Set a specific height */
+  height: 1000px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+<div class="container-fluid">
+  <div class="row border border-primary">
+    <div class="col p-0 text-white text-light">
+      <div class="parallax-window text-center m-0 d-flex flex-column justify-content-center" data-parallax="scroll" data-image-src="static/css/img/paralax.jpg" alt='Landscaping'>
+        <span class="bg-transdark p-3 my-5">
+          <h1 class="display-1">Wurk Services</h1>
+          <h1 class="display-4">We do all odd jobs. Work less with Wurk today!</h2>
+          <p>Wurk Services is a management company. From maintaining your property to tutoring your kids and caring for
+            your
+            pets, we provide a full array of services available at a moment's notice. All you need to do is book! Wurk
+            does
+            all odd jobs so you don’t have to. Our specialists come to you with competitive pricing to get your job done
+            with utmost satisfaction. Work less with Wurk today!</h3>
+            <p><b>What are you waiting for? Select one of our services below!</b></p>
+            <a class="btn btn-outline-light" href="/login">Or if you already have an account, sign in!</a>
+          </span>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        {%for i in types%}
+        <div class="col">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+</body>
+{%endblock%}
