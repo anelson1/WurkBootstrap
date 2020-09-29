@@ -49,8 +49,8 @@
         <div class="card-body">
           <h5 class="card-title">{{i[0]}}</h5>
           <p class="card-text">{{i[1]}}</p>
-          <button type="button" class="btn btn-outline-primary stretched-link" data-toggle="modal" data-target="#{{i[0].replace(' ','-').lower()}}">Take a
-            look!</button>
+          <a href="#{{i[0].replace(' ','-').lower()}}" type="button" class="btn btn-outline-primary stretched-link">Take a
+            look!</a>
 
         </div>
       </div>
@@ -59,32 +59,31 @@
   </div>
 </div>
 
-{%for i in types%}
-<div id="{{i[0].replace(' ','-').lower()}}" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">{{i[0]}}</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+<!--Services Loop -->
+<div class="container-fluid overflow-hidden">
+  <div class="row mb-5 mx-5 align-items-center p-3">
+      <div class="col-md">
+      <h1 class="display-4" id="{{types[0][0].replace(' ','-').lower()}}">{{types[0][0]}}</h1>
+      <p class="lead">{{types[0][1]}}</p>
+      <div class="card-deck">
+        {%for k in listofservices%}
+        {%if "break" in k%}
       </div>
-      <div class="modal-body">
-        <div class="card-deck">
-          {%if i[0] == 'Property Management'%}
-          {%set list = prop_dict%}
-          {%elif i[0] == "Home Improvement"%}
-          {%set list = home_dict%}
-          {%else%}
-          {%set list = personal_dict%}
-          {%endif%}
-         {%for k in list%}
+</div>
+</div>
+<div class="container-fluid overflow-hidden">
+    <div class="row mb-5 mx-5 align-items-center p-3">
+      {%if not "breaknotitle" in k%}
+      {%set k = k[-1]%}
+      <div class="col-md">
 
-          <div class="card text-dark shadow shadow-lg border border-primary mb-4"
-            style="min-width: 10rem;  max-width: 20rem; word-wrap: normal;" data-aos="fade-right"
-            data-aos-duration="1000">
-            <img class="card-img-top border border-primary"
-              src="{{ url_for('static', filename='css/img/' + k + '.jpg') }}" alt="{{k}}">
+        <h1 class="display-4"id="{{types[k|int][0].replace(' ','-').lower()}}">{{types[k|int][0]}}</h1>
+        <p class="lead">{{types[k|int][1]}}</p>
+        {%endif%}
+        <div class="card-deck">
+          {%else%}
+          <div class="card text-dark shadow shadow-lg border border-primary mb-4" style="min-width: 10rem;  max-width: 30rem; word-wrap: normal;" data-aos="fade-right" data-aos-duration="1000">
+            <img class="card-img-top border border-primary" src="{{ url_for('static', filename='css/img/' + k + '.jpg') }}" alt="{{k}}">
             <div class="card-body">
               <h5 class="card-title">{{k}}</h5>
             </div>
@@ -95,19 +94,15 @@
               {%elif k == 'Tutoring'%}
               <a href="/tutoring" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
               {%else%}
-              <a href="/services/{{k}}-barrington-il" class="btn btn-outline-primary stretched-link text-center">Learn
-                More</a>
+              <a href="/services/{{k}}-barrington-il" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
               {%endif%}
             </div>
           </div>
+          {%endif%}
           {%endfor%}
-        </div>
-
-      </div>
     </div>
-
   </div>
 </div>
-{%endfor%}
+</div>
 </body>
 {%endblock%}
