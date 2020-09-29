@@ -90,6 +90,27 @@ class services:
           <li class="list-group-item">Drainage Work & Gutter Cleaning</li>
           </ul> ''',
         "Inverness landscaping Meta": "If you live in the Inverness Area, then you must try out Wurk Services's Landscaping. A team of college students that founded a landscaping company in Deer Park. Affordable, and reliable. ",
+        "Fall Services": '''<h1 class="display-3">Residential Fall/Autum Services & Cleanup </h1>
+<br></br>
+<h2>Seasonal Landscaping and Home Care Services.</h2>
+<br></br>
+
+Does your home look a little shabby around this time of year? Could your property benefit from a good fall cleaning? Call Wurk Services, for a fall clean-up! Our landscaping and lawn care services are designed to provide the care and attention your property needs with none of the hassle. We’re proud of our commitment to our clients. Join countless other families around Illinois in trusting Wurk Services for Home Improvement and Lawn Care Services. 
+<br></br>
+
+What does a fall cleanup entail?
+<br></br>
+
+When we come to your home during the end of summer, or during fall, we will come to:
+<ul class="list-group">
+<li class="list-group-item">Raking</li>
+<li class="list-group-item">Seeding (Seed your grass for great growth next year)</li>
+<li class="list-group-item">Powerwash your deck. (This will clean your deck for next summer.)</li>
+<li class="list-group-item">Clean gutters from leaves (To clean clogs)</li>
+<li class="list-group-item">Weed Control</li>
+<li class="list-group-item">Fertilizing</li>
+</ul>''',
+        "Fall Services Meta":"",
         "Junk Removal Services": '''Wurk is a leading junk removal service, specializing in removing junk and clutter of all kinds. Contact us today to get your junk removed! Wurk Junk Removal Services can save you money over dumpster rentals, by charging you only for how much you need removed!. <br></br>
           Our Junk Removal Services and Haul Away Services is professional, affordable, and quick. There is no job too big or small. After removing your items, when possible we donate what we can, recycle what we can then dispose of the what needs to be eliminated. <br></br>
           While residential junk removal may seem like all you need is a little elbow grease, the reality is that quite often waste disposal can be dangerous. In addition to the known dangers of loose nails, broken boards, and sharp metal, hazardous chemicals may be found within the junk or waste that is being removed. Without proper protection, exposure to chemicals or other contaminants can be detrimental to your health. <br></br>
@@ -146,6 +167,22 @@ We service all commercial and residential locations throughout Schaumburg. There
 Vacuuming on a regular basis will only remove surface dirt and dust, leaving pounds of built-up grime embedded in your carpet fibers. We recommended that you have your carpets professionally cleaned once a year to remove deeply layered dirt underneath your carpet. Our professional equipment is powerful enough to eliminate the unseen dry contaminants, improving the air quality inside your home.
 ''',
 "Carpet Cleaning Meta":"Wurk Services provides exceptional Schaumburg Carpet Cleaning services in the Schaumburg & Surrounding Areas. ",
+        "Pest Control":'''The Most Dependable and Affordable Local Pest Control Exterminators in Barrington, Il and surrounding Areas. 
+<br></br>
+At Wurk Services, we like to say that “the Pest Stops Here.” That’s because we take an individualized approach to our Barrington residential and commercial pest control exterminator service for your Home and Business. Instead of generalized programs and services, each client receives a thorough inspection and so there is never a question as to what we do or how we do it. Our extermination services include:
+<br></br>
+<ul class = "list-group">
+<li class="list-group-item">Pest Inspections</li> 
+<li class="list-group-item">Rapid Pest Treatments</li>
+<li class="list-group-item">Pest Exclusions as Needed</li>
+</ul>
+<br></br>
+We inspect the interior and the exterior of your property to make sure any potential risks are removed. Our expert pest control exterminator technicians will even discuss proactive prevention methods that you can take on your own to limit future risks.
+<br></br>
+We only have professionals that will get the job done right the first time. We charge fair rates that are competitive with national providers. We provide a personal touch served with local pride so that you don’t have to worry about bothersome pests ever again. If you’re interested in our pest control and extermination services inBarrington, Schaumburg, Barrington Hills, or surroundign areas, and would like to schedule an appointment, or you just have a question or two to ask, then feel free to fill out the form at your convenience and a pest control expert will be able to help you.''',
+        "Pest Control Meta":"Wurk Services Provides expert Pest Control Services, to remove insects and rodents from your home in the Chicagoland Area.",
+        "Pool Repair": "Wurk offers cleaning, balance, maintenance, acid wash, green pool solutions and more to the greater Miami area with a reliable, quality pool service. With 15+ years of pool maintenance experience, we provide quality pool service that is reliable, punctual, discreet, and professional.",
+        "Pool Repair Meta":"Wurk Services Pool & Hot Tub (Jaccuzzi) Maintaining & Repair services are the best in the Barrington Il & Surrounding Areas. Make your pool clean and functioning well with our repair services.",
         "break 1": "Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style.",
         "Construction": "Looking to build or maintain a property? Look no further, as Wurk construction services provide a full spectrum of services that can create the design of your dreams! From benches to treehouses, Wurk can construct, maintain, or restore any residential or commercial project!",
         "Painting And Staining": """Wurk Chicago Services is a professional painting company with many years of experience servicing the Chicagoland Area. We offer a wide range of painting services including interior and exterior painting, deck staining and restoration and remodeling.  <br></br>

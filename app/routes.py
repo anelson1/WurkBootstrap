@@ -300,6 +300,9 @@ def servicesgeneric(TOS):
     except KeyError as e:
         meta = ''
     filedirectory = 'css/img/'+TOS
+    if not os.path.exists("app/static/"+filedirectory):
+        print("Creating Dir")
+        os.makedirs("app/static/" + filedirectory)
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
     if TOS == 'Sports Coaching':
