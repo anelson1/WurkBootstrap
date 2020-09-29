@@ -83,11 +83,9 @@ def get_services(dict):
 
 @myapp.route("/")
 def index():
-    prop_dict = get_services(dictofservices.prop_dict)
-    home_dict = get_services(dictofservices.home_dict)
-    personal_dict = get_services(dictofservices.personal_dict)
+    listofservices = get_services(dictofservices.serviceDict)
 
-    return render_template("landing.html.j2", home = "active", pagetitle="Wurk Services", prop_dict = prop_dict, home_dict = home_dict, personal_dict = personal_dict, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
+    return render_template("landing.html.j2", home = "active", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
 
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
@@ -296,13 +294,7 @@ def servicesgeneric(TOS):
     TOS = TOS.replace('-', ' ')
     TOS = TOS.title()
     form3.services.choices = [TOS]
-    prop_dict = dictofservices.prop_dict
-    home_dict = dictofservices.home_dict
-    personal_dict = dictofservices.personal_dict
-    desc = {}
-    desc.update(prop_dict)
-    desc.update(home_dict)
-    desc.update(personal_dict)
+    desc = dictofservices.serviceDict
     try:
         meta = desc[TOS + " Meta"]
     except KeyError as e:
