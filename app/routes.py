@@ -324,13 +324,7 @@ def Archal(area):
     area = area.replace("-", " ")
     TOS = area + " landscaping"
     print(TOS)
-    prop_dict = dictofservices.prop_dict
-    home_dict = dictofservices.home_dict
-    personal_dict = dictofservices.personal_dict
-    desc = {}
-    desc.update(prop_dict)
-    desc.update(home_dict)
-    desc.update(personal_dict)
+    desc = dictofservices.serviceDict
     try:
         meta = desc[TOS + " Meta"]
     except KeyError as e:
