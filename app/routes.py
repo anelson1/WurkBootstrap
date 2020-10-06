@@ -232,7 +232,7 @@ def EmpRegHandle():
     return redirect(url_for('registered'))
 @myapp.route("/apply")
 def apply():
-    listofservices = get_services(dictofservices.prop_dict)
+    listofservices = get_services(dictofservices.serviceDict)
     listoftuples = []
     for i in listofservices:
         listoftuples.append((i,i))
