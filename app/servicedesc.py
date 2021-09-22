@@ -117,14 +117,11 @@ When we come to your home during the end of summer, or during fall, we will come
           Whether we are providing residential or commercial junk removal, Wurk Junk Removal Services always comes prepared. With hard hats, hazmat suits, and professional-grade work masks, we can help you to safely take out the trash so that you can get back to your life. We can even help you with junk recycling if you have large amounts of metal, plastic, glass, or other recyclables.''',
         "Junk Removal Services Meta": "Meta: Wurk Services Has Been Continuously Providing Highest Rated Junk Removal Services in Chicago, Barrington Il, 60007, 60010. Our services include Junk Removal, Hauling Services, and Removing Junk Service for our clients in Chicago, Barrington. We are fully committed to making our client’s life easier by offering affordable junk removal services.",
         "Garage Cleaning": '''When you book Wurk Services for your garage cleaning project, our professionally trained team will handle all the sorting, labor, loading, hauling, and proper disposal, recycling, or donating. We’ll clean up your garage or carport space and rid you of clutter so that you can finally park your car where it belongs. Whether you’ve just got a few items that need to go or your garage is so full of junk it’s about to burst at the seams, Wurk can and will help.
-          <br></br>
-          <h3>
-          Is your Garage so cluttered your car is always outside?
-          <br></br>
-          Get rid of your junk by donating, or properly recycling it for you.
-          </h3>
-          <br></br>
-          You can count on Wurk Services to clean out your Garage for you. Book now so we can come at your convenience. ''',
+        <h2 class="display-4">Remove Clutter/Scrap</h2>
+       <p class="lead">Finished a project? Or have lots of scraps and material building up in your garage over time? Call Wurk to help you remove everything, and make space for your car again. </p>
+  <h2 class="display-4">Reorganize Your Garage</h2>
+<p class="lead">Need to clear out the middle so that your car fits again? Push extra items out of the way, and recycle what you don't need? Book someone to come over and help you out!</p>
+       ''',
         "Garage Cleaning Meta": "Wurk Services provides Garage Cleaning services for the Barrington Area, where we help our customers remove junk, clean out, clean flooring and clear out your garage in the Barrington Area.",
 
         "Snow Removal": '''Wurk Services provides prompt, professional commercial and residential snow removal to keep your outdoor landscape safe and enjoyable in any weather in the greater Barrington area.  We maintain and operate our fleet of snow removal vehicles and equipment, so we ready whenever you need us.
@@ -145,7 +142,7 @@ When we come to your home during the end of summer, or during fall, we will come
         "Electrician Services": '''When you hire an electrician, how can you trust who is working in your home? At Wurk we don’t just hire the most qualified electrician, but expect the highest level of professionalism and courtesy from everyone on our team. For your peace of mind, all of our electricians are background tested and drug-screened. Wurk provides Barrington homeowners with complete electrical services including installation, upgrades, and repairs. No matter what type of electrical needs you may have it’s important to hire a qualified, experienced electrician. <br>
 When the job is finished the work area is thoroughly cleaned and the price we quoted is the price you pay. All work and your satisfaction are guaranteed 100%. We’ll follow up to make sure you’re satisfied with our work and our people.
 <hr>
-<h1 class="display-4">Resedential Electrician Services</h1>
+<h1 class="display-4">Residential Electrician Services</h1>
 <p class="lead">At Wurk, we're experts in the home improvement industry, and when it comes to electrical, we do everything from outside to inside your home. Whether it involves replacing outlets, switches, opening and rerouting outlets, installing and removing ceiling fans, outdoor lights & deck lights. We also can help you install generators for your house.
 </p>
 <hr>
@@ -185,9 +182,17 @@ We only have professionals that will get the job done right the first time. We c
         "Pool Repair Meta":"Wurk Services Pool & Hot Tub (Jacuzzi) Maintaining & Repair services are the best in the Barrington Il & Surrounding Areas. Make your pool clean and functioning well with our repair services.",
         "break 1": "Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style.",
         "Construction": "Looking to build or maintain a property? Look no further, as Wurk construction services provide a full spectrum of services that can create the design of your dreams! From benches to treehouses, Wurk can construct, maintain, or restore any residential or commercial project!",
-        "Painting And Staining": """Wurk Chicago Services is a professional painting company with many years of experience servicing the Chicagoland Area. We offer a wide range of painting services including interior and exterior painting, deck staining, and restoration and remodeling.  <br></br>
-          We have a very simple policy. Make sure every customer is happy. Period. Our friendly customer service, humbling awards and numerous reviews have historically proven that our mission is succeeding. <br></br>
-          If you are looking for an interior or an estimate that fits within your spending limits, click on the book now button below.""",
+        "Painting And Staining": """
+        Wurk Services has specialized painting professionals as a part of our team. a comprehensive interior paint company that specializes in a wide range of home beautification services for homeowners in Chicagoland area and the surrounding Illinois area. 
+        """,
+        "Painting And Staining 1": """
+        <h2 class="display-4">How Painting with Wurk Services Works</h2>
+        <p class="lead">When you work with Wurk Services, you are going to experience a modern and unique approach. Our contactless process allows you to book online and allows us to quote you remotely, or if you prefer, give you an accurate in person quote. After that, our experts will come and complete the job for you efficiently.</p>
+        """,
+        "Painting And Staining 2": """
+        <h2 class="display-4">Exceptional Results Every Time</h2>
+        <p class="lead">Put our professional painters to the test and let us help you bring new life to any room. We sit down with you and allow you to pick which colors you would prefer to work with and how that fits into your room. Our experienced painters can take your vision and initial ideas and turn them into reality right before you eyes. We can take any vision and implement them for you efficiently and effectively.</p>
+        """,
         "Painting And Staining Meta": ''' Wurk Services Has Been Continuously Providing Highest Rated Painting & Staining Services in Chicago, Barrington Il, 60007, 60010. Our services include Painting, Painter Services, and providing interior & exterior commercial & residential painter services for our clients in Chicago, Barrington. We are fully committed to making our client’s properties look better, with quality services.''',
         "Deck And Roof Restoration": """Keeping the wood on the exterior of your home in good condition is required to ensure it lasts as long as possible. We are Barrington’s best and most experienced wood restoration company and we give our customers the services needed to keep their homes beautiful and long-lasting. We offer deck cleaning and staining services and other solutions to keep your fence, porch, cedar roof, and other wood structures looking great. We can help with all exterior wood-related services for your home.<br></br>Call Barrington’s best deck and roof restoration service providers, to get your job done!<br></br>We’re always rated at 5 stars, because our motto is in our name, Wurk.""",
         "Deck And Roof Restoration Meta": """Call Us, Wurk Barrington Services for Restoring Your Roof and Deck to make them look like new and last longer! Whether you’re selling your home or you are going to live there for the rest of your life, Wurk Barrington Services Deck and Roof Restoration services will help them look like new and last long all the time!""",
