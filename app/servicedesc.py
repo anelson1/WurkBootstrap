@@ -259,7 +259,16 @@ When we come to your home during the end of summer, or during fall, we will come
         <p class="lead">Put our professional painters to the test and let us help you bring new life to any room. We sit down with you and allow you to pick which colors you would prefer to work with and how that fits into your room. Our experienced painters can take your vision and initial ideas and turn them into reality right before you eyes. We can take any vision and implement them for you efficiently and effectively.</p>
         """,
         "Painting And Staining Meta": ''' Wurk Services Has Been Continuously Providing Highest Rated Painting & Staining Services in Chicago, Barrington Il, 60007, 600one0. Our services include Painting, Painter Services, and providing interior & exterior commercial & residential painter services for our clients in Chicago, Barrington. We are fully committed to making our client’s properties look better, with quality services.''',
-        "Deck And Roof Restoration": """Keeping the wood on the exterior of your home in good condition is required to ensure it lasts as long as possible. We are Barrington’s best and most experienced wood restoration company and we give our customers the services needed to keep their homes beautiful and long-lasting. We offer deck cleaning and staining services and other solutions to keep your fence, porch, cedar roof, and other wood structures looking great. We can help with all exterior wood-related services for your home.<br></br>Call Barrington’s best deck and roof restoration service providers, to get your job done!<br></br>We’re always rated at 5 stars, because our motto is in our name, Wurk.""",
+        "Deck And Roof Restoration": """""",
+        "Deck And Roof Restoration one":'''
+        <h2 class="display-4">Keeping it New</h2>
+        <p class="lead">Keeping the wood on the exterior of your home in good condition is required to ensure it lasts as long as possible. We are Barrington’s best and most experienced wood restoration company and we give our customers the services needed to keep their homes beautiful and long-lasting. We offer deck cleaning and staining services and other solutions to keep your fence, porch, cedar roof, and other wood structures looking great. We can help with all exterior wood-related services for your home.</p>
+        ''',
+        "Deck And Roof Restoration two":'''
+        <h2 class="display-4">We Wurk Hard</h2>
+        <p class="lead">Call Barrington’s best deck and roof restoration service providers, to get your job done!<br></br>We’re always rated at 5 stars, because our motto is in our name, Wurk.</p>
+        
+        ''',
         "Deck And Roof Restoration Meta": """Call Us, Wurk Barrington Services for Restoring Your Roof and Deck to make them look like new and last longer! Whether you’re selling your home or you are going to live there for the rest of your life, Wurk Barrington Services Deck and Roof Restoration services will help them look like new and last long all the time!""",
         "break 2": "Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ",
         "Tutoring": "Our team of experienced educators and instructors provide one on one lessons in a plethora of areas ranging from math to computer science to reading.",
@@ -317,11 +326,25 @@ When we come to your home during the end of summer, or during fall, we will come
           <p class="lead">Instead of driving back and forth from your office, or if you are out for the day, then we can come in and walk you dog, change the litter, or take out the trash at the same.</p>
         ''',
         "Car Detailing Meta": "Wurk Services Has Been Continuously Providing The Best Car Detailing & Washing Services in Barrington Il 600one0. Our services include Interior and Exterior Car Detailing, Making Your Car Look Like New for our clients in Barrington. We are fully committed to making our cars look like new all the time.",
-        "Car Detailing": '''Wurk Services has been providing top of the line car detailing services for the Barrington and Greater Chicago Area. We are passionate about providing our customers with the highest quality car care, utilizing state-of-the-art auto detailing techniques, cutting edge products and a network of knowledge that is always being updated to make your car stand out. <br></br>
-          Our talented team will work one on one with you to ensure that our car detailing project is always going as planned, and make sure that it fits your schedule too. <br></br>
-          After serving many cars, we’ve seen it all and done it all. No job is too big or too small. Whether it be our ‘Ultra hand wash’ to complete reconditioning your car will reflect Wurk.''',
-        "Nanny Services": '''Whether you’re a busy family that needs a sitter on a regular basis, or if you’re in a bind and need reliable child care at the drop of a dime, Wurk Services of Barrington & Schaumburg can help you with sitter services. <br></br>
-          Based on your needs and specifications, we will match your family with a compassionate babysitter or nanny that you and your family will not only be comfortable with, but also impressed with. From your first ph1 call, our unique process takes into account, among other things, personality, needs, and expectations to match your family with the best possible fit.
+        "Car Detailing": '''''',
+        "Car Detailing one":'''
+        <h2 class="display-4">Detailing</h2>
+        <p class="lead">
+        Wurk Services has been providing top of the line car detailing services for the Barrington and Greater Chicago Area. We are passionate about providing our customers with the highest quality car care, utilizing state-of-the-art auto detailing techniques, cutting edge products and a network of knowledge that is always being updated to make your car stand out. <br></br>
+          Our talented team will work one on one with you to ensure that our car detailing project is always going as planned, and make sure that it fits your schedule too. 
+        </p>
+        ''',
+        'Car Detailing two':'''
+         <h2 class="display-4">Wurking on Cars</h2>
+        <p class="lead">
+          After serving many cars, we’ve seen it all and done it all. No job is too big or too small. Whether it be our ‘Ultra hand wash’ to complete reconditioning your car will reflect Wurk.
+       </p>
+        ''',
+
+        "Nanny Services": '''''',
+        "Nanny Services two":'''
+          <h2 class="display-4">How we Wurk</h2>
+          <p class="lead">
           Our Sitter Services:
           <div class = "row">
           <div class="col-xl-5 mx-auto mb-3">
@@ -340,7 +363,15 @@ When we come to your home during the end of summer, or during fall, we will come
           <li class="list-group-item">And more</li>
           </ul>
           </div>
-          </div> ''',
+          </div> 
+          </p>
+                ''',
+        "Nanny Services one":'''
+        <h2 class="display-4">Wurking Nannies</h2>
+        <p class="lead">Whether you’re a busy family that needs a sitter on a regular basis, or if you’re in a bind and need reliable child care at the drop of a dime, Wurk Services of Barrington & Schaumburg can help you with sitter services. <br></br>
+          Based on your needs and specifications, we will match your family with a compassionate babysitter or nanny that you and your family will not only be comfortable with, but also impressed with. From your first ph1 call, our unique process takes into account, among other things, personality, needs, and expectations to match your family with the best possible fit.
+        </p>
+        ''',
         "Nanny Services Meta": '''There’s a nanny that's just right for you at Wurk Services. Make sure that your child is taken care for with us. We haven’t gotten a review below 5 stars, because we incorporate compassion and care into our nanny services in the Barrington & Schaumburg Il Area.'''
       }
   tutoring_dict = {

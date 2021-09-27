@@ -306,7 +306,7 @@ def servicesgeneric(TOS):
     if TOS == "Lawn Care":
         return redirect(url_for("Archal"))
     if TOS == 'Sports Coaching':
-        return render_template('LC.html', form = form,form2=form2,form3=form3, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc[TOS], pagetitle=TOS, meta=meta, emp = get_employees(), PersonalInfo = PersonalInfo)
+        return render_template('LC.html', form = form,form2=form2,form3=form3, tutor=True, service=TOS, filedirectory=filedirectory, desc=desc[TOS], pagetitle=TOS, meta=meta)
     if TOS == 'Junk Removal Services':
         return render_template('LC.html', form=form, form2=form2,form3=form3,baa=True, service=TOS, filedirectory=filedirectory, desc=desc[TOS], pagetitle=TOS, meta=meta)
     return render_template('LC.html', form = form, form2=form2,form3=form3,service=TOS, filedirectory=filedirectory, desc1=desc[TOS + " one"],desc2=desc[TOS + " two"], pagetitle=TOS, meta=meta)
