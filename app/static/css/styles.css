@@ -16,6 +16,15 @@
   transform: scale(1.1);
 }
 
+.gsc-control-cse {
+  background:transparent !important; /* enforce this rule; do not allow override */
+  border-color:transparent !important; /* border color */
+  max-width: 50%;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
