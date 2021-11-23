@@ -312,6 +312,11 @@ When we come to your home during the end of summer, or during fall, we will come
         </p>''',
 
         "Pet Services Meta": "Looking for a responsible, experienced company to walk your dog? Look no further than Wurk Services Dog Walking, Dog Sitting, 360 Dog Care Services whether you are home, or whether you are work, Wurk Services is there.",
+        "Horse Burial": "",
+        "Horse Burial one":'''<h2 class="display-4">Coming Soon</h2>
+        <p class="lead">Coming Soon</p>''',
+        "Horse Burial two":'''<h2 class="display-4">Coming Soon</h2>
+        <p class="lead">Coming Soon</p>''',
         "House Sitting": "",
         "House Sitting one":'''
         <h2 class="display-4">
