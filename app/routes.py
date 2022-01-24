@@ -84,8 +84,8 @@ def get_services(dict):
 @myapp.route("/")
 def index():
     listofservices = get_services(dictofservices.serviceDict)
-
-    return render_template("landing.html.j2", home = "active", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
+    return render_template("index.html")
+   # return render_template("landing.html.j2", home = "active", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
 
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
@@ -283,7 +283,9 @@ def checkbooking():
 
 @myapp.route("/services")
 def services():
-    return render_template('services.html', pagetitle='services')
+    listofservices = get_services(dictofservices.serviceDict)
+    return render_template("landing.html.j2", home = "active", pagetitle="Wurk Services", listofservices = listofservices, types = [("Property Management","Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference."), ("Home Improvement","Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style."), ("Personal Services","Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers. ")])
+
 
 @myapp.route("/services/<TOS>")
 def servicesgeneric(TOS):

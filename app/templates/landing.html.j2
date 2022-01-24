@@ -34,26 +34,6 @@
     </div>
   </div>
 </div>
-<div class="container-fluid">
-  <div class="row p-3">
-    {%for i in types%}
-    <div class="col">
-      <div class="card mx-auto" style="width: 18rem;">
-        <img class="card-img-top"
-          src="{{url_for('static', filename='/css/img/' + i[0].replace(' ','-').lower() + '.jpg')}}" alt="{{i[0]}}">
-        <div class="card-body">
-          <h5 class="card-title">{{i[0]}}</h5>
-          <p class="card-text">{{i[1]}}</p>
-          <a href="#{{i[0].replace(' ','-').lower()}}" type="button" class="btn btn-outline-primary stretched-link">Take a
-            look!</a>
-
-        </div>
-      </div>
-    </div>
-    {%endfor%}
-  </div>
-</div>
-
 <!--Services Loop -->
 <div class="container-fluid overflow-hidden">
   <div class="row mb-5 mx-5 align-items-center p-3">
