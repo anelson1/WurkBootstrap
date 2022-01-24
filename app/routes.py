@@ -594,6 +594,10 @@ def clockout():
     u.currenttimesheet = None
     db.session.commit()
     return redirect(url_for("WP", justclockedout = True))
+
+@myapp.route('/wurkers')
+def wurkers():
+    return render_template("wurkers.html")
 @myapp.route('/<wurker>/profile', methods = ['GET', 'POST'])
 def wurkerprofile(wurker):
     '''form = UploadForm()

@@ -20,7 +20,7 @@
                     <li class="nav-item"><a class="nav-link active" href="/" style="color: var(--bs-white);">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/apply" style="color: var(--bs-white);">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/ContactUs" style="color: var(--bs-white);">Contact Us</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="{{ url_for('login') }}" style="color: var(--bs-body-bg);">Log In</a><a class="btn btn-light" role="button" href="/register" style="background: var(--bs-purple);color: var(--bs-white);">Sign Up</a></span>
+                </ul><span class="navbar-text actions"> <a class="login" href="{{ url_for('login') }}" style="color: var(--bs-body-bg);">Log In</a><a class="btn btn-light" role="button" href="{{ url_for('login') }}" style="background: var(--bs-purple);color: var(--bs-white);">Sign Up</a></span>
             </div>
         </div>
     </nav>
