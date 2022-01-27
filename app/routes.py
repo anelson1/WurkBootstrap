@@ -598,9 +598,14 @@ def clockout():
 @myapp.route('/wurkers')
 def wurkers():
     return render_template("wurkers.html")
-@myapp.route('/<wurker>/profile', methods = ['GET', 'POST'])
+
+@myapp.route('/wurkers/<name>')
+def wurkerprofile(name):
+    return render_template("profile.html", name=name, bio = "I am a wurker who will get the job done!", skillone="Electrician", skilltwo="Programming", skillthree="PowerWashing")    
+
+'''@myapp.route('/<wurker>/profile', methods = ['GET', 'POST'])
 def wurkerprofile(wurker):
-    '''form = UploadForm()
+    form = UploadForm()
     try:
         u = User.query.filter_by(username=wurker).first()
         p = PersonalInfo.query.filter_by(id=u.id).first()
@@ -619,9 +624,9 @@ def wurkerprofile(wurker):
     except Exception as e:
         print(e)
         return redirect(url_for('genericerror'))
-        '''
-    return render_template("profile.html", name = "Xander the Mander", bio = "Here at wurk services, I have no idea what I am doing. This is probally a scam to sell drugs to inner city children.", skillone="Landscaping", skilltwo="Pool Repair", skillthree="Powerwashing")
         
+    return render_template("profile.html", name = "Xander the Mander", bio = "Here at wurk services, I have no idea what I am doing. This is probally a scam to sell drugs to inner city children.", skillone="Landscaping", skilltwo="Pool Repair", skillthree="Powerwashing")
+    '''    
 
 @myapp.route('/<wurker>/posthandler', methods=['POST'])
 def posthandler(wurker):

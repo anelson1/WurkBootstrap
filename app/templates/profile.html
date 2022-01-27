@@ -17,7 +17,7 @@
         <div class="container"><a class="navbar-brand" href="/">Wurk Services</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="color: rgb(255,255,255);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon" style="filter: brightness(0%) contrast(200%) grayscale(0%) invert(100%) saturate(200%) sepia(0%);"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="/" style="color: var(--bs-white);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/" style="color: var(--bs-white);">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/apply" style="color: var(--bs-white);">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/ContactUs" style="color: var(--bs-white);">Contact Us</a></li>
                 </ul><span class="navbar-text actions"> <a class="login" href="{{ url_for('login') }}" style="color: var(--bs-body-bg);">Log In</a><a class="btn btn-light" role="button" href="{{ url_for('login') }}" style="background: var(--bs-purple);color: var(--bs-white);">Sign Up</a></span>
@@ -27,7 +27,7 @@
     <section class="highlight-clean">
         <div class="container">
             <div class="intro" style="text-align: center;">
-                <p style="text-align: center;"><img class="rounded-circle" src="/static/assets/img/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg" style="height: 300px;width: 300px;"></p>
+                <p style="text-align: center;"><img class="rounded-circle" src="/static/assets/img/{{name}}.jpg" style="height: 300px;width: 300px;"></p>
                 <h2 class="text-center">{{name}}</h2>
                 <p class="text-center">{{bio}}</p><a class="btn btn-primary" role="button" href="#" style="background: var(--bs-purple);text-align: center;">Book Me</a>
             </div>
@@ -100,7 +100,7 @@
         <section class="testimonials-clean" style="background: var(--bs-white);">
             <div class="container">
                 <div class="intro">
-                    <h2 class="text-center">Testimonials </h2>
+                    <h2 class="text-center mt-4">Testimonials </h2>
                     <p class="text-center">Our Customers love {{name}}, see what they have to say about them!</p>
                 </div>
                 <div class="row people">

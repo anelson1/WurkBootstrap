@@ -5,23 +5,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Wurkers - Wurk Services</title>
-    <link rel="stylesheet" href="static/assetsbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
-    <link rel="stylesheet" href="static/assetsfonts/font-awesome.min.css">
-    <link rel="stylesheet" href="static/assetsfonts/ionicons.min.css">
-    <link rel="stylesheet" href="static/assetscss/styles.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/assets/css/styles.min.css">
 </head>
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background: var(--bs-purple);color: var(--bs-white);">
-        <div class="container"><a class="navbar-brand" href="#">Wurk Services</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="color: rgb(255,255,255);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon" style="filter: brightness(0%) contrast(200%) grayscale(0%) invert(100%) saturate(200%) sepia(0%);"></span></button>
+        <div class="container"><a class="navbar-brand" href="/">Wurk Services</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="color: rgb(255,255,255);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon" style="filter: brightness(0%) contrast(200%) grayscale(0%) invert(100%) saturate(200%) sepia(0%);"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#" style="color: var(--bs-white);">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: var(--bs-white);">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" style="color: var(--bs-white);">Contact Us</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="#" style="color: var(--bs-body-bg);">Log In</a><a class="btn btn-light" role="button" href="#" style="background: var(--bs-purple);color: var(--bs-white);">Sign Up</a></span>
+                    <li class="nav-item"><a class="nav-link" href="/" style="color: var(--bs-white);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/apply" style="color: var(--bs-white);">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/ContactUs" style="color: var(--bs-white);">Contact Us</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="{{ url_for('login') }}" style="color: var(--bs-body-bg);">Log In</a><a class="btn btn-light" role="button" href="{{ url_for('login') }}" style="background: var(--bs-purple);color: var(--bs-white);">Sign Up</a></span>
             </div>
         </div>
     </nav>
@@ -31,11 +31,11 @@
                 <div class="col-md-8">
                     <div class="intro">
                         <h2>Our Wurkers</h2>
-                        <p>Wurk Services only employs the highest quality and most professional cleaners, power washers, electricians and more! Scroll down to view some of our best Wurkers.&nbsp;</p><a class="btn btn-primary" role="button" href="#" style="background: var(--bs-purple);">Take a look</a>
+                        <p>Wurk Services only employs the highest quality and most professional cleaners, power washers, electricians and more! Scroll down to view some of our best Wurkers.&nbsp;</p><a class="btn btn-primary" role="button" href="#intro" style="background: var(--bs-purple);">Take a look</a>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="d-none d-md-block phone-mockup"><img class="rounded-circle" src="static/assetsimg/Lawn%20Care.jpg" style="width: 300px;"></div>
+                    <div class="d-none d-md-block phone-mockup"><img class="rounded-circle" src="static/assets/img/Lawn%20Care.jpg" style="width: 300px;"></div>
                 </div>
             </div>
         </div>
@@ -76,34 +76,38 @@
     </section>
     <section class="team-boxed">
         <div class="container">
-            <div class="intro">
+            <div class="intro" id="intro">
                 <h2 class="text-center">Wurkers</h2>
                 <p class="text-center">Here are three of our best Wurkers</p>
             </div>
             <div class="row people">
                 <div class="col-md-6 col-lg-4 item">
-                    <div class="box"><img class="rounded-circle" src="static/assetsimg/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg">
-                        <h3 class="name">Wurker 1</h3>
-                        <p class="title">{{job}}</p>
-                        <p class="description">{{bio}}</p>
-                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    <div class="box"><img class="rounded-circle" src="static/assets/img/William Afton.jpg">
+                        <h3 class="name">William Afton</h3>
+                        <p class="title">Electrician</p>
+                        <p class="description">Working hard is my main goal. I love to tinker and work with electronics (mostly robots). I will Wurk hard and Wurk for you!</p>
+                        <a href="wurkers/William Afton">
+                            <button class="btn btn-primary" type="button" style="background: var(--bs-purple);">Check me out</button>
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 item">
-                    <div class="box"><img class="rounded-circle" src="static/assetsimg/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg">
-                        <h3 class="name">Wurker 2</h3>
-                        <p class="title">{{job}}</p>
-                        <p class="description">{{bio}}</p>
-                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                    </div>
+                    <div class="box"><img class="rounded-circle" src="static/assets/img/Todd Howard.jpg">
+                        <h3 class="name">Todd Howard</h3>
+                        <p class="title">PowerWasher</p>
+                        <p class="description">I have been powerwashing for 10 years now. Each and every job I take I finish to your standards.</p>
+                        <a href="wurkers/Todd Howard">
+                            <button class="btn btn-primary" type="button" style="background: var(--bs-purple);">Check me out</button>
+                        </a>                    </div>
                 </div>
                 <div class="col-md-6 col-lg-4 item">
-                    <div class="box"><img class="rounded-circle" src="static/assetsimg/360_F_219633151_BW6TD8D1EA9OqZu4JgdmeJGg4JBaiAHj.jpg">
-                        <h3 class="name">Wurker 3</h3>
-                        <p class="title">{{job}}</p>
-                        <p class="description">{{bio}}</p>
-                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-                    </div>
+                    <div class="box"><img class="rounded-circle" src="static/assets/img/Don Pianta.jpg">
+                        <h3 class="name">Don Pianta</h3>
+                        <p class="title">House Care Expert</p>
+                        <p class="description">For 14 years I have been working as a home cleaner and caretaker. I take great pride in leaving your house cleaner then I found it.</p>
+                        <a href="wurkers/Don Pianta">
+                            <button class="btn btn-primary" type="button" style="background: var(--bs-purple);">Check me out</button>
+                        </a>                    </div>
                 </div>
             </div>
         </div>
@@ -150,7 +154,7 @@
             </div>
         </div>
     </footer>
-    <script src="static/assetsbootstrap/js/bootstrap.min.js"></script>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
