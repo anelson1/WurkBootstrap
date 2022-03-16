@@ -22,6 +22,7 @@
                     <li class="nav-item"><a class="nav-link active" href="/" style="color: var(--bs-white);">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="/ContactUs" style="color: var(--bs-white);">Contact Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="/apply" style="color: var(--bs-white);">Become A Wurker</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://wurkservices.securepayments.cardpointe.com/pay" style="color: var(--bs-white);">Make a Payment</a></li>
                 </ul>
                 <span class="navbar-text actions"> 
                     {% if current_user.is_anonymous %}
@@ -74,6 +75,22 @@
                         <h2>Meet Our Wurkers</h2>
                         <p>We have tons of Wurkers ready to take on any task! Nothing is too small for our Wurkers!</p><a class="btn btn-primary" role="button" href="/wurkers" style="background: var(--bs-purple);">Take a Look</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="highlight-phone" style="background: var(--bs-white);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="intro">
+                        <h2>Need to pay?</h2>
+                        <p class="m-0">Make a Payment Now!</p>
+                        <a class="btn btn-primary mt-4" role="button" href="https://wurkservices.securepayments.cardpointe.com/pay" style="background: var(--bs-purple);">Click Here!</a>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="text-center d-none d-md-block"><img src="static/assets/img/Wurk2.png" style="width: 227px;"></div>
                 </div>
             </div>
         </div>
