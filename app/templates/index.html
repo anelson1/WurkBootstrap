@@ -90,42 +90,47 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <div class="text-center d-none d-md-block"><img src="static/assets/img/Wurk2.png" style="width: 227px;"></div>
+                    <div class="text-center d-none d-md-block"><img src="static/css/img/money.png" style="width: 300px;"></div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="team-boxed" style="background: var(--bs-white);">
+    <section class="highlight-phone">
         <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Our Services</h2>
-                <p class="text-center">Check out what services Wurk has to offer!</p>
+            <div class="row">
+                <div class="col text-center">
+                        <h2>Check out what we offer!</h2>
+                        <p>Wurk Services offers Wurkers for any task!</p>
+                </div>
             </div>
-            <div class="row people">
-                <div class="col-md-6 col-lg-4 item">
-                    <div class="box" style="background: var(--bs-gray-100);"><img class="rounded-circle" src="static/assets/img/Lawn%20Care.jpg">
-                        <h3 class="name">Property Management</h3>
-                        <p class="description">Wurk Property management allows you to keep your house and surrounding property is looking great in pristene condition. The right property management company can make all the difference.<br></p>
-                        <div class="social"><a href="/services"><button class="btn btn-primary" type="button" style="background: var(--bs-purple);">Learn More</button></a></div>
+            <div class="row row-cols-2">
+                {%for i in services%}
+                {%if not "break" in i%}
+                <div class="col">
+                    <div class="card">
+                      <img class="card-img-top" src="{{ url_for('static', filename='css/img/' + i + '.jpg') }}" alt="{{i}}">
+                      <div class="card-body">
+                        <p class="card-title">{{i}}</p>
+                      </div>
+                      <div class="card-footer">
+                          <small class="text-muted">
+                            {%if i == "Lawn Care"%}
+                            <a href="/landscaping" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
+                            {%elif i == "Tutoring"%}
+                            <a href="/tutoring" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
+                            {%else%}
+                            <a href="/services/{{i}}-barrington-il" class="btn btn-outline-primary stretched-link text-center">Learn More</a>
+                            {%endif%}
+                          </small>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4 item">
-                    <div class="box" style="background: var(--bs-gray-100);"><img class="rounded-circle" src="static/assets/img/loft.jpg" style="height: 160px;">
-                        <h3 class="name">Home Improvement<br></h3>
-                        <p class="description">Whether you need painting, deck, washing services, Wurk Services allows you to improve your property's quality and it will help you upgrade your style.<br></p>
-                        <div class="social"><a href="/services"><button class="btn btn-primary" type="button" style="background: var(--bs-purple);">Learn More</button></a></div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 item">
-                    <div class="box" style="background: var(--bs-gray-100);"><img class="rounded-circle" src="static/assets/img/desk.jpg" style="height: 160px;">
-                        <h3 class="name">Personal Services<br></h3>
-                        <p class="description">Wurk Services is a company that does it all, and we also offer personal services for our clients. Ranging from things like Tutoring, and Sports Coaching for our customers.<br></p>
-                        <div class="social"><a href="/services"><button class="btn btn-primary" type="button" style="background: var(--bs-purple);">Learn More</button></a></div>
-                    </div>
-                </div>
+                  </div>
+                  {%endif%}
+                {%endfor%}
             </div>
         </div>
     </section>
+    <div class="container-fluid">
     <footer class="footer-clean" style="background: var(--bs-purple);color: var(--bs-white);">
         <div class="container">
             <div class="row justify-content-center">
