@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Wurk Services</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="static/assets/css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button" style="background: var(--bs-purple);color: var(--bs-white);">
+        <div class="container"><a class="navbar-brand" href="#">Wurk Services</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1" style="color: rgb(255,255,255);"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon" style="filter: brightness(0%) contrast(200%) grayscale(0%) invert(100%) saturate(200%) sepia(0%);"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/" style="color: var(--bs-white);">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/ContactUs" style="color: var(--bs-white);">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/apply" style="color: var(--bs-white);">Become A Wurker</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://wurkservices.securepayments.cardpointe.com/pay" style="color: var(--bs-white);">Make a Payment</a></li>
+                </ul>
+                <span class="navbar-text actions"> 
+                    {% if current_user.is_anonymous %}
+
+                    <a class="btn btn-light" role="button" href="/login" style="background: var(--bs-purple);color: var(--bs-white);">Log In</a>
+            
+                    {% else %}
+            
+                    <a class="btn btn-light" role="button" href="{{ url_for('useraccount') }}" style="background: var(--bs-purple);color: var(--bs-white);">Dashboard</a>
+            
+                    {%if current_user.isemployee == 1%}
+            
+                    <a class="btn btn-light" role="button" href="{{url_for('wurkerprofile',wurker = current_user.username)}}" style="background: var(--bs-purple);color: var(--bs-white);">Profile</a>
+            
+                    {%endif%}
+            
+                    <a class="btn btn-light" role="button" href="{{url_for('logout')}}" style="background: var(--bs-purple);color: var(--bs-white);">Logout</a>
+            
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+                <iframe src="https://wurkservices.securepayments.cardpointe.com/pay" width="400" height="1000" class="mx-auto"></iframe>
+    </div>
+</body>
+
+</html>
