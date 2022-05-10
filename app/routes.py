@@ -91,6 +91,10 @@ def index():
 def payment():
     return render_template("payment.html")
 
+@myapp.route("/gaming")
+def gaming():
+    return render_template("gaming.html")
+
 #User Account Stuff --------------------------------------------------------------------------------------------------------------------------------------------
 @myapp.route("/login", methods=['GET', 'POST'])
 def login():
